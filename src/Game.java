@@ -79,6 +79,22 @@ public class Game {
             player.askName();
             this.players.add(player);
         }
+        this.drawPileDungeon.generateDungeonPile();
+        this.drawPileTreasure.generateTreasurePile();
+
+        for (int i = 0; i < nbPlayers; i++) {
+            Deck hand = new Deck();
+            hand.initializeDeck(this.drawPileDungeon, this.drawPileTreasure);
+            this.hands.add(hand);
+        }
+
+        for (int i = 0; i < nbPlayers; i++) {
+            Deck placedCard = new Deck();
+            this.placedCards.add(placedCard);
+        }
+
+        System.out.println(this.hands.get(0).getCardPile().size());
+
     }
 
     /**
@@ -89,10 +105,10 @@ public class Game {
      * @return int, the number of players
      */
     public int howMuchPlayers() {
-        Scanner myObj = new Scanner(System.in); // Create a Scanner object
+        Scanner scanneur = new Scanner(System.in); // Create a Scanner object
         System.out.println("How many people will play?"); // Asks how many people will play
-        if (myObj.hasNextInt()) { // Check that the value is an integer
-            int nbPlayers = myObj.nextInt(); // Read user input
+        if (scanneur.hasNextInt()) { // Check that the value is an integer
+            int nbPlayers = scanneur.nextInt(); // Read user input
             this.setNbPlayers(nbPlayers); // Set the correct amount of players
         } else {
             System.out.println("Please, just write a number.");
@@ -102,8 +118,6 @@ public class Game {
             System.out.println("Please write a number between 3 and 6.");
             howMuchPlayers();
         }
-
-        myObj.close(); // Close the Scanner object
         return nbPlayers;
     }
 }

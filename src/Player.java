@@ -55,10 +55,9 @@ public class Player {
      * @return the username of the player
      */
     public String askName() {
-        Scanner myObj = new Scanner(System.in); // Create a Scanner object
+        Scanner scanneur = new Scanner(System.in); // Create a Scanner object
         System.out.println("Enter username");
-
-        this.player = myObj.nextLine(); // Read user input
+        this.player = scanneur.nextLine(); // Read user input
         return ("Username is: " + this.player); // Output user input
     }
 

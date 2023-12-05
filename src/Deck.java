@@ -8,9 +8,12 @@ public class Deck extends CardPile {
      * @param drawPile the draw pile from which we will draw the 12 cards
      * @return an ArrayList with 2 cards.
      */
-    public ArrayList<Card> initializeDeck(DrawPile drawPile) {
+    public ArrayList<Card> initializeDeck(DrawPile drawPileDungeon, DrawPile drawPileTreasure) {
         for (int i = 0; i < 2; i++) {
-            this.getCardPile().add(drawPile.pickDrawCard());
+            this.getCardPile().add(drawPileDungeon.pickDrawCard());
+        }
+        for (int i = 0; i < 2; i++) {
+            this.getCardPile().add(drawPileTreasure.pickDrawCard());
         }
         return this.getCardPile();
     }
