@@ -98,10 +98,12 @@ public class Game {
             System.out.println("Please, just write a number.");
             howMuchPlayers();
         }
-        if (nbPlayers < 2 || nbPlayers > 8) { // Check that the number of players is between 2 and 8.
-            System.out.println("Please write a number between 2 and 8.");
+        if (nbPlayers < 3 || nbPlayers > 6) { // Check that the number of players is between 3 and 6.
+            System.out.println("Please write a number between 3 and 6.");
             howMuchPlayers();
         }
+
+        myObj.close(); // Close the Scanner object
         return nbPlayers;
     }
 }
