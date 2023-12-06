@@ -120,4 +120,26 @@ public class Game {
         }
         return nbPlayers;
     }
+
+    /**
+     * This method will make a player fight a monster.
+     * It will take the strength of the player and the strength of the monster.
+     * If the player has more strength than the monster, he wins.
+     * If the player wins, he will gain a level and a treasure.
+     * If the player loses, just do nothing.
+     *
+     * @param player the player that will fight the monster (place in the ArrayList of players)
+     * @param mob    the monster that the player will fight
+     */
+    public void fightMob(int player, MobCard mob) {
+        this.players.get(0).setStrength(2);
+        if (this.players.get(player).getStrength() > mob.getStrength()) {
+            this.players.get(player).setLevel(this.players.get(player).getLevel() + 1);
+            System.out.println("Victoire");
+            // TODO: Piocher une carte trésor
+        } else {
+            System.out.println("Défaite");
+            // TODO: Faire le truc de défaite
+        }
+    }
 }
