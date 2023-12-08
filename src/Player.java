@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
 public class Player {
-    private String player;
+    private String name;
     private int level, strength;
     private String race, classe;
     private Boolean sex;
 
     Player() {
-        this.player = "";
+        this.name = "";
         this.level = 0;
         this.strength = 0;
         this.race = "";
@@ -16,7 +16,7 @@ public class Player {
     }
 
     Player(String name) {
-        this.player = name;
+        this.name = name;
         this.level = 0;
         this.strength = 0;
         this.race = "";
@@ -24,12 +24,12 @@ public class Player {
         this.sex = true;
     }
 
-    public String getPlayer() {
-        return player;
+    public String getName() {
+        return name;
     }
 
     public void setPlayer(String player) {
-        this.player = player;
+        this.name = player;
     }
 
     public int getLevel() {
@@ -57,14 +57,14 @@ public class Player {
     public String askName() {
         Scanner scanneur = new Scanner(System.in); // Create a Scanner object
         System.out.println("Enter username");
-        this.player = scanneur.nextLine(); // Read user input
-        return ("Username is: " + this.player); // Output user input
+        this.name = scanneur.nextLine(); // Read user input
+        return ("Username is: " + this.name); // Output user input
     }
 
     @Override
     public String toString() {
         return "Player{" +
-                "player='" + player + '\'' +
+                "name='" + name + '\'' +
                 ", level=" + level +
                 ", strength=" + strength +
                 ", race='" + race + '\'' +
