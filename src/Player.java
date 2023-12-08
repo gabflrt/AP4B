@@ -5,6 +5,7 @@ public class Player {
     private int level, strength;
     private String race, classe;
     private Boolean sex;
+    private String helmet, chestplate, legging, boots;
 
     Player() {
         this.name = "";
@@ -13,6 +14,10 @@ public class Player {
         this.race = "";
         this.classe = "";
         this.sex = true;
+        this.helmet = "";
+        this.chestplate = "";
+        this.legging = "";
+        this.boots = "";
     }
 
     Player(String name) {
@@ -22,6 +27,10 @@ public class Player {
         this.race = "";
         this.classe = "";
         this.sex = true;
+        this.helmet = "";
+        this.chestplate = "";
+        this.legging = "";
+        this.boots = "";
     }
 
     public String getName() {
@@ -48,6 +57,14 @@ public class Player {
         this.strength = strength;
     }
 
+    public void setHelmet(String helmet) {this.helmet = helmet;}
+
+    public void setChestplate(String chestplate) {this.chestplate = chestplate;}
+
+    public void setLegging(String legging) {this.legging = legging;}
+
+    public void setBoots(String boots) {this.boots = boots;}
+
     /**
      * Method that will ask the player which username he wants.
      * Then, the player will have a username attribute according to what he wrote.
@@ -70,6 +87,14 @@ public class Player {
                 ", race='" + race + '\'' +
                 ", classe='" + classe + '\'' +
                 ", sex=" + sex +
+                ", helmet='" + helmet + '\'' +
+                ", chestplate='" + chestplate + '\'' +
+                ", legging='" + legging + '\'' +
+                ", boots='" + boots + '\'' +
                 '}';
+    }
+
+    public void drawTreasureCard() {
+        // TODO
     }
 }

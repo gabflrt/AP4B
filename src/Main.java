@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Game game = new Game();
+        /*Game game = new Game();
         game.initializeGame(); // Creating a new game
         boolean gameOver = false; // Tells when the game is over
         while (!gameOver) { // Game loop for the game
@@ -9,7 +9,8 @@ public class Main {
                 // turn.");
             }
 
-        }
+        }*/
+
     }
 
 }

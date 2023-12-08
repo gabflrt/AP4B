@@ -17,20 +17,20 @@ public class MaledictionCard extends Card {
         this.HowManyUpgrademob = HowManyUpgrademob;
     }
 
-    public void applyMalediction(Player player) { // Method that will apply the malediction to the player
+    public void applyMaledictionP(Player player) { // Method that will apply the malediction to the player
 
         switch (this.WhatLosingArmor) {
             case "Casque":
-                player.setHelmet();
+                player.setHelmet("");
                 break;
             case "Plastron":
-                player.setChestplate();
+                player.setChestplate("");
                 break;
             case "Pantalon":
-                player.setLegging();
+                player.setLegging("");
                 break;
             case "Bottes":
-                player.setBoots();
+                player.setBoots("");
                 break;
             default:
                 break;
@@ -38,7 +38,7 @@ public class MaledictionCard extends Card {
         player.setLevel(player.getLevel() - this.HowManyLosingLevel);
     }
 
-    public void applyMalediction(MobCard mob) { // Method that will apply the malediction to the mob
+    public void applyMaledictionM(MobCard mob) { // Method that will apply the malediction to the mob
         mob.setStrength(mob.getStrength() + this.HowManyUpgrademob);
     }
 

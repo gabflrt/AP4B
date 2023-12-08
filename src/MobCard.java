@@ -45,22 +45,21 @@ public class MobCard extends Card {
         for (int i = 0; i < this.NbTreasureCardToDraw; i++) {
             player.drawTreasureCard();
         }
-
     }
 
     public void loose(Player player) {
         switch (this.WhatLosingArmor) {
             case "Casque":
-                player.setHelmet();
+                player.setHelmet("");
                 break;
             case "Plastron":
-                player.setChestplate();
+                player.setChestplate("");
                 break;
             case "Pantalon":
-                player.setLegging();
+                player.setLegging("");
                 break;
             case "Bottes":
-                player.setBoots();
+                player.setBoots("");
                 break;
             default:
                 break;
