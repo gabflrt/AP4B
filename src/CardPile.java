@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class CardPile {
     /**
@@ -39,5 +40,26 @@ public class CardPile {
      */
     public void setCardPile(ArrayList<Card> cardPile) {
         this.cardPile = cardPile;
+    }
+
+    /**
+     * This method will randomly pick a card in the draw card.
+     * We use shuffle to mix all the card randomly, and then, we pick the first card
+     * of the drawPile and return it.
+     * If the drawPile is empty, an error will be written in the console and an
+     * empty card will be return.
+     * 
+     * @return Card drawn
+     */
+    public Card pickCardPile() {
+        Card drawncard = new Card();
+        if (this.cardPile.isEmpty()) {
+            System.out.println("Error: the pile is empty!");
+        } else {
+            Collections.shuffle(this.getCardPile());
+            drawncard = this.getCardPile().get(0);
+            this.getCardPile().remove(0);
+        }
+        return drawncard;
     }
 }

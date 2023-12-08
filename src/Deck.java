@@ -10,10 +10,10 @@ public class Deck extends CardPile {
      */
     public ArrayList<Card> initializeDeck(DrawPile drawPileDungeon, DrawPile drawPileTreasure) {
         for (int i = 0; i < 2; i++) {
-            this.getCardPile().add(drawPileDungeon.pickDrawCard());
+            this.getCardPile().add(drawPileDungeon.pickCardPile());
         }
         for (int i = 0; i < 2; i++) {
-            this.getCardPile().add(drawPileTreasure.pickDrawCard());
+            this.getCardPile().add(drawPileTreasure.pickCardPile());
         }
         return this.getCardPile();
     }
