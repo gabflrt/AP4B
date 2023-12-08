@@ -19,7 +19,7 @@ public class Player {
         this.legging = "";
         this.boots = "";
     }
-
+//aziz
     Player(String name) {
         this.name = name;
         this.level = 0;
