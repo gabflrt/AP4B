@@ -40,14 +40,14 @@ public class MobCard extends Card {
         return this.strength;
     }
 
-    public void win(Player player) {
+    public void winFight(Player player) {
         player.setLevel(player.getLevel() + this.nbLevelEarned);
         for (int i = 0; i < this.NbTreasureCardToDraw; i++) {
             player.drawTreasureCard();
         }
     }
 
-    public void loose(Player player) {
+    public void looseFight(Player player) {
         switch (this.WhatLosingArmor) {
             case "Casque":
                 player.setHelmet("");
