@@ -5,7 +5,10 @@ public class DrawPile extends CardPile {
     public void generateDungeonPile() {
         if (this.getCardPile().isEmpty()) {
             for (int i = 0; i < 66; i++) {
-                this.getCardPile().add(new Card("Monster", "Goblin"));
+                this.getCardPile().add(new MobCard("Monster", "Goblin", 2));
+            }
+            for (int i = 0; i < 66; i++) {
+                this.getCardPile().add(new MobCard("Monster", "Goblin", 2));
             }
 
         } else {
@@ -33,7 +36,7 @@ public class DrawPile extends CardPile {
      * 
      * @return Card drawn
      */
-    public Card pickDrawCard() {
+    public Card pickCardPile() {
         if (getCardPile().isEmpty()) {
             System.out.println("Error: the draw pile is empty!");
             return new Card();

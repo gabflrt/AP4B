@@ -93,8 +93,44 @@ public class Game {
             this.placedCards.add(placedCard);
         }
 
-        System.out.println(this.hands.get(0).getCardPile().size());
+        System.out.println("Le joueur " + bestThrowDice() + " commence la partie.");
 
+        for (int i = 0; i < nbPlayers; i++) {
+            System.out.println("Votre Deck " + this.hands.get(i));
+
+        }
+    }
+
+    /**
+     * This method will throw a dice.
+     * It will return a number between 1 and 6.
+     *
+     * @return int, the number of the dice
+     */
+    public int throwDice() {
+        int dice = (int) (Math.random() * 6) + 1;
+        return dice;
+    }
+
+    /**
+     * This method will make every player throw a dice.
+     * The player with the highest score will be the first to play.
+     *
+     * @return int, the number of the player that will start the game
+     */
+    public int bestThrowDice() {
+        int highestScore = 0;
+        int playerWithHighestScore = -1;
+
+        for (int i = 0; i < this.nbPlayers; i++) {
+            int diceResult = throwDice();
+            System.out.println("Player " + (i + 1) + " rolled a " + diceResult);
+            if (diceResult > highestScore) {
+                highestScore = diceResult;
+                playerWithHighestScore = i;
+            }
+        }
+        return playerWithHighestScore;
     }
 
     /**
@@ -128,7 +164,8 @@ public class Game {
      * If the player wins, he will gain a level and a treasure.
      * If the player loses, just do nothing.
      *
-     * @param player the player that will fight the monster (place in the ArrayList of players)
+     * @param player the player that will fight the monster (place in the ArrayList
+     *               of players)
      * @param mob    the monster that the player will fight
      */
     public void fightMob(int player, MobCard mob) {
@@ -141,5 +178,17 @@ public class Game {
             System.out.println("Défaite");
             // TODO: Faire le truc de défaite
         }
+    }
+
+    public void drawDungeonCard(int player) {
+        Card card = this.drawPileDungeon.pickCardPile();
+        if (card.getClass().getName().equals("MobCard")) {
+            fightMob(player, (MobCard) card);
+        } else if (card.getClass().getName().equals("MaledictionCard")) {
+            card.applyMalediction(this.getPlayers().get(player));
+        } else {
+            this.hands.get(player).getCardPile().add(card);
+        }
+
     }
 }
