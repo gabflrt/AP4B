@@ -93,8 +93,4 @@ public class Player {
                 ", boots='" + boots + '\'' +
                 '}';
     }
-
-    public void drawTreasureCard() {
-        // TODO later
-    }
 }

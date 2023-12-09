@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -165,14 +166,42 @@ public class Game {
      * @param mob    the monster that the player will fight
      */
     public void fightMob(int player, MobCard mob) {
-        this.players.get(0).setStrength(2);
+        this.players.get(0).setStrength(3);
         if (this.players.get(player).getStrength() > mob.getStrength()) {
-            this.players.get(player).setLevel(this.players.get(player).getLevel() + 1);
-            System.out.println("Victoire");
-            // TODO: Piocher une carte trésor
+            this.players.get(player).setLevel(this.players.get(player).getLevel() + mob.getNbLevelEarned());
+            for (int i = 0; i < mob.getNbTreasureCardToDraw(); i++) {
+                drawTreasureCard(this.players.get(player));
+            }
+            System.out.println("Après délibération, le jury de l'UV " + mob.getName() + " vous attribue l'UV.");
+            System.out.println("Note ECTS : A");
+
         } else {
-            System.out.println("Défaite");
-            // TODO: Faire le truc de défaite
+            int defaite = throwDice();
+            if (defaite > 4){
+                System.out.println("Après délibération, le jury de l'UV " + mob.getName() + " vous attribue l'UV.");
+                System.out.println("Note ECTS : E");
+            } else {
+                this.players.get(player).setLevel(this.players.get(player).getLevel() - mob.getHowManyLosingLevel());
+                switch (mob.getWhatLosingArmor()){
+                    case "Casque":
+                        this.players.get(player).setHelmet("");
+                        break;
+                    case "Plastron":
+                        this.players.get(player).setChestplate("");
+                        break;
+                    case "Pantalon":
+                        this.players.get(player).setLegging("");
+                        break;
+                    case "Bottes":
+                        this.players.get(player).setBoots("");
+                        break;
+                    default:
+                        break;
+                }
+                System.out.println("Après délibération, le jury de l'UV " + mob.getName() + " ne vous attribue pas l'UV.");
+                System.out.println("Note ECTS : F");
+            }
+
         }
     }
 
@@ -186,5 +215,9 @@ public class Game {
             this.hands.get(player).getCardPile().add(card);
             System.out.println("Une autre carte a été piochée.");
         }
+    }
+
+    public void drawTreasureCard(Player player) {
+        // TODO later
     }
 }

@@ -5,10 +5,10 @@ public class DrawPile extends CardPile {
     public void generateDungeonPile() {
         if (this.getCardPile().isEmpty()) {
             for (int i = 0; i < 66; i++) {
-                this.getCardPile().add(new MobCard("Monster", "Goblin", 2, 2, 2, "Chestplate", 2));
+                this.getCardPile().add(new MobCard("MTA", "Maths", 2, 2, 2, "Chestplate", 2));
             }
             for (int i = 0; i < 66; i++) {
-                this.getCardPile().add(new MobCard("Monster", "Goblin", 2, 2, 2, "Chestplate", 2));
+                this.getCardPile().add(new MobCard("AP4A", "Info", 4, 2, 2, "Chestplate", 2));
             }
 
         } else {

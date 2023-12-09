@@ -40,12 +40,13 @@ public class MobCard extends Card {
         return this.strength;
     }
 
-    public void winFight(Player player) {
-        player.setLevel(player.getLevel() + this.nbLevelEarned);
-        for (int i = 0; i < this.NbTreasureCardToDraw; i++) {
-            player.drawTreasureCard();
-        }
-    }
+    public int getNbLevelEarned() { return this.nbLevelEarned; }
+
+    public int getNbTreasureCardToDraw() { return this.NbTreasureCardToDraw; }
+
+    public int getHowManyLosingLevel() { return this.HowManyLosingLevel; }
+
+    public String getWhatLosingArmor() { return this.WhatLosingArmor; }
 
     public void looseFight(Player player) {
         switch (this.WhatLosingArmor) {
