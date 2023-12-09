@@ -95,10 +95,6 @@ public class Game {
 
         System.out.println("Le joueur " + bestThrowDice() + " commence la partie.");
 
-        for (int i = 0; i < nbPlayers; i++) {
-            System.out.println("Votre Deck " + this.hands.get(i));
-
-        }
     }
 
     /**
@@ -185,10 +181,10 @@ public class Game {
         if (card.getClass().getName().equals("MobCard")) {
             fightMob(player, (MobCard) card);
         } else if (card.getClass().getName().equals("MaledictionCard")) {
-            card.applyMalediction(this.getPlayers().get(player));
+            ((MaledictionCard) card).applyMaledictionPlayer(this.getPlayers().get(player));
         } else {
             this.hands.get(player).getCardPile().add(card);
+            System.out.println("Une autre carte a été piochée.");
         }
-
     }
 }

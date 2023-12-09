@@ -10,7 +10,8 @@ public class MaledictionCard extends Card {
         this.HowManyUpgrademob = 0;
     }
 
-    MaledictionCard(String name, String description, String WhatLosingArmor, int HowManyLosingLevel, int HowManyUpgrademob) { // Constructor with parameters
+    MaledictionCard(String name, String description, String WhatLosingArmor, int HowManyLosingLevel,
+            int HowManyUpgrademob) { // Constructor with parameters
         super(name, description);
         this.WhatLosingArmor = WhatLosingArmor;
         this.HowManyLosingLevel = HowManyLosingLevel;
