@@ -4,11 +4,19 @@ public class DrawPile extends CardPile {
 
     public void generateDungeonPile() {
         if (this.getCardPile().isEmpty()) {
-            for (int i = 0; i < 66; i++) {
-                this.getCardPile().add(new MobCard("MTA", "Maths", 2, 2, 2, "Chestplate", 2));
+            for (int i = 0; i < 33; i++) {
+                this.getCardPile().add(new MobCard("MTA", "Maths", 1, 1, 2, "", 1));
             }
-            for (int i = 0; i < 66; i++) {
-                this.getCardPile().add(new MobCard("AP4A", "Info", 4, 2, 2, "Chestplate", 2));
+            for (int i = 0; i < 33; i++) {
+                this.getCardPile().add(new MobCard("AP4A", "Info", 6 , 2, 2, "Chestplate", 2));
+            }
+
+            for (int i = 0; i < 33; i++) {
+                this.getCardPile().add(new MobCard("WE4A", "Info", 4, 1, 2, "Chestplate", 2));
+            }
+
+            for (int i = 0; i < 33; i++) {
+                this.getCardPile().add(new MobCard("PS28", "Energie", 3, 1, 2, "Chestplate", 1));
             }
 
         } else {

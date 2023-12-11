@@ -94,7 +94,8 @@ public class Game {
             this.placedCards.add(placedCard);
         }
 
-        System.out.println("Le joueur " + bestThrowDice() + " commence la partie.");
+        String playerWhoStart = this.players.get(bestThrowDice()).getName();
+        System.out.println("Le joueur " + playerWhoStart  + " commence la partie.");
 
     }
 
