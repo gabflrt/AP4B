@@ -3,6 +3,7 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Game {
     private int nbPlayers;
     ArrayList<Player> players = new ArrayList<>();
@@ -95,7 +96,9 @@ public class Game {
         }
 
         String playerWhoStart = this.players.get(bestThrowDice()).getName();
-        System.out.println("Le joueur " + playerWhoStart  + " commence la partie.");
+        System.out.println("");
+        System.out.println(playerWhoStart  + " commence la partie.");
+        System.out.println("");
 
     }
 
@@ -119,10 +122,12 @@ public class Game {
     public int bestThrowDice() {
         int highestScore = 0;
         int playerWithHighestScore = -1;
-
+        System.out.println("Lancement des dés pour déterminer qui commence la partie.");
+        System.out.println("");
         for (int i = 0; i < this.nbPlayers; i++) {
             int diceResult = throwDice();
-            System.out.println("Player " + (i + 1) + " rolled a " + diceResult);
+
+            System.out.println(this.players.get(i).getName() + " a obtenu " + diceResult +".");
             if (diceResult > highestScore) {
                 highestScore = diceResult;
                 playerWithHighestScore = i;
@@ -140,16 +145,16 @@ public class Game {
      */
     public int howMuchPlayers() {
         Scanner scanneur = new Scanner(System.in); // Create a Scanner object
-        System.out.println("How many people will play?"); // Asks how many people will play
+        System.out.println("Combien de joueurs dans la partie (entre 3 et 6) ?"); // Asks how many people will play
         if (scanneur.hasNextInt()) { // Check that the value is an integer
             int nbPlayers = scanneur.nextInt(); // Read user input
             this.setNbPlayers(nbPlayers); // Set the correct amount of players
         } else {
-            System.out.println("Please, just write a number.");
+            System.out.println("Ecrivez un nombre.");
             howMuchPlayers();
         }
         if (nbPlayers < 3 || nbPlayers > 6) { // Check that the number of players is between 3 and 6.
-            System.out.println("Please write a number between 3 and 6.");
+            System.out.println("Ecrivez un nombre entre 3 et 6.");
             howMuchPlayers();
         }
         return nbPlayers;
@@ -168,20 +173,29 @@ public class Game {
      */
     public void fightMob(int player, MobCard mob) {
         this.players.get(0).setStrength(3);
+        System.out.println(this.players.get(player).getName() + " passe le final de " + mob.getName() + ".");
+        System.out.println("Vous avez " + this.players.get(player).getStrength() + " d'intelligence.");
+        System.out.println("L'UV nécessite " + mob.getStrength() + " d'intelligence.");
+        System.out.println("");
+
         if (this.players.get(player).getStrength() > mob.getStrength()) {
             this.players.get(player).setLevel(this.players.get(player).getLevel() + mob.getNbLevelEarned());
             for (int i = 0; i < mob.getNbTreasureCardToDraw(); i++) {
                 drawTreasureCard(this.players.get(player));
             }
+            System.out.println("Succès !");
             System.out.println("Après délibération, le jury de l'UV " + mob.getName() + " vous attribue l'UV.");
             System.out.println("Note ECTS : A");
 
         } else {
             int defaite = throwDice();
+            System.out.println("Echec... Mais vous avez une chance de vous rattraper au jury.");
             if (defaite > 4){
+                System.out.println("Passage au jury réussi !");
                 System.out.println("Après délibération, le jury de l'UV " + mob.getName() + " vous attribue l'UV.");
                 System.out.println("Note ECTS : E");
             } else {
+                System.out.println("Passage au jury raté !");
                 this.players.get(player).setLevel(this.players.get(player).getLevel() - mob.getHowManyLosingLevel());
                 switch (mob.getWhatLosingArmor()){
                     case "Casque":
