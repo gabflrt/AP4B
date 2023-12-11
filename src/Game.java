@@ -88,17 +88,20 @@ public class Game {
             Deck hand = new Deck();
             hand.initializeDeck(this.drawPileDungeon, this.drawPileTreasure);
             this.hands.add(hand);
+            System.out.println(this.hands.get(i));
         }
 
         for (int i = 0; i < nbPlayers; i++) {
             Deck placedCard = new Deck();
             this.placedCards.add(placedCard);
+            placeCard(i); // Ask the player if he wants to place a card from his hand to his deck with the method placeCard
+            System.out.println(this.placedCards.get(i));
+
+
         }
 
         String playerWhoStart = this.players.get(bestThrowDice()).getName();
-        System.out.println("");
-        System.out.println(playerWhoStart  + " commence la partie.");
-        System.out.println("");
+        System.out.println("\n" + playerWhoStart  + " commence la partie.\n");
 
     }
 
@@ -234,5 +237,39 @@ public class Game {
 
     public void drawTreasureCard(Player player) {
         // TODO later
+    }
+
+    /**
+     * This method allows a player to place a card from his hand into his deck.
+     * If a player has cards, it will ask the player which card he wants to place,
+     * and then, it will place it.
+     * If the player doesn't have any card in his hand, it will tell him that he
+     * can't place a card.
+     * If the player has a card in his hand, it will ask him which card he wants to
+     * place.
+     *
+     * @param player the player that will place a card
+     *               (place in the ArrayList of players)
+     */
+    public void placeCard(int player) {
+        if (this.hands.get(player).getCardPile().isEmpty()) {
+            System.out.println("Vous n'avez pas de carte en main, vous ne pouvez pas en placer.");
+        } else {
+            System.out.println("Voici votre main :");
+            System.out.println(this.hands.get(player));
+            System.out.println("Quelle carte voulez-vous placer ? (1 à 12)");
+            Scanner myObj = new Scanner(System.in); // Create a Scanner object
+            int choice = myObj.nextInt();
+            if (choice > 0 && choice < 13) {
+                if (choice <= this.hands.get(player).getCardPile().size()) {
+                    this.placedCards.get(player).getCardPile().add(this.hands.get(player).getCardPile().get(choice - 1));
+                    this.hands.get(player).getCardPile().remove(choice - 1);
+                } else {
+                    System.out.println("Vous n'avez pas cette carte en main.");
+                }
+            } else {
+                System.out.println("Vous n'avez pas cette carte en main.");
+            }
+        }
     }
 }
