@@ -96,8 +96,7 @@ public class Game {
             this.placedCards.add(placedCard);
             placeCard(i); // Ask the player if he wants to place a card from his hand to his deck with the method placeCard
             System.out.println(this.placedCards.get(i));
-
-
+            System.out.println("Grâce aux cartes que vous placés, votre force augmente de " + this.placedCards.get(i).calculateStrength() + " !");
         }
 
         String playerWhoStart = this.players.get(bestThrowDice()).getName();
@@ -109,7 +108,7 @@ public class Game {
      * This method will throw a dice.
      * It will return a number between 1 and 6.
      *
-     * @return int, the number of the dice
+     * @return int, the value of the dice
      */
     public int throwDice() {
         int dice = (int) (Math.random() * 6) + 1;
@@ -175,13 +174,13 @@ public class Game {
      * @param mob    the monster that the player will fight
      */
     public void fightMob(int player, MobCard mob) {
-        this.players.get(0).setStrength(3);
+        this.players.get(player).setStrength(3);
         System.out.println(this.players.get(player).getName() + " passe le final de " + mob.getName() + ".");
-        System.out.println("Vous avez " + this.players.get(player).getStrength() + " d'intelligence.");
+        System.out.println("Vous avez " + (this.players.get(player).getStrength() + this.placedCards.get(player).calculateStrength()) + " d'intelligence.");
         System.out.println("L'UV nécessite " + mob.getStrength() + " d'intelligence.");
         System.out.println("");
 
-        if (this.players.get(player).getStrength() > mob.getStrength()) {
+        if (this.players.get(player).getStrength() + this.placedCards.get(player).calculateStrength() > mob.getStrength()) {
             this.players.get(player).setLevel(this.players.get(player).getLevel() + mob.getNbLevelEarned());
             for (int i = 0; i < mob.getNbTreasureCardToDraw(); i++) {
                 drawTreasureCard(this.players.get(player));
