@@ -27,7 +27,7 @@ public class DrawPile extends CardPile {
     public void generateTreasurePile() {
         if (this.getCardPile().isEmpty()) {
             for (int i = 0; i < 66; i++) {
-                this.getCardPile().add(new Card("Monster", "Goblin"));
+                this.getCardPile().add(new ObjectCard("Monster", "Goblin", 2));
             }
 
         } else {
