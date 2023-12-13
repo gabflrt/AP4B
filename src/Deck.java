@@ -21,15 +21,31 @@ public class Deck extends CardPile {
     }
 
     /**
+     * This method will calculate the strength of the cards that is in his deck.
+     *
+     * @return the strength of the deck
+     */
+    public int calculateStrength() {
+        int strength = 0;
+        for (int i = 0; i < this.getCardPile().size(); i++) {
+            if (this.getCardPile().get(i).getClass().getName().equals("ObjectCard")) {
+                strength += ((ObjectCard) this.getCardPile().get(i)).getStrengthBonus();
+            }
+        }
+        return strength;
+    }
+
+    /**
      * This method is a toString method that will print the deck of the player.
      *
      * @return a string with the deck of the player.
      */
     public String toString() {
+        String deck = "";
         System.out.println("The deck of the player is : ");
         for (int i = 0; i < this.getCardPile().size(); i++) {
-            System.out.println(this.getCardPile().get(i));
+            deck += this.getCardPile().get(i).toString() + "\n";
         }
-        return "";
+        return deck;
     }
 }
