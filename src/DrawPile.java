@@ -4,18 +4,18 @@ public class DrawPile extends CardPile {
 
     public void generateDungeonPile() {
         if (this.getCardPile().isEmpty()) {
-            for (int i = 0; i < 33; i++) {
+            for (int i = 0; i < 23; i++) {
                 this.getCardPile().add(new MobCard("MTA", "Maths", 1, 1, 1, "", 0));
             }
-            for (int i = 0; i < 33; i++) {
+            for (int i = 0; i < 24; i++) {
                 this.getCardPile().add(new MobCard("AP4A", "Info", 6 , 2, 2, "Chestplate", 2));
             }
 
-            for (int i = 0; i < 33; i++) {
+            for (int i = 0; i < 24; i++) {
                 this.getCardPile().add(new MobCard("WE4A", "Info", 4, 1, 1, "Chestplate", 1));
             }
 
-            for (int i = 0; i < 33; i++) {
+            for (int i = 0; i < 24; i++) {
                 this.getCardPile().add(new MobCard("PS28", "Energie", 3, 1, 1, "Chestplate", 0));
             }
 
@@ -26,8 +26,11 @@ public class DrawPile extends CardPile {
 
     public void generateTreasurePile() {
         if (this.getCardPile().isEmpty()) {
-            for (int i = 0; i < 66; i++) {
-                this.getCardPile().add(new ObjectCard("Monster", "Goblin", 2));
+            for (int i = 0; i < 38; i++) {
+                this.getCardPile().add(new ObjectCard("Couteau", "Aie", 2, ""));
+            }
+            for (int i = 0; i < 39; i++) {
+                this.getCardPile().add(new ObjectCard("Casque", "C'est un casque", 3, "Elf"));
             }
 
         } else {
