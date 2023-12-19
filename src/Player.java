@@ -65,6 +65,12 @@ public class Player {
 
     public void setBoots(String boots) {this.boots = boots;}
 
+    public void setClasse(String classe) {this.classe = classe;}
+
+    public String getClasse() {
+        return this.classe;
+    }
+
     /**
      * Method that will ask the player which username he wants.
      * Then, the player will have a username attribute according to what he wrote.
@@ -76,6 +82,19 @@ public class Player {
         System.out.println("Enter username");
         this.name = scanneur.nextLine(); // Read user input
         return ("Username is: " + this.name); // Output user input
+    }
+
+    /**
+     * This method check if a player can use an object card according to his class.
+     * @return true if the player can use the object, false otherwise
+     */
+    public boolean canUseObject(ObjectCard objectCard) {
+        if (this.classe.equals(objectCard.getClasseCondition())) {
+            return true;
+        } else {
+            objectCard.setStrengthBonus(0);
+            return false;
+        }
     }
 
     @Override
