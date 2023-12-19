@@ -83,6 +83,7 @@ public class Game {
         }
         this.drawPileDungeon.generateDungeonPile();
         this.drawPileTreasure.generateTreasurePile();
+        this.players.get(0).setClasse("Elf"); // On donne la classe Elf à un joueur pour tester l'utilisation d'une carte objet selon la classe.
 
         for (int i = 0; i < nbPlayers; i++) {
             Deck hand = new Deck();
@@ -188,7 +189,7 @@ public class Game {
             System.out.println("Succès !");
             System.out.println("Après délibération, le jury de l'UV " + mob.getName() + " vous attribue l'UV.");
             System.out.println("Note ECTS : A");
-
+            checkIfPlayerWin(player);
         } else {
             int defaite = throwDice();
             System.out.println("Echec... Mais vous avez une chance de vous rattraper au jury.");
@@ -261,14 +262,36 @@ public class Game {
             int choice = myObj.nextInt();
             if (choice > 0 && choice < 13) {
                 if (choice <= this.hands.get(player).getCardPile().size()) {
-                    this.placedCards.get(player).getCardPile().add(this.hands.get(player).getCardPile().get(choice - 1));
-                    this.hands.get(player).getCardPile().remove(choice - 1);
+                    if(this.players.get(player).canUseObject((ObjectCard) this.hands.get(player).getCardPile().get(choice - 1))){
+                        this.placedCards.get(player).getCardPile().add(this.hands.get(player).getCardPile().get(choice - 1));
+                        this.hands.get(player).getCardPile().remove(choice - 1);
+                    }
+                    else{
+                        System.out.println("Vous ne pouvez pas utiliser cette carte car vous devriez être " + ((ObjectCard) this.hands.get(player).getCardPile().get(choice - 1)).getClasseCondition() + " pour l'utiliser.");
+                    }
                 } else {
                     System.out.println("Vous n'avez pas cette carte en main.");
                 }
             } else {
                 System.out.println("Vous n'avez pas cette carte en main.");
             }
+        }
+    }
+
+    /**
+     * This method will check if a player is level 10.
+     * If he is, the game is over and he wins.
+     *
+     * @param player the player that will be checked
+     *               (place in the ArrayList of players)
+     * @return true if the player is level 10, false otherwise
+     */
+    public boolean checkIfPlayerWin(int player) {
+        if (this.players.get(player).getLevel() == 10) {
+            System.out.println("Le joueur " + this.players.get(player).getName() + " a gagné !");
+            return true;
+        } else {
+            return false;
         }
     }
 }
