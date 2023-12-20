@@ -1,7 +1,9 @@
+package game;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Deck extends CardPile {
+class Deck extends CardPile {
     /**
      * This method will give the 2 cards that a deck must have at the beginning of
      * the game.
@@ -10,7 +12,7 @@ public class Deck extends CardPile {
      * @param drawPileTreasure the draw pile of the treasure
      * @return an ArrayList with 2 cards.
      */
-    public ArrayList<Card> initializeDeck(DrawPile drawPileDungeon, DrawPile drawPileTreasure) {
+    ArrayList<Card> initializeDeck(DrawPile drawPileDungeon, DrawPile drawPileTreasure) {
         for (int i = 0; i < 2; i++) {
             this.getCardPile().add(drawPileDungeon.pickCardPile());
         }
@@ -25,7 +27,7 @@ public class Deck extends CardPile {
      *
      * @return the strength of the deck
      */
-    public int calculateStrength() {
+    int calculateStrength() {
         int strength = 0;
         for (int i = 0; i < this.getCardPile().size(); i++) {
             if (this.getCardPile().get(i).getClass().getName().equals("ObjectCard")) {

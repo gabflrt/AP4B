@@ -1,4 +1,6 @@
-public class ClassCard extends Card {
+package game;
+
+class ClassCard extends Card {
 
     private String classe;
 
@@ -14,17 +16,19 @@ public class ClassCard extends Card {
 
     /**
      * Getter for the class of a player
+     * 
      * @return the class of a player
      */
-    public String getClasse() {
+    String getClasse() {
         return this.classe;
     }
 
     /**
      * Setter for the class of a player
+     * 
      * @param classe the class of a player
      */
-    public void setClasse(String classe) {
+    void setClasse(String classe) {
         this.classe = classe;
     }
 }

@@ -1,14 +1,16 @@
+package game;
+
 import java.util.Collections;
 
-public class DrawPile extends CardPile {
+class DrawPile extends CardPile {
 
-    public void generateDungeonPile() {
+    void generateDungeonPile() {
         if (this.getCardPile().isEmpty()) {
             for (int i = 0; i < 23; i++) {
                 this.getCardPile().add(new MobCard("MTA", "Maths", 1, 1, 1, "", 0));
             }
             for (int i = 0; i < 24; i++) {
-                this.getCardPile().add(new MobCard("AP4A", "Info", 6 , 2, 2, "Chestplate", 2));
+                this.getCardPile().add(new MobCard("AP4A", "Info", 6, 2, 2, "Chestplate", 2));
             }
 
             for (int i = 0; i < 24; i++) {
@@ -24,7 +26,7 @@ public class DrawPile extends CardPile {
         }
     }
 
-    public void generateTreasurePile() {
+    void generateTreasurePile() {
         if (this.getCardPile().isEmpty()) {
             for (int i = 0; i < 38; i++) {
                 this.getCardPile().add(new ObjectCard("Couteau", "Aie", 2, ""));
@@ -47,7 +49,7 @@ public class DrawPile extends CardPile {
      * 
      * @return Card drawn
      */
-    public Card pickCardPile() {
+    Card pickCardPile() {
         if (getCardPile().isEmpty()) {
             System.out.println("Error: the draw pile is empty!");
             return new Card();

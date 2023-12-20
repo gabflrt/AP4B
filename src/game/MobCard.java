@@ -1,10 +1,13 @@
-public class MobCard extends Card {
+package game;
+
+class MobCard extends Card {
     private int strength; // Strength of the mob
     private int nbLevelEarned; // Number of level earned when the mob is defeated
     private int NbTreasureCardToDraw; // Number of treasure card to draw
     private String WhatLosingArmor; // Which piece of armor the player will lose
     private int HowManyLosingLevel; // How many level the player will lose
-    MobCard(){
+
+    MobCard() {
         super();
         this.strength = 0;
         this.nbLevelEarned = 0;
@@ -13,7 +16,8 @@ public class MobCard extends Card {
         this.HowManyLosingLevel = 0;
     }
 
-    MobCard(String name, String description, int strength , int nbLevelEarned, int NbTreasureCardToDraw, String WhatLosingArmor, int HowManyLosingLevel){
+    MobCard(String name, String description, int strength, int nbLevelEarned, int NbTreasureCardToDraw,
+            String WhatLosingArmor, int HowManyLosingLevel) {
         super(name, description);
         this.strength = strength;
         this.nbLevelEarned = nbLevelEarned;
@@ -27,7 +31,7 @@ public class MobCard extends Card {
      *
      * @param strength the strength of a mob
      */
-    public void setStrength(int strength) {
+    void setStrength(int strength) {
         this.strength = strength;
     }
 
@@ -36,19 +40,27 @@ public class MobCard extends Card {
      *
      * @return the strength of a mob
      */
-    public int getStrength() {
+    int getStrength() {
         return this.strength;
     }
 
-    public int getNbLevelEarned() { return this.nbLevelEarned; }
+    int getNbLevelEarned() {
+        return this.nbLevelEarned;
+    }
 
-    public int getNbTreasureCardToDraw() { return this.NbTreasureCardToDraw; }
+    int getNbTreasureCardToDraw() {
+        return this.NbTreasureCardToDraw;
+    }
 
-    public int getHowManyLosingLevel() { return this.HowManyLosingLevel; }
+    int getHowManyLosingLevel() {
+        return this.HowManyLosingLevel;
+    }
 
-    public String getWhatLosingArmor() { return this.WhatLosingArmor; }
+    String getWhatLosingArmor() {
+        return this.WhatLosingArmor;
+    }
 
-    public void looseFight(Player player) {
+    void looseFight(Player player) {
         switch (this.WhatLosingArmor) {
             case "Casque":
                 player.setHelmet("");
