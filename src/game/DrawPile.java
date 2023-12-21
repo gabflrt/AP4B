@@ -10,11 +10,11 @@ class DrawPile extends CardPile {
                 this.getCardPile().add(new MobCard("MTA", "Maths", 1, 1, 1, "", 0));
             }
             for (int i = 0; i < 24; i++) {
-                this.getCardPile().add(new MobCard("AP4A", "Info", 6, 2, 2, "Chestplate", 2));
+                this.getCardPile().add(new MobCard("AP4A", "Info", 6, 2, 2, "Chestplate", 1));
             }
 
             for (int i = 0; i < 24; i++) {
-                this.getCardPile().add(new MobCard("WE4A", "Info", 4, 1, 1, "Chestplate", 1));
+                this.getCardPile().add(new MobCard("WE4A", "Info", 4, 1, 1, "Chestplate", 2));
             }
 
             for (int i = 0; i < 24; i++) {
