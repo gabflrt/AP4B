@@ -196,6 +196,7 @@ class Game {
             System.out.println("Succès !");
             System.out.println("Après délibération, le jury de l'UV " + mob.getName() + " vous attribue l'UV.");
             System.out.println("Note ECTS : A");
+            System.out.println("Vous êtes désormais niveau " + this.players.get(player).getLevel() + ".");
             checkIfPlayerWin(player);
         } else {
             int defaite = throwDice();
@@ -206,7 +207,12 @@ class Game {
                 System.out.println("Note ECTS : E");
             } else {
                 System.out.println("Passage au jury raté !");
-                this.players.get(player).setLevel(this.players.get(player).getLevel() - mob.getHowManyLosingLevel());
+                if((this.players.get(player).getLevel() - mob.getHowManyLosingLevel()) < 0){
+                    this.players.get(player).setLevel(0);
+                }
+                else{
+                    this.players.get(player).setLevel(this.players.get(player).getLevel() - mob.getHowManyLosingLevel());
+                }
                 switch (mob.getWhatLosingArmor()) {
                     case "Casque":
                         this.players.get(player).setHelmet("");
@@ -223,8 +229,8 @@ class Game {
                     default:
                         break;
                 }
-                System.out.println(
-                        "Après délibération, le jury de l'UV " + mob.getName() + " ne vous attribue pas l'UV.");
+                System.out.println("Après délibération, le jury de l'UV " + mob.getName() + " ne vous attribue pas l'UV.");
+                System.out.println(("Vous êtes désormais niveau " + this.players.get(player).getLevel() + "."));
                 System.out.println("Note ECTS : F");
             }
 
@@ -233,9 +239,12 @@ class Game {
 
     void drawDungeonCard(int player) {
         Card card = this.drawPileDungeon.pickCardPile();
-        if (card.getClass().getName().equals("MobCard")) {
+        if(this.drawPileDungeon.getCardPile().isEmpty()){
+            this.drawPileDungeon.generateDungeonPile();
+        }
+        if (card instanceof MobCard) {
             fightMob(player, (MobCard) card);
-        } else if (card.getClass().getName().equals("MaledictionCard")) {
+        } else if (card instanceof MaledictionCard) {
             ((MaledictionCard) card).applyMaledictionPlayer(this.getPlayers().get(player));
         } else {
             this.hands.get(player).getCardPile().add(card);
