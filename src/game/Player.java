@@ -22,7 +22,6 @@ class Player {
         this.boots = "";
     }
 
-    // aziz
     Player(String name) {
         this.name = name;
         this.level = 0;
