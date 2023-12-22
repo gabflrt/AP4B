@@ -179,17 +179,21 @@ class Game {
      * @param mob    the monster that the player will fight
      */
     void fightMob(int player, MobCard mob) {
-        this.players.get(player).setStrength(3);
+        //this.players.get(player).setStrength(3);
+        //calculateTotalStrength(player);
         System.out.println(this.players.get(player).getName() + " passe le final de " + mob.getName() + ".");
         System.out.println("Vous avez "
                 + (this.players.get(player).getStrength() + this.placedCards.get(player).calculateStrength())
                 + " d'intelligence.");
         System.out.println("L'UV nécessite " + mob.getStrength() + " d'intelligence.");
+        System.out.println("Vous avez actuellement " + calculateTotalStrength(player) + " d'intelligence.");
         System.out.println("");
 
-        if (this.players.get(player).getStrength() + this.placedCards.get(player).calculateStrength() > mob
-                .getStrength()) {
+        //if (this.players.get(player).getStrength() + this.placedCards.get(player).calculateStrength() > mob
+          //      .getStrength()) {
+        if (calculateTotalStrength(player) > mob.getStrength()) {
             this.players.get(player).setLevel(this.players.get(player).getLevel() + mob.getNbLevelEarned());
+            this.players.get(player).setStrength(this.players.get(player).getStrength() + mob.getNbLevelEarned());
             for (int i = 0; i < mob.getNbTreasureCardToDraw(); i++) {
                 drawTreasureCard(this.players.get(player));
             }
@@ -314,5 +318,17 @@ class Game {
         } else {
             return false;
         }
+    }
+
+    /**
+     * This method will calculate the total strength of a player.
+     * It will take the strength of the player and the strength of his deck.
+     *
+     * @param player the player that will be checked
+     *               (place in the ArrayList of players)
+     * @return the total strength of the player
+     */
+    int calculateTotalStrength(int player) {
+        return this.players.get(player).getLevel() + this.placedCards.get(player).calculateStrength();
     }
 }

@@ -11,7 +11,7 @@ class Player {
 
     Player() {
         this.name = "";
-        this.level = 0;
+        this.level = 1;
         this.strength = 0;
         this.race = "";
         this.classe = "";
@@ -24,7 +24,7 @@ class Player {
 
     Player(String name) {
         this.name = name;
-        this.level = 0;
+        this.level = 1;
         this.strength = 0;
         this.race = "";
         this.classe = "";
