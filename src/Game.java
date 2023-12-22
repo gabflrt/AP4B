@@ -14,6 +14,8 @@ public class Game {
     private DiscardPile discardPileDungeon = new DiscardPile();
     private DiscardPile discardPileTreasure = new DiscardPile();
 
+    private int playerWithHighestScore = -1;
+
     /**
      * Constructor of the game
      */
@@ -123,7 +125,6 @@ public class Game {
      */
     public int bestThrowDice() {
         int highestScore = 0;
-        int playerWithHighestScore = -1;
         System.out.println("Lancement des dés pour déterminer qui commence la partie.");
         System.out.println("");
         for (int i = 0; i < this.nbPlayers; i++) {
@@ -132,10 +133,14 @@ public class Game {
             System.out.println(this.players.get(i).getName() + " a obtenu " + diceResult +".");
             if (diceResult > highestScore) {
                 highestScore = diceResult;
-                playerWithHighestScore = i;
+                this.playerWithHighestScore = i;
             }
         }
-        return playerWithHighestScore;
+        return this.playerWithHighestScore;
+    }
+
+    public int getPlayerWithHighestScore() {
+        return this.playerWithHighestScore;
     }
 
     /**

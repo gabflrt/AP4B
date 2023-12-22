@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Deck extends CardPile {
     /**
      * This method will give the 2 cards that a deck must have at the beginning of

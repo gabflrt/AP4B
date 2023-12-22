@@ -48,23 +48,5 @@ public class MobCard extends Card {
 
     public String getWhatLosingArmor() { return this.WhatLosingArmor; }
 
-    public void looseFight(Player player) {
-        switch (this.WhatLosingArmor) {
-            case "Casque":
-                player.setHelmet("");
-                break;
-            case "Plastron":
-                player.setChestplate("");
-                break;
-            case "Pantalon":
-                player.setLegging("");
-                break;
-            case "Bottes":
-                player.setBoots("");
-                break;
-            default:
-                break;
-        }
-        player.setLevel(player.getLevel() - this.HowManyLosingLevel);
-    }
+
 }
