@@ -1,7 +1,5 @@
 package game;
 
-import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -207,11 +205,11 @@ class Game {
                 System.out.println("Note ECTS : E");
             } else {
                 System.out.println("Passage au jury raté !");
-                if((this.players.get(player).getLevel() - mob.getHowManyLosingLevel()) < 0){
+                if ((this.players.get(player).getLevel() - mob.getHowManyLosingLevel()) < 0) {
                     this.players.get(player).setLevel(0);
-                }
-                else{
-                    this.players.get(player).setLevel(this.players.get(player).getLevel() - mob.getHowManyLosingLevel());
+                } else {
+                    this.players.get(player)
+                            .setLevel(this.players.get(player).getLevel() - mob.getHowManyLosingLevel());
                 }
                 switch (mob.getWhatLosingArmor()) {
                     case "Casque":
@@ -229,7 +227,8 @@ class Game {
                     default:
                         break;
                 }
-                System.out.println("Après délibération, le jury de l'UV " + mob.getName() + " ne vous attribue pas l'UV.");
+                System.out.println(
+                        "Après délibération, le jury de l'UV " + mob.getName() + " ne vous attribue pas l'UV.");
                 System.out.println(("Vous êtes désormais niveau " + this.players.get(player).getLevel() + "."));
                 System.out.println("Note ECTS : F");
             }
@@ -239,7 +238,7 @@ class Game {
 
     void drawDungeonCard(int player) {
         Card card = this.drawPileDungeon.pickCardPile();
-        if(this.drawPileDungeon.getCardPile().isEmpty()){
+        if (this.drawPileDungeon.getCardPile().isEmpty()) {
             this.drawPileDungeon.generateDungeonPile();
         }
         if (card instanceof MobCard) {
