@@ -1,14 +1,17 @@
 /**
  * The Card class represents a card with a name and description.
  */
-public class Card {
+
+package game;
+
+class Card {
     private String name;
     private String description;
 
     /**
      * Constructs an empty Card object.
      */
-    public Card() {
+    Card() {
         this.name = "";
         this.description = "";
     }
@@ -19,7 +22,7 @@ public class Card {
      * @param name        the name of the card
      * @param description the description of the card
      */
-    public Card(String name, String description) {
+    Card(String name, String description) {
         this.name = name;
         this.description = description;
     }
@@ -29,7 +32,7 @@ public class Card {
      * 
      * @param card the card to be copied
      */
-    public Card(Card card) {
+    Card(Card card) {
         this.name = card.name;
         this.description = card.description;
     }
@@ -39,7 +42,7 @@ public class Card {
      * 
      * @return the name of the card
      */
-    public String getName() {
+    String getName() {
         return this.name;
     }
 
@@ -48,7 +51,7 @@ public class Card {
      * 
      * @return the description of the card
      */
-    public String getDescription() {
+    String getDescription() {
         return this.description;
     }
 
@@ -58,7 +61,7 @@ public class Card {
      * @param name the name of the card
      * @return the updated Card object
      */
-    public Card setName(String name) {
+    Card setName(String name) {
         this.name = name;
         return this;
     }
@@ -69,7 +72,7 @@ public class Card {
      * @param description the description of the card
      * @return the updated Card object
      */
-    public Card setDescription(String description) {
+    Card setDescription(String description) {
         this.description = description;
         return this;
     }

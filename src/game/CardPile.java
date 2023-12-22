@@ -1,7 +1,9 @@
+package game;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class CardPile {
+class CardPile {
     /**
      * The ArrayList of cards that will be use for the discardPile, the drawPile and
      * the decks
@@ -28,7 +30,7 @@ public class CardPile {
      * 
      * @return
      */
-    public ArrayList<Card> getCardPile() {
+    ArrayList<Card> getCardPile() {
         return cardPile;
     }
 
@@ -38,7 +40,7 @@ public class CardPile {
      * 
      * @param cardPile
      */
-    public void setCardPile(ArrayList<Card> cardPile) {
+    void setCardPile(ArrayList<Card> cardPile) {
         this.cardPile = cardPile;
     }
 
@@ -51,7 +53,7 @@ public class CardPile {
      * 
      * @return Card drawn
      */
-    public Card pickCardPile() {
+    Card pickCardPile() {
         Card drawncard = new Card();
         if (this.cardPile.isEmpty()) {
             System.out.println("Error: the pile is empty!");

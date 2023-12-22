@@ -1,6 +1,8 @@
+package game;
+
 import java.util.Scanner;
 
-public class Player {
+class Player {
     private String name;
     private int level, strength;
     private String race, classe;
@@ -19,7 +21,7 @@ public class Player {
         this.legging = "";
         this.boots = "";
     }
-//aziz
+
     Player(String name) {
         this.name = name;
         this.level = 0;
@@ -33,37 +35,53 @@ public class Player {
         this.boots = "";
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public void setPlayer(String player) {
+    void setPlayer(String player) {
         this.name = player;
     }
 
-    public int getLevel() {
+    int getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    void setLevel(int level) {
         this.level = level;
     }
 
-    public int getStrength() {
+    int getStrength() {
         return strength;
     }
 
-    public void setStrength(int strength) {
+    void setStrength(int strength) {
         this.strength = strength;
     }
 
-    public void setHelmet(String helmet) {this.helmet = helmet;}
+    void setHelmet(String helmet) {
+        this.helmet = helmet;
+    }
 
-    public void setChestplate(String chestplate) {this.chestplate = chestplate;}
+    void setChestplate(String chestplate) {
+        this.chestplate = chestplate;
+    }
 
-    public void setLegging(String legging) {this.legging = legging;}
+    void setLegging(String legging) {
+        this.legging = legging;
+    }
 
-    public void setBoots(String boots) {this.boots = boots;}
+    void setBoots(String boots) {
+        this.boots = boots;
+    }
+
+    void setClasse(String classe) {
+        this.classe = classe;
+    }
+
+    String getClasse() {
+        return this.classe;
+    }
 
     /**
      * Method that will ask the player which username he wants.
@@ -71,11 +89,25 @@ public class Player {
      *
      * @return the username of the player
      */
-    public String askName() {
+    String askName() {
         Scanner scanneur = new Scanner(System.in); // Create a Scanner object
         System.out.println("Enter username");
         this.name = scanneur.nextLine(); // Read user input
         return ("Username is: " + this.name); // Output user input
+    }
+
+    /**
+     * This method check if a player can use an object card according to his class.
+     * 
+     * @return true if the player can use the object, false otherwise
+     */
+    boolean canUseObject(ObjectCard objectCard) {
+        if (this.classe.equals(objectCard.getClasseCondition())) {
+            return true;
+        } else {
+            objectCard.setStrengthBonus(0);
+            return false;
+        }
     }
 
     @Override
