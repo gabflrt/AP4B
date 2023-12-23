@@ -44,7 +44,7 @@ public class Game {
      *
      * @return the number of players
      */
-    int getNbPlayers() {
+    public int getNbPlayers() {
         return this.nbPlayers;
     }
 
@@ -63,8 +63,18 @@ public class Game {
      *
      * @return the ArrayList containing all the players in a game.
      */
-    ArrayList<Player> getPlayers() {
+    public ArrayList<Player> getPlayers() {
         return this.players;
+    }
+
+    /**
+     * Getter that will return the ArrayList containing all the hands of the players
+     * in a game.
+     *
+     * @return the ArrayList containing all the hands of the players in a game.
+     */
+    public ArrayList<Deck> getHands() {
+        return this.hands;
     }
 
     /**
@@ -122,18 +132,20 @@ public class Game {
             System.out.println("pseudo du joueur : " + this.players.get(i).getName());
         }
 
-        for (int i = 0; i < nbPlayers; i++) {
-            Deck placedCard = new Deck();
-            this.placedCards.add(placedCard);
-            placeCard(i); // Ask the player if he wants to place a card from his hand to his deck with the
-                          // method placeCard
-            System.out.println(this.placedCards.get(i));
-            System.out.println("Grâce aux cartes que vous placés, votre force augmente de "
-                    + this.placedCards.get(i).calculateStrength() + " !");
-        }
+        // for (int i = 0; i < nbPlayers; i++) {
+        // Deck placedCard = new Deck();
+        // this.placedCards.add(placedCard);
+        // placeCard(i); // Ask the player if he wants to place a card from his hand to
+        // his deck with the
+        // // method placeCard
+        // System.out.println(this.placedCards.get(i));
+        // System.out.println("Grâce aux cartes que vous placés, votre force augmente de
+        // "
+        // + this.placedCards.get(i).calculateStrength() + " !");
+        // }
 
-        String playerWhoStart = this.players.get(bestThrowDice()).getName();
-        System.out.println("\n" + playerWhoStart + " commence la partie.\n");
+        // String playerWhoStart = this.players.get(bestThrowDice()).getName();
+        // System.out.println("\n" + playerWhoStart + " commence la partie.\n");
 
     }
 
@@ -207,8 +219,8 @@ public class Game {
      * @param mob    the monster that the player will fight
      */
     void fightMob(int player, MobCard mob) {
-        //this.players.get(player).setStrength(3);
-        //calculateTotalStrength(player);
+        // this.players.get(player).setStrength(3);
+        // calculateTotalStrength(player);
         System.out.println(this.players.get(player).getName() + " passe le final de " + mob.getName() + ".");
         System.out.println("Vous avez "
                 + (this.players.get(player).getStrength() + this.placedCards.get(player).calculateStrength())
@@ -217,8 +229,9 @@ public class Game {
         System.out.println("Vous avez actuellement " + calculateTotalStrength(player) + " d'intelligence.");
         System.out.println("");
 
-        //if (this.players.get(player).getStrength() + this.placedCards.get(player).calculateStrength() > mob
-          //      .getStrength()) {
+        // if (this.players.get(player).getStrength() +
+        // this.placedCards.get(player).calculateStrength() > mob
+        // .getStrength()) {
         if (calculateTotalStrength(player) > mob.getStrength()) {
             this.players.get(player).setLevel(this.players.get(player).getLevel() + mob.getNbLevelEarned());
             this.players.get(player).setStrength(this.players.get(player).getStrength() + mob.getNbLevelEarned());

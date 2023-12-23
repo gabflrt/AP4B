@@ -16,10 +16,11 @@ import game.GameLoop;
 public class Test extends Application {
     @Override
     public void start(Stage primaryStage) {
-        Parent root;
+        Parent menu;
         try {
-            root = FXMLLoader.load(getClass().getResource("/view/MainMenu.fxml"));
-            Scene scene = new Scene(root);
+            menu = FXMLLoader.load(getClass().getResource("/view/MainMenu.fxml"));
+
+            Scene scene = new Scene(menu);
             primaryStage.setTitle("Munchkin UTBM");
             primaryStage.setScene(scene);
             primaryStage.show();

@@ -2,7 +2,7 @@ package game;
 
 import java.util.Scanner;
 
-class Player {
+public class Player {
     private String name;
     private int level, strength;
     private String race, classe;
