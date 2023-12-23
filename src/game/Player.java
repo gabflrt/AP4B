@@ -39,7 +39,7 @@ class Player {
         return name;
     }
 
-    void setPlayer(String player) {
+    void setName(String player) {
         this.name = player;
     }
 
@@ -125,4 +125,5 @@ class Player {
                 ", boots='" + boots + '\'' +
                 '}';
     }
+
 }

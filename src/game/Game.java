@@ -3,7 +3,7 @@ package game;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Game {
+public class Game {
     private int nbPlayers;
     ArrayList<Player> players = new ArrayList<>();
     private ArrayList<Deck> hands = new ArrayList<>();
@@ -16,7 +16,7 @@ class Game {
     /**
      * Constructor of the game
      */
-    Game() {
+    public Game() {
         this.nbPlayers = 0; // We initialize the number of players to 0
     }
 
@@ -73,12 +73,41 @@ class Game {
      * all the things that we need.
      * So we will create all the new players.
      */
-    void initializeGame() {
-        howMuchPlayers();
+    public void initializeGame(int nbPlayers, String player1Name, String player2Name, String player3Name,
+            String player4Name) {
+        // howMuchPlayers();
+        // for (int i = 0; i < nbPlayers; i++) {
+        // Player player = new Player();
+        // player.askName();
+        // this.players.add(player);
+        // }
+        System.out.println(player1Name);
         for (int i = 0; i < nbPlayers; i++) {
-            Player player = new Player();
-            player.askName();
-            this.players.add(player);
+
+            switch (i) {
+                case 0:
+                    Player player1 = new Player();
+                    player1.setName(player1Name);
+                    this.players.add(player1);
+                    break;
+                case 1:
+                    Player player2 = new Player();
+                    player2.setName(player2Name);
+                    this.players.add(player2);
+                    break;
+                case 2:
+                    Player player3 = new Player();
+                    player3.setName(player3Name);
+                    this.players.add(player3);
+                    break;
+                case 3:
+                    Player player4 = new Player();
+                    player4.setName(player4Name);
+                    this.players.add(player4);
+                    break;
+                default:
+                    break;
+            }
         }
         this.drawPileDungeon.generateDungeonPile();
         this.drawPileTreasure.generateTreasurePile();
@@ -90,6 +119,7 @@ class Game {
             hand.initializeDeck(this.drawPileDungeon, this.drawPileTreasure);
             this.hands.add(hand);
             System.out.println(this.hands.get(i));
+            System.out.println("pseudo du joueur : " + this.players.get(i).getName());
         }
 
         for (int i = 0; i < nbPlayers; i++) {
