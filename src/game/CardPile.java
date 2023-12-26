@@ -30,7 +30,7 @@ class CardPile {
      * 
      * @return
      */
-    ArrayList<Card> getCardPile() {
+    public ArrayList<Card> getCardPile() {
         return cardPile;
     }
 

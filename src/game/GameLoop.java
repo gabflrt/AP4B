@@ -5,7 +5,7 @@ package game;
 public class GameLoop {
     public void startGame(){
         Game game = new Game();
-        game.initializeGame(); // Creating a new game
+        game.initializeGame(4, "aziz", "gab", "napoleon", "supertimcraft"); // Creating a new game
         boolean gameOver = false; // Tells when the game is over
         game.drawDungeonCard(0);
 

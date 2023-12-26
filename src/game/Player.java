@@ -2,7 +2,7 @@ package game;
 
 import java.util.Scanner;
 
-class Player {
+public class Player {
     private String name;
     private int level, strength;
     private String race, classe;
@@ -11,7 +11,7 @@ class Player {
 
     Player() {
         this.name = "";
-        this.level = 0;
+        this.level = 1;
         this.strength = 0;
         this.race = "";
         this.classe = "";
@@ -24,7 +24,7 @@ class Player {
 
     Player(String name) {
         this.name = name;
-        this.level = 0;
+        this.level = 1;
         this.strength = 0;
         this.race = "";
         this.classe = "";
@@ -39,7 +39,7 @@ class Player {
         return name;
     }
 
-    void setPlayer(String player) {
+    void setName(String player) {
         this.name = player;
     }
 
@@ -125,4 +125,5 @@ class Player {
                 ", boots='" + boots + '\'' +
                 '}';
     }
+
 }

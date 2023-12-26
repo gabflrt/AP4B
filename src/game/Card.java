@@ -4,9 +4,10 @@
 
 package game;
 
-class Card {
+public class Card {
     private String name;
     private String description;
+    private String image;
 
     /**
      * Constructs an empty Card object.
@@ -14,6 +15,7 @@ class Card {
     Card() {
         this.name = "";
         this.description = "";
+        this.image = "defaut.jpg";
     }
 
     /**
@@ -25,6 +27,8 @@ class Card {
     Card(String name, String description) {
         this.name = name;
         this.description = description;
+        this.image = "defaut.jpg";
+
     }
 
     /**
@@ -35,6 +39,10 @@ class Card {
     Card(Card card) {
         this.name = card.name;
         this.description = card.description;
+    }
+
+    public String getImage() {
+        return this.image;
     }
 
     /**

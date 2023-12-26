@@ -1,11 +1,9 @@
 package game;
 
-import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Game {
+public class Game {
     private int nbPlayers;
     ArrayList<Player> players = new ArrayList<>();
     private ArrayList<Deck> hands = new ArrayList<>();
@@ -20,7 +18,7 @@ class Game {
     /**
      * Constructor of the game
      */
-    Game() {
+    public Game() {
         this.nbPlayers = 0; // We initialize the number of players to 0
     }
 
@@ -48,7 +46,7 @@ class Game {
      *
      * @return the number of players
      */
-    int getNbPlayers() {
+    public int getNbPlayers() {
         return this.nbPlayers;
     }
 
@@ -67,8 +65,31 @@ class Game {
      *
      * @return the ArrayList containing all the players in a game.
      */
-    ArrayList<Player> getPlayers() {
+    public ArrayList<Player> getPlayers() {
         return this.players;
+    }
+
+    /**
+     * Getter that will return the ArrayList containing all the hands of the players
+     * in a game.
+     *
+     * @return the ArrayList containing all the hands of the players in a game.
+     */
+    public ArrayList<Deck> getHands() {
+        return this.hands;
+    }
+
+    /**
+     * Getter that will return the ArrayList containing all the placed cards of the
+     * players
+     * in a game.
+     *
+     * @return the ArrayList containing all the placed cards of the players in a
+     *         game.
+     */
+
+    public ArrayList<Deck> getPlacedCards() {
+        return this.placedCards;
     }
 
     /**
@@ -77,38 +98,95 @@ class Game {
      * all the things that we need.
      * So we will create all the new players.
      */
-    void initializeGame() {
-        howMuchPlayers();
+    public void initializeGame(int nbPlayers, String player1Name, String player2Name, String player3Name,
+            String player4Name) {
+        // howMuchPlayers();
+        // for (int i = 0; i < nbPlayers; i++) {
+        // Player player = new Player();
+        // player.askName();
+        // this.players.add(player);
+        // }
+        System.out.println(player1Name);
         for (int i = 0; i < nbPlayers; i++) {
-            Player player = new Player();
-            player.askName();
-            this.players.add(player);
+
+            switch (i) {
+                case 0:
+                    Player player1 = new Player();
+                    player1.setName(player1Name);
+                    this.players.add(player1);
+                    break;
+                case 1:
+                    Player player2 = new Player();
+                    player2.setName(player2Name);
+                    this.players.add(player2);
+                    break;
+                case 2:
+                    Player player3 = new Player();
+                    player3.setName(player3Name);
+                    this.players.add(player3);
+                    break;
+                case 3:
+                    Player player4 = new Player();
+                    player4.setName(player4Name);
+                    this.players.add(player4);
+                    break;
+                default:
+                    break;
+            }
         }
         this.drawPileDungeon.generateDungeonPile();
         this.drawPileTreasure.generateTreasurePile();
         this.players.get(0).setClasse("Elf"); // On donne la classe Elf à un joueur pour tester l'utilisation d'une
-                                              // carte objet selon la classe.
+        // carte objet selon la classe.
 
         for (int i = 0; i < nbPlayers; i++) {
             Deck hand = new Deck();
             hand.initializeDeck(this.drawPileDungeon, this.drawPileTreasure);
             this.hands.add(hand);
             System.out.println(this.hands.get(i));
+            System.out.println("pseudo du joueur : " + this.players.get(i).getName());
         }
 
         for (int i = 0; i < nbPlayers; i++) {
             Deck placedCard = new Deck();
             this.placedCards.add(placedCard);
-            placeCard(i); // Ask the player if he wants to place a card from his hand to his deck with the
-                          // method placeCard
+        }
+    }
+
+    // for (int i = 0; i < nbPlayers; i++) {
+    // Deck placedCard = new Deck();
+    // this.placedCards.add(placedCard);
+    // placeCard(i); // Ask the player if he wants to place a card from his hand to
+    // his deck with the
+    // // method placeCard
+    // System.out.println(this.placedCards.get(i));
+    // System.out.println("Grâce aux cartes que vous placés, votre force augmente de
+    // "
+    // + this.placedCards.get(i).calculateStrength() + " !");
+    // }
+
+    // String playerWhoStart = this.players.get(bestThrowDice()).getName();
+    // System.out.println("\n" + playerWhoStart + " commence la partie.\n");
+
+    /**
+     * This method will initialize the placement of the cards.
+     * It will ask every player if he wants to place a card from his hand to his
+     * deck.
+     * Then, it will determine who will start the game.
+     */
+    public void initializePlacementAndWhoStart() {
+        for (int i = 0; i < nbPlayers; i++) {
+            Deck placedCard = new Deck();
+            this.placedCards.add(placedCard);
+            placeCard(i); // Ask the player if he wants to place a card from his hand to
+            // his deck with the
+            // method placeCard
             System.out.println(this.placedCards.get(i));
             System.out.println("Grâce aux cartes que vous placés, votre force augmente de "
                     + this.placedCards.get(i).calculateStrength() + " !");
         }
-
         String playerWhoStart = this.players.get(bestThrowDice()).getName();
         System.out.println("\n" + playerWhoStart + " commence la partie.\n");
-
     }
 
     /**
@@ -184,17 +262,22 @@ class Game {
      * @param mob    the monster that the player will fight
      */
     void fightMob(int player, MobCard mob) {
-        this.players.get(player).setStrength(3);
+        // this.players.get(player).setStrength(3);
+        // calculateTotalStrength(player);
         System.out.println(this.players.get(player).getName() + " passe le final de " + mob.getName() + ".");
         System.out.println("Vous avez "
                 + (this.players.get(player).getStrength() + this.placedCards.get(player).calculateStrength())
                 + " d'intelligence.");
         System.out.println("L'UV nécessite " + mob.getStrength() + " d'intelligence.");
+        System.out.println("Vous avez actuellement " + calculateTotalStrength(player) + " d'intelligence.");
         System.out.println("");
 
-        if (this.players.get(player).getStrength() + this.placedCards.get(player).calculateStrength() > mob
-                .getStrength()) {
+        // if (this.players.get(player).getStrength() +
+        // this.placedCards.get(player).calculateStrength() > mob
+        // .getStrength()) {
+        if (calculateTotalStrength(player) > mob.getStrength()) {
             this.players.get(player).setLevel(this.players.get(player).getLevel() + mob.getNbLevelEarned());
+            this.players.get(player).setStrength(this.players.get(player).getStrength() + mob.getNbLevelEarned());
             for (int i = 0; i < mob.getNbTreasureCardToDraw(); i++) {
                 drawTreasureCard(this.players.get(player));
             }
@@ -212,11 +295,11 @@ class Game {
                 System.out.println("Note ECTS : E");
             } else {
                 System.out.println("Passage au jury raté !");
-                if((this.players.get(player).getLevel() - mob.getHowManyLosingLevel()) < 0){
+                if ((this.players.get(player).getLevel() - mob.getHowManyLosingLevel()) < 0) {
                     this.players.get(player).setLevel(0);
-                }
-                else{
-                    this.players.get(player).setLevel(this.players.get(player).getLevel() - mob.getHowManyLosingLevel());
+                } else {
+                    this.players.get(player)
+                            .setLevel(this.players.get(player).getLevel() - mob.getHowManyLosingLevel());
                 }
                 switch (mob.getWhatLosingArmor()) {
                     case "Casque":
@@ -234,7 +317,8 @@ class Game {
                     default:
                         break;
                 }
-                System.out.println("Après délibération, le jury de l'UV " + mob.getName() + " ne vous attribue pas l'UV.");
+                System.out.println(
+                        "Après délibération, le jury de l'UV " + mob.getName() + " ne vous attribue pas l'UV.");
                 System.out.println(("Vous êtes désormais niveau " + this.players.get(player).getLevel() + "."));
                 System.out.println("Note ECTS : F");
             }
@@ -244,7 +328,7 @@ class Game {
 
     void drawDungeonCard(int player) {
         Card card = this.drawPileDungeon.pickCardPile();
-        if(this.drawPileDungeon.getCardPile().isEmpty()){
+        if (this.drawPileDungeon.getCardPile().isEmpty()) {
             this.drawPileDungeon.generateDungeonPile();
         }
         if (card instanceof MobCard) {
@@ -319,5 +403,17 @@ class Game {
         } else {
             return false;
         }
+    }
+
+    /**
+     * This method will calculate the total strength of a player.
+     * It will take the strength of the player and the strength of his deck.
+     *
+     * @param player the player that will be checked
+     *               (place in the ArrayList of players)
+     * @return the total strength of the player
+     */
+    int calculateTotalStrength(int player) {
+        return this.players.get(player).getLevel() + this.placedCards.get(player).calculateStrength();
     }
 }

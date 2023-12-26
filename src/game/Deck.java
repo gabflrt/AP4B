@@ -28,7 +28,7 @@ public class Deck extends CardPile {
     public int calculateStrength() {
         int strength = 0;
         for (int i = 0; i < this.getCardPile().size(); i++) {
-            if (this.getCardPile().get(i).getClass().getName().equals("ObjectCard")) {
+            if (this.getCardPile().get(i) instanceof ObjectCard) {
                 strength += ((ObjectCard) this.getCardPile().get(i)).getStrengthBonus();
             }
         }
