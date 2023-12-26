@@ -7,11 +7,11 @@ import javafx.scene.Scene;
 // import javafx.scene.control.Button;
 // import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import game.*;
+//import game.*;
 
 import java.io.IOException;
 
-import game.GameLoop;
+//import game.GameLoop;
 
 public class Test extends Application {
     @Override

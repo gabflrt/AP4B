@@ -78,6 +78,19 @@ public class Game {
     }
 
     /**
+     * Getter that will return the ArrayList containing all the placed cards of the
+     * players
+     * in a game.
+     *
+     * @return the ArrayList containing all the placed cards of the players in a
+     *         game.
+     */
+
+    public ArrayList<Deck> getPlacedCards() {
+        return this.placedCards;
+    }
+
+    /**
      * This method will initialize the game.
      * When we want to start a new game, this method will be called and initialize
      * all the things that we need.
@@ -131,42 +144,48 @@ public class Game {
             System.out.println(this.hands.get(i));
             System.out.println("pseudo du joueur : " + this.players.get(i).getName());
         }
+
+        for (int i = 0; i < nbPlayers; i++) {
+            Deck placedCard = new Deck();
+            this.placedCards.add(placedCard);
+        }
     }
 
-        // for (int i = 0; i < nbPlayers; i++) {
-        // Deck placedCard = new Deck();
-        // this.placedCards.add(placedCard);
-        // placeCard(i); // Ask the player if he wants to place a card from his hand to
-        // his deck with the
-        // // method placeCard
-        // System.out.println(this.placedCards.get(i));
-        // System.out.println("Grâce aux cartes que vous placés, votre force augmente de
-        // "
-        // + this.placedCards.get(i).calculateStrength() + " !");
-        // }
+    // for (int i = 0; i < nbPlayers; i++) {
+    // Deck placedCard = new Deck();
+    // this.placedCards.add(placedCard);
+    // placeCard(i); // Ask the player if he wants to place a card from his hand to
+    // his deck with the
+    // // method placeCard
+    // System.out.println(this.placedCards.get(i));
+    // System.out.println("Grâce aux cartes que vous placés, votre force augmente de
+    // "
+    // + this.placedCards.get(i).calculateStrength() + " !");
+    // }
 
-        // String playerWhoStart = this.players.get(bestThrowDice()).getName();
-        // System.out.println("\n" + playerWhoStart + " commence la partie.\n");
+    // String playerWhoStart = this.players.get(bestThrowDice()).getName();
+    // System.out.println("\n" + playerWhoStart + " commence la partie.\n");
 
     /**
      * This method will initialize the placement of the cards.
-     * It will ask every player if he wants to place a card from his hand to his deck.
+     * It will ask every player if he wants to place a card from his hand to his
+     * deck.
      * Then, it will determine who will start the game.
      */
     public void initializePlacementAndWhoStart() {
-            for (int i = 0; i < nbPlayers; i++) {
-                Deck placedCard = new Deck();
-                this.placedCards.add(placedCard);
-                placeCard(i); // Ask the player if he wants to place a card from his hand to
-                // his deck with the
-                // method placeCard
-                System.out.println(this.placedCards.get(i));
-                System.out.println("Grâce aux cartes que vous placés, votre force augmente de "
-                        + this.placedCards.get(i).calculateStrength() + " !");
-            }
-            String playerWhoStart = this.players.get(bestThrowDice()).getName();
-            System.out.println("\n" + playerWhoStart + " commence la partie.\n");
+        for (int i = 0; i < nbPlayers; i++) {
+            Deck placedCard = new Deck();
+            this.placedCards.add(placedCard);
+            placeCard(i); // Ask the player if he wants to place a card from his hand to
+            // his deck with the
+            // method placeCard
+            System.out.println(this.placedCards.get(i));
+            System.out.println("Grâce aux cartes que vous placés, votre force augmente de "
+                    + this.placedCards.get(i).calculateStrength() + " !");
         }
+        String playerWhoStart = this.players.get(bestThrowDice()).getName();
+        System.out.println("\n" + playerWhoStart + " commence la partie.\n");
+    }
 
     /**
      * This method will throw a dice.
