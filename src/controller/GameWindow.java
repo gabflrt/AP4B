@@ -146,6 +146,73 @@ public class GameWindow {
 
     private Map<String, Button> buttonMap = new HashMap<>();
 
+    private String player1Name;
+    private String player2Name;
+    private String player3Name;
+    private String player4Name;
+
+    protected void startGame(String p1, String p2, String p3, String p4) {
+        this.player1Name = p1;
+        this.player2Name = p2;
+        this.player3Name = p3;
+        this.player4Name = p4;
+        Game jeu = new Game();
+        jeu.initializeGame(4, this.player1Name, this.player2Name, this.player3Name, this.player4Name);
+        update(jeu);
+    }
+
+    void update(game.Game jeu) {
+        String elem = "player";
+        for (int i = 0; i < 4; i++) {
+            int j = 0;
+            for (j = 0; j < jeu.getHands().get(i).getCardPile().size(); j++) {
+                System.out.println(jeu.getHands().get(i).getCardPile().get(j).getImage());
+                elem = "player" + (i + 1) + "_" + (j + 1);
+                Button button = buttonMap.get(elem);
+                ImageView image = new ImageView("file:src/img/defaut.jpg");
+                image.setFitHeight(120);
+                image.setFitWidth(70);
+                button.setGraphic(image);
+                button.setPrefSize(0, 0);
+                button.setGraphic(image);
+            }
+            for (int k = j; k < 5; k++) {
+                elem = "player" + (i + 1) + "_" + (k + 1);
+                Button button = buttonMap.get(elem);
+                ImageView image = new ImageView("file:src/img/defaut.jpg");
+                image.setFitHeight(120);
+                image.setFitWidth(70);
+                button.setGraphic(image);
+                button.setPrefSize(0, 0);
+                button.setGraphic(image);
+            }
+
+            for (j = 0; j < jeu.getPlacedCards().get(i).getCardPile().size(); j++) {
+                System.out.println(jeu.getPlacedCards().get(i).getCardPile().get(j).getImage());
+                elem = "placed" + (i + 1) + "_" + (j + 1);
+                System.out.println(elem);
+                Button button = buttonMap.get(elem);
+                ImageView image2 = new ImageView("file:src/img/defaut.jpg");
+                image2.setFitHeight(120);
+                image2.setFitWidth(70);
+                button.setGraphic(image2);
+                button.setPrefSize(120, 70);
+                button.setGraphic(image2);
+            }
+
+            for (int k = j; k < 5; k++) {
+                elem = "placed" + (i + 1) + "_" + (k + 1);
+                Button button = buttonMap.get(elem);
+                ImageView image2 = new ImageView("file:src/img/defaut.jpg");
+                image2.setFitHeight(120);
+                image2.setFitWidth(70);
+                button.setGraphic(image2);
+                button.setPrefSize(0, 0);
+                button.setGraphic(image2);
+            }
+        }
+    }
+
     @FXML
     void initialize() {
         buttonMap.put("player1_1", player1_1);
@@ -189,38 +256,6 @@ public class GameWindow {
         buttonMap.put("placed4_3", placed4_3);
         buttonMap.put("placed4_4", placed4_4);
         buttonMap.put("placed4_5", placed4_5);
-
-        Game jeu = new Game();
-        jeu.initializeGame(4, "player1Name", "player2Name", "player3Name", "player4Name"); // Creating a new game
-
-        String elem = "player";
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < jeu.getHands().get(i).getCardPile().size(); j++) {
-                System.out.println(jeu.getHands().get(i).getCardPile().get(j).getImage());
-                elem = "player" + (i + 1) + "_" + (j + 1);
-                System.out.println(elem);
-                Button button = buttonMap.get(elem);
-                ImageView image = new ImageView("file:src/img/defaut.jpg");
-                image.setFitHeight(120);
-                image.setFitWidth(75);
-                button.setGraphic(image);
-                button.setPrefSize(60, 60);
-                button.setGraphic(image);
-            }
-
-            for (int j = 0; j < jeu.getPlacedCards().get(i).getCardPile().size(); j++) {
-                System.out.println(jeu.getPlacedCards().get(i).getCardPile().get(j).getImage());
-                elem = "placed" + (i + 1) + "_" + (j + 1);
-                System.out.println(elem);
-                Button button = buttonMap.get(elem);
-                ImageView image2 = new ImageView("file:src/img/defaut.jpg");
-                image2.setFitHeight(120);
-                image2.setFitWidth(67);
-                button.setGraphic(image2);
-                button.setPrefSize(60, 60);
-                button.setGraphic(image2);
-            }
-        }
 
     }
 
