@@ -1,5 +1,3 @@
-package game;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,7 +10,7 @@ public class Deck extends CardPile {
      * @param drawPileTreasure the draw pile of the treasure
      * @return an ArrayList with 2 cards.
      */
-    ArrayList<Card> initializeDeck(DrawPile drawPileDungeon, DrawPile drawPileTreasure) {
+    public ArrayList<Card> initializeDeck(DrawPile drawPileDungeon, DrawPile drawPileTreasure) {
         for (int i = 0; i < 2; i++) {
             this.getCardPile().add(drawPileDungeon.pickCardPile());
         }
@@ -27,7 +25,7 @@ public class Deck extends CardPile {
      *
      * @return the strength of the deck
      */
-    int calculateStrength() {
+    public int calculateStrength() {
         int strength = 0;
         for (int i = 0; i < this.getCardPile().size(); i++) {
             if (this.getCardPile().get(i) instanceof ObjectCard) {
