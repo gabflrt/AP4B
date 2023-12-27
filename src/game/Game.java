@@ -106,6 +106,7 @@ public class Game {
         // player.askName();
         // this.players.add(player);
         // }
+        this.nbPlayers = 4;
         System.out.println(player1Name);
         for (int i = 0; i < nbPlayers; i++) {
 
@@ -151,6 +152,7 @@ public class Game {
             Deck placedCard = new Deck();
             this.placedCards.add(placedCard);
         }
+        initializePlacementAndWhoStart();
     }
 
     // for (int i = 0; i < nbPlayers; i++) {
@@ -278,14 +280,16 @@ public class Game {
         if (calculateTotalStrength(player) > mob.getStrength()) {
             this.players.get(player).setLevel(this.players.get(player).getLevel() + mob.getNbLevelEarned());
             this.players.get(player).setStrength(this.players.get(player).getStrength() + mob.getNbLevelEarned());
-            for (int i = 0; i < mob.getNbTreasureCardToDraw(); i++) {
-                drawTreasureCard(this.players.get(player));
-            }
             System.out.println("Succès !");
             System.out.println("Après délibération, le jury de l'UV " + mob.getName() + " vous attribue l'UV.");
             System.out.println("Note ECTS : A");
             System.out.println("Vous êtes désormais niveau " + this.players.get(player).getLevel() + ".");
-            checkIfPlayerWin(player);
+            System.out.println("Vous pouvez piocher " + mob.getNbTreasureCardToDraw() + " carte(s) trésor(s).");
+            for(int i = 0; i < mob.getNbTreasureCardToDraw(); i++) {
+                drawTreasureCard(player);
+            }
+            System.out.println("Votre force est désormais de " + calculateTotalStrength(player) + ".");
+            //checkIfPlayerWin(player);
         } else {
             int defaite = throwDice();
             System.out.println("Echec... Mais vous avez une chance de vous rattraper au jury.");
@@ -300,6 +304,8 @@ public class Game {
                 } else {
                     this.players.get(player)
                             .setLevel(this.players.get(player).getLevel() - mob.getHowManyLosingLevel());
+                    this.players.get(player)
+                            .setStrength(this.players.get(player).getStrength() - mob.getHowManyLosingLevel());
                 }
                 switch (mob.getWhatLosingArmor()) {
                     case "Casque":
@@ -326,6 +332,13 @@ public class Game {
         }
     }
 
+    /**
+     * This method will make a player draw a card from the dungeon pile.
+     * If the player draws a monster, he will fight it.
+     * If the player draws a malediction, it will apply it to him.
+     * If the player draws another card, it will add it to his hand.
+     * @param player the player that will draw a card
+     */
     void drawDungeonCard(int player) {
         Card card = this.drawPileDungeon.pickCardPile();
         if (this.drawPileDungeon.getCardPile().isEmpty()) {
@@ -341,8 +354,18 @@ public class Game {
         }
     }
 
-    void drawTreasureCard(Player player) {
-        // TODO later
+    /**
+     * This method will make a player draw a card from the treasure pile.
+     * It will add the card to his hand.
+     * @param player the player that will draw a card
+     */
+    void drawTreasureCard(int player) {
+        Card card = this.drawPileTreasure.pickCardPile();
+        if (this.drawPileTreasure.getCardPile().isEmpty()) {
+            this.drawPileTreasure.generateDungeonPile();
+        }
+        this.hands.get(player).getCardPile().add(card);
+        placeCard(player);
     }
 
     /**
@@ -368,22 +391,24 @@ public class Game {
             int choice = myObj.nextInt();
             if (choice > 0 && choice < 13) {
                 if (choice <= this.hands.get(player).getCardPile().size()) {
-                    if (this.players.get(player)
-                            .canUseObject((ObjectCard) this.hands.get(player).getCardPile().get(choice - 1))) {
-                        this.placedCards.get(player).getCardPile()
-                                .add(this.hands.get(player).getCardPile().get(choice - 1));
-                        this.hands.get(player).getCardPile().remove(choice - 1);
+                    if (this.hands.get(player).getCardPile().get(choice) instanceof ObjectCard) {
+                        if (this.players.get(player)
+                                .canUseObject((ObjectCard) this.hands.get(player).getCardPile().get(choice - 1))) {
+                            this.placedCards.get(player).getCardPile()
+                                    .add(this.hands.get(player).getCardPile().get(choice - 1));
+                            this.hands.get(player).getCardPile().remove(choice - 1);
+                        } else {
+                            System.out.println("Vous ne pouvez pas utiliser cette carte car vous devriez être "
+                                    + ((ObjectCard) this.hands.get(player).getCardPile().get(choice - 1))
+                                    .getClasseCondition()
+                                    + " pour l'utiliser.");
+                        }
                     } else {
-                        System.out.println("Vous ne pouvez pas utiliser cette carte car vous devriez être "
-                                + ((ObjectCard) this.hands.get(player).getCardPile().get(choice - 1))
-                                        .getClasseCondition()
-                                + " pour l'utiliser.");
+                        System.out.println("Vous n'avez pas cette carte en main.");
                     }
                 } else {
                     System.out.println("Vous n'avez pas cette carte en main.");
                 }
-            } else {
-                System.out.println("Vous n'avez pas cette carte en main.");
             }
         }
     }
@@ -414,6 +439,7 @@ public class Game {
      * @return the total strength of the player
      */
     int calculateTotalStrength(int player) {
-        return this.players.get(player).getLevel() + this.placedCards.get(player).calculateStrength();
+        return this.players.get(player).getStrength() + this.placedCards.get(player).calculateStrength();
+        //return this.placedCards.get(player).calculateStrength();
     }
 }

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0" prefWidth="1344.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameWindow">
    <children>
-      <Button fx:id="placed3_1" layoutX="441.0" layoutY="634.0" mnemonicParsing="false" onAction="#placed3_1" prefHeight="126.0" prefWidth="80.0" />
-      <Button fx:id="placed3_2" layoutX="535.0" layoutY="634.0" mnemonicParsing="false" onAction="#placed3_2" prefHeight="126.0" prefWidth="80.0" />
-      <Button fx:id="placed3_3" layoutX="631.0" layoutY="634.0" mnemonicParsing="false" onAction="#placed3_3" prefHeight="126.0" prefWidth="80.0" />
-      <Button fx:id="placed3_4" layoutX="727.0" layoutY="634.0" mnemonicParsing="false" onAction="#placed3_4" prefHeight="126.0" prefWidth="80.0" />
-      <Button fx:id="player3_1" layoutX="441.0" layoutY="779.0" mnemonicParsing="false" onAction="#player3_1" prefHeight="126.0" prefWidth="80.0" />
-      <Button fx:id="player3_2" layoutX="535.0" layoutY="779.0" mnemonicParsing="false" onAction="#player3_2" prefHeight="126.0" prefWidth="80.0" />
-      <Button fx:id="player3_3" layoutX="631.0" layoutY="779.0" mnemonicParsing="false" onAction="#player3_3" prefHeight="126.0" prefWidth="80.0" />
-      <Button fx:id="player3_4" layoutX="727.0" layoutY="779.0" mnemonicParsing="false" onAction="#player3_4" prefHeight="126.0" prefWidth="80.0" />
+      <Button fx:id="placed3_1" layoutX="447.0" layoutY="639.0" mnemonicParsing="false" onAction="#placed3_1" prefHeight="126.0" prefWidth="80.0" />
+      <Button fx:id="placed3_2" layoutX="541.0" layoutY="639.0" mnemonicParsing="false" onAction="#placed3_2" prefHeight="126.0" prefWidth="80.0" />
+      <Button fx:id="placed3_3" layoutX="637.0" layoutY="639.0" mnemonicParsing="false" onAction="#placed3_3" prefHeight="126.0" prefWidth="80.0" />
+      <Button fx:id="placed3_4" layoutX="733.0" layoutY="639.0" mnemonicParsing="false" onAction="#placed3_4" prefHeight="126.0" prefWidth="80.0" />
+      <Button fx:id="player3_1" layoutX="447.0" layoutY="784.0" mnemonicParsing="false" onAction="#player3_1" prefHeight="126.0" prefWidth="80.0" />
+      <Button fx:id="player3_2" layoutX="541.0" layoutY="784.0" mnemonicParsing="false" onAction="#player3_2" prefHeight="126.0" prefWidth="80.0" />
+      <Button fx:id="player3_3" layoutX="637.0" layoutY="784.0" mnemonicParsing="false" onAction="#player3_3" prefHeight="126.0" prefWidth="80.0" />
+      <Button fx:id="player3_4" layoutX="733.0" layoutY="784.0" mnemonicParsing="false" onAction="#player3_4" prefHeight="126.0" prefWidth="80.0" />
       <Button fx:id="player1_1" layoutX="443.0" layoutY="36.0" mnemonicParsing="false" onAction="#player1_1" prefHeight="126.0" prefWidth="80.0" />
       <Button fx:id="player1_2" layoutX="537.0" layoutY="36.0" mnemonicParsing="false" onAction="#player1_2" prefHeight="126.0" prefWidth="80.0" />
       <Button fx:id="player1_3" layoutX="633.0" layoutY="36.0" mnemonicParsing="false" onAction="#player1_3" prefHeight="126.0" prefWidth="80.0" />
@@ -39,15 +40,16 @@
       <Button fx:id="player2_3" layoutX="1233.0" layoutY="416.0" mnemonicParsing="false" onAction="#player2_3" prefHeight="126.0" prefWidth="80.0" />
       <Button fx:id="player1_5" layoutX="824.0" layoutY="36.0" mnemonicParsing="false" onAction="#player1_5" prefHeight="126.0" prefWidth="80.0" />
       <Button fx:id="placed1_5" layoutX="824.0" layoutY="181.0" mnemonicParsing="false" onAction="#placed1_5" prefHeight="126.0" prefWidth="80.0" />
-      <Button fx:id="placed3_5" layoutX="814.0" layoutY="634.0" mnemonicParsing="false" onAction="#placed3_5" prefHeight="126.0" prefWidth="80.0" />
-      <Button fx:id="player3_5" layoutX="814.0" layoutY="779.0" mnemonicParsing="false" onAction="#player3_5" prefHeight="126.0" prefWidth="80.0" />
+      <Button fx:id="placed3_5" layoutX="820.0" layoutY="639.0" mnemonicParsing="false" onAction="#placed3_5" prefHeight="126.0" prefWidth="80.0" />
+      <Button fx:id="player3_5" layoutX="820.0" layoutY="784.0" mnemonicParsing="false" onAction="#player3_5" prefHeight="126.0" prefWidth="80.0" />
       <Button fx:id="player2_5" layoutX="1233.0" layoutY="701.0" mnemonicParsing="false" onAction="#player2_5" prefHeight="126.0" prefWidth="80.0" />
       <Button fx:id="placed2_5" layoutX="1127.0" layoutY="701.0" mnemonicParsing="false" onAction="#placed2_5" prefHeight="126.0" prefWidth="80.0" />
       <Button fx:id="placed4_5" layoutX="126.0" layoutY="735.0" mnemonicParsing="false" onAction="#placed4_5" prefHeight="126.0" prefWidth="80.0" />
       <Button fx:id="player4_5" layoutX="32.0" layoutY="735.0" mnemonicParsing="false" onAction="#player4_5" prefHeight="126.0" prefWidth="80.0" />
-      <Button fx:id="DrawDongeon" layoutX="471.0" layoutY="414.0" mnemonicParsing="false" onAction="#DrawDongeon" prefHeight="126.0" prefWidth="80.0" />
-      <Button fx:id="DiscardDungeon" layoutX="565.0" layoutY="414.0" mnemonicParsing="false" onAction="#DiscardDungeon" prefHeight="126.0" prefWidth="80.0" />
-      <Button fx:id="DrawTreasure" layoutX="661.0" layoutY="414.0" mnemonicParsing="false" onAction="#DrawTreasure" prefHeight="126.0" prefWidth="80.0" />
-      <Button fx:id="DiscardTreasure" layoutX="758.0" layoutY="414.0" mnemonicParsing="false" onAction="#DiscardTreasure" prefHeight="126.0" prefWidth="80.0" />
+      <Button fx:id="DrawDongeon" layoutX="494.0" layoutY="467.0" mnemonicParsing="false" onAction="#DrawDongeon" prefHeight="126.0" prefWidth="80.0" />
+      <Button fx:id="DiscardDungeon" layoutX="588.0" layoutY="467.0" mnemonicParsing="false" onAction="#DiscardDungeon" prefHeight="126.0" prefWidth="80.0" />
+      <Button fx:id="DrawTreasure" layoutX="684.0" layoutY="467.0" mnemonicParsing="false" onAction="#DrawTreasure" prefHeight="126.0" prefWidth="80.0" />
+      <Button fx:id="DiscardTreasure" layoutX="781.0" layoutY="467.0" mnemonicParsing="false" onAction="#DiscardTreasure" prefHeight="126.0" prefWidth="80.0" />
+      <Label layoutX="549.0" layoutY="397.0" prefHeight="17.0" prefWidth="255.0" text="Début de la partie" textAlignment="CENTER" />
    </children>
 </AnchorPane>
