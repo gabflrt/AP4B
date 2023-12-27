@@ -12,7 +12,7 @@ public class Player {
     Player() {
         this.name = "";
         this.level = 1;
-        this.strength = 0;
+        this.strength = 1;
         this.race = "";
         this.classe = "";
         this.sex = true;
@@ -25,7 +25,7 @@ public class Player {
     Player(String name) {
         this.name = name;
         this.level = 1;
-        this.strength = 0;
+        this.strength = 1;
         this.race = "";
         this.classe = "";
         this.sex = true;
@@ -102,7 +102,7 @@ public class Player {
      * @return true if the player can use the object, false otherwise
      */
     boolean canUseObject(ObjectCard objectCard) {
-        if (this.classe.equals(objectCard.getClasseCondition())) {
+        if (this.classe.equals(objectCard.getClasseCondition()) || objectCard.getClasseCondition().equals("")){
             return true;
         } else {
             objectCard.setStrengthBonus(0);
