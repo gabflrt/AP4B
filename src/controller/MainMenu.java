@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 import game.*;
@@ -44,9 +43,11 @@ public class MainMenu {
         System.out.println(player4Name);
 
         mainWindow.close();
-        Parent gamew;
         try {
-            gamew = FXMLLoader.load(getClass().getResource("/view/GameWindow.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/GameWindow.fxml"));
+            Parent gamew = loader.load();
+            GameWindow controller = loader.getController();
+            controller.startGame(player1Name, player2Name, player3Name, player4Name);
             Scene scene = new Scene(gamew);
             Stage gameWindow = new Stage();
             gameWindow.setTitle("Munchkin UTBM");

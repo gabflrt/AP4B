@@ -150,7 +150,7 @@ public class Game {
             Deck placedCard = new Deck();
             this.placedCards.add(placedCard);
         }
-        initializePlacementAndWhoStart();
+        // initializePlacementAndWhoStart();
     }
 
     // for (int i = 0; i < nbPlayers; i++) {
@@ -280,11 +280,11 @@ public class Game {
             System.out.println("Note ECTS : A");
             System.out.println("Vous êtes désormais niveau " + this.players.get(player).getLevel() + ".");
             System.out.println("Vous pouvez piocher " + mob.getNbTreasureCardToDraw() + " carte(s) trésor(s).");
-            for(int i = 0; i < mob.getNbTreasureCardToDraw(); i++) {
+            for (int i = 0; i < mob.getNbTreasureCardToDraw(); i++) {
                 drawTreasureCard(player);
             }
             System.out.println("Votre force est désormais de " + calculateTotalStrength(player) + ".");
-            //checkIfPlayerWin(player);
+            // checkIfPlayerWin(player);
         } else {
             int defaite = throwDice();
             System.out.println("Echec... Mais vous avez une chance de vous rattraper au jury.");
@@ -332,6 +332,7 @@ public class Game {
      * If the player draws a monster, he will fight it.
      * If the player draws a malediction, it will apply it to him.
      * If the player draws another card, it will add it to his hand.
+     * 
      * @param player the player that will draw a card
      */
     void drawDungeonCard(int player) {
@@ -352,6 +353,7 @@ public class Game {
     /**
      * This method will make a player draw a card from the treasure pile.
      * It will add the card to his hand.
+     * 
      * @param player the player that will draw a card
      */
     void drawTreasureCard(int player) {
@@ -395,7 +397,7 @@ public class Game {
                         } else {
                             System.out.println("Vous ne pouvez pas utiliser cette carte car vous devriez être "
                                     + ((ObjectCard) this.hands.get(player).getCardPile().get(choice - 1))
-                                    .getClasseCondition()
+                                            .getClasseCondition()
                                     + " pour l'utiliser.");
                         }
                     } else {
@@ -435,6 +437,6 @@ public class Game {
      */
     int calculateTotalStrength(int player) {
         return this.players.get(player).getStrength() + this.placedCards.get(player).calculateStrength();
-        //return this.placedCards.get(player).calculateStrength();
+        // return this.placedCards.get(player).calculateStrength();
     }
 }
