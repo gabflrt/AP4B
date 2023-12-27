@@ -202,9 +202,9 @@ public class GameWindow {
                 Button button = buttonMap.get(elem);
                 ImageView image = new ImageView("file:src/img/defaut.jpg");
                 image.setFitHeight(120);
-                image.setFitWidth(67);
+                image.setFitWidth(75);
                 button.setGraphic(image);
-                button.setPrefSize(80, 80);
+                button.setPrefSize(60, 60);
                 button.setGraphic(image);
             }
 
@@ -217,7 +217,7 @@ public class GameWindow {
                 image2.setFitHeight(120);
                 image2.setFitWidth(67);
                 button.setGraphic(image2);
-                button.setPrefSize(80, 80);
+                button.setPrefSize(60, 60);
                 button.setGraphic(image2);
             }
         }
