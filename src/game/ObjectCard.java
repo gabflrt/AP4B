@@ -10,8 +10,8 @@ class ObjectCard extends Card {
         this.classeCondition = "";
     }
 
-    ObjectCard(String name, String description, int strengthBonus, String classeCondition) {
-        super(name, description);
+    ObjectCard(String name, String description, String image, int strengthBonus, String classeCondition) {
+        super(name, description, image);
         this.strengthBonus = strengthBonus;
         this.classeCondition = classeCondition;
     }

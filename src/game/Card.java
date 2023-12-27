@@ -4,6 +4,8 @@
 
 package game;
 
+import java.awt.*;
+
 public class Card {
     private String name;
     private String description;
@@ -24,7 +26,7 @@ public class Card {
      * @param name        the name of the card
      * @param description the description of the card
      */
-    Card(String name, String description) {
+    Card(String name, String description, String image) {
         this.name = name;
         this.description = description;
         this.image = "defaut.jpg";
@@ -39,6 +41,7 @@ public class Card {
     Card(Card card) {
         this.name = card.name;
         this.description = card.description;
+        this.image = card.image;
     }
 
     public String getImage() {
@@ -50,7 +53,7 @@ public class Card {
      * 
      * @return the name of the card
      */
-    String getName() {
+    public String getName() {
         return this.name;
     }
 

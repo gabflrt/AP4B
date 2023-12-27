@@ -9,8 +9,8 @@ class ClassCard extends Card {
         this.classe = "";
     }
 
-    ClassCard(String name, String description, String classe) {
-        super(name, description);
+    ClassCard(String name, String description, String image, String classe) {
+        super(name, description, image);
         this.classe = classe;
     }
 

@@ -1,11 +1,14 @@
 package game;
 
+import javafx.scene.image.ImageView;
+
 class MobCard extends Card {
     private int strength; // Strength of the mob
     private int nbLevelEarned; // Number of level earned when the mob is defeated
     private int NbTreasureCardToDraw; // Number of treasure card to draw
     private String WhatLosingArmor; // Which piece of armor the player will lose
     private int HowManyLosingLevel; // How many level the player will lose
+    private String img;
 
     MobCard() {
         super();
@@ -16,9 +19,9 @@ class MobCard extends Card {
         this.HowManyLosingLevel = 0;
     }
 
-    MobCard(String name, String description, int strength, int nbLevelEarned, int NbTreasureCardToDraw,
+    MobCard(String name, String description, String image, int strength, int nbLevelEarned, int NbTreasureCardToDraw,
             String WhatLosingArmor, int HowManyLosingLevel) {
-        super(name, description);
+        super(name, description, image);
         this.strength = strength;
         this.nbLevelEarned = nbLevelEarned;
         this.NbTreasureCardToDraw = NbTreasureCardToDraw;
