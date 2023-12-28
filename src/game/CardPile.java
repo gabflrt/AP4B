@@ -11,6 +11,14 @@ class CardPile {
     private ArrayList<Card> cardPile = new ArrayList<>(150);
 
     /**
+     * The constructor of the cardPile
+     */
+
+    CardPile() {
+        this.cardPile = new ArrayList<>();
+    }
+
+    /**
      * Method especially for debugging because it will be overwritten in the
      * subclasses
      * 

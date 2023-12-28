@@ -172,7 +172,6 @@ public class GameWindow {
                 System.out.println("aziz1 " + jeu.getHands().get(i).getCardPile().get(j).getName());
                 System.out.println("AZIZ " + jeu.getHands().get(i).getCardPile().get(j).getImage());
                 ImageView image = new ImageView(jeu.getHands().get(i).getCardPile().get(j).getImage());
-                //ImageView image = new ImageView("file:src/img/UE/AP4A.png");
                 image.setFitHeight(120);
                 image.setFitWidth(70);
                 button.setGraphic(image);
@@ -182,7 +181,7 @@ public class GameWindow {
             for (int k = j; k < 5; k++) {
                 elem = "player" + (i + 1) + "_" + (k + 1);
                 Button button = buttonMap.get(elem);
-                ImageView image = new ImageView("file:src/img/defaut.jpg");
+                ImageView image = new ImageView("file:src/img/default.png");
                 image.setFitHeight(120);
                 image.setFitWidth(70);
                 button.setGraphic(image);
@@ -195,7 +194,7 @@ public class GameWindow {
                 elem = "placed" + (i + 1) + "_" + (j + 1);
                 System.out.println(elem);
                 Button button = buttonMap.get(elem);
-                ImageView image2 = new ImageView("file:src/img/defaut.jpg");
+                ImageView image2 = new ImageView(jeu.getPlacedCards().get(i).getCardPile().get(j).getImage());
                 image2.setFitHeight(120);
                 image2.setFitWidth(70);
                 button.setGraphic(image2);
@@ -206,7 +205,7 @@ public class GameWindow {
             for (int k = j; k < 5; k++) {
                 elem = "placed" + (i + 1) + "_" + (k + 1);
                 Button button = buttonMap.get(elem);
-                ImageView image2 = new ImageView("file:src/img/defaut.jpg");
+                ImageView image2 = new ImageView("file:src/img/default.png");
                 image2.setFitHeight(120);
                 image2.setFitWidth(70);
                 button.setGraphic(image2);

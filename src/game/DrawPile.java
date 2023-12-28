@@ -4,21 +4,32 @@ import java.util.Collections;
 
 class DrawPile extends CardPile {
 
+    /**
+     * The constructor of the drawPile
+     */
+
+    DrawPile() {
+        super();
+    }
+
     void generateDungeonPile() {
         if (this.getCardPile().isEmpty()) {
             for (int i = 0; i < 23; i++) {
                 this.getCardPile().add(new MobCard("MTA", "Maths", "file:src/img/UE/MTA.png", 1, 1, 1, "", 0));
             }
             for (int i = 0; i < 24; i++) {
-                this.getCardPile().add(new MobCard("AP4A", "Info", "file:src/img/UE/AP4A.png", 6, 2, 2, "Chestplate", 1));
+                this.getCardPile()
+                        .add(new MobCard("AP4A", "Info", "file:src/img/UE/AP4A.png", 6, 2, 2, "Chestplate", 1));
             }
 
             for (int i = 0; i < 24; i++) {
-                this.getCardPile().add(new MobCard("WE4A", "Info", "file:src/img/UE/WE4A.png", 4, 1, 1, "Chestplate", 2));
+                this.getCardPile()
+                        .add(new MobCard("WE4A", "Info", "file:src/img/UE/WE4A.png", 4, 1, 1, "Chestplate", 2));
             }
 
             for (int i = 0; i < 24; i++) {
-                this.getCardPile().add(new MobCard("PS28", "Energie", "file:src/img/UE/PS28.png", 3, 1, 1, "Chestplate", 0));
+                this.getCardPile()
+                        .add(new MobCard("PS28", "Energie", "file:src/img/UE/PS28.png", 3, 1, 1, "Chestplate", 0));
             }
 
         } else {
@@ -32,7 +43,8 @@ class DrawPile extends CardPile {
                 this.getCardPile().add(new ObjectCard("Couteau", "Aie", "file:src/img/UE/PS28.png", 2, ""));
             }
             for (int i = 0; i < 39; i++) {
-                this.getCardPile().add(new ObjectCard("Casque", "C'est un casque", "file:src/img/UE/PS28.png", 3, "Elf"));
+                this.getCardPile()
+                        .add(new ObjectCard("Casque", "C'est un casque", "file:src/img/UE/PS28.png", 3, "Elf"));
             }
 
         } else {

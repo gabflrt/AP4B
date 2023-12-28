@@ -29,7 +29,7 @@ public class Card {
     Card(String name, String description, String image) {
         this.name = name;
         this.description = description;
-        this.image = "defaut.jpg";
+        this.image = image;
 
     }
 
@@ -43,6 +43,12 @@ public class Card {
         this.description = card.description;
         this.image = card.image;
     }
+
+    /**
+     * Returns the image of the card.
+     * 
+     * @return the image of the card
+     */
 
     public String getImage() {
         return this.image;
@@ -97,6 +103,7 @@ public class Card {
         String output = "";
         output += "Name: " + this.name + "\n";
         output += "Description: " + this.description + "\n";
+        output += "Image: " + this.image + "\n";
         return output;
     }
 }

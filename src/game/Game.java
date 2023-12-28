@@ -135,7 +135,9 @@ public class Game {
                     break;
             }
         }
+        System.out.println("debut" + this.drawPileDungeon);
         this.drawPileDungeon.generateDungeonPile();
+        System.out.println("après" + this.drawPileDungeon);
         this.drawPileTreasure.generateTreasurePile();
         this.players.get(0).setClasse("Elf"); // On donne la classe Elf à un joueur pour tester l'utilisation d'une
         // carte objet selon la classe.
