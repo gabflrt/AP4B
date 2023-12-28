@@ -166,7 +166,7 @@ public class GameWindow {
         for (int i = 0; i < 4; i++) {
             int j = 0;
             int cardHeight = 160;
-            int cardWidth = 100;
+            int cardWidth = 90;
             for (j = 0; j < jeu.getHands().get(i).getCardPile().size(); j++) {
                 System.out.println(jeu.getHands().get(i).getCardPile().get(j).getImage());
                 elem = "player" + (i + 1) + "_" + (j + 1);
@@ -207,7 +207,7 @@ public class GameWindow {
             for (int k = j; k < 5; k++) {
                 elem = "placed" + (i + 1) + "_" + (k + 1);
                 Button button = buttonMap.get(elem);
-                ImageView image2 = new ImageView("file:src/img/default.png");
+                ImageView image2 = new ImageView("file:src/img/2.png");
                 image2.setFitHeight(cardHeight);
                 image2.setFitWidth(cardWidth);
                 button.setGraphic(image2);
