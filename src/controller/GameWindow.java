@@ -165,6 +165,8 @@ public class GameWindow {
         String elem = "player";
         for (int i = 0; i < 4; i++) {
             int j = 0;
+            int cardHeight = 160;
+            int cardWidth = 100;
             for (j = 0; j < jeu.getHands().get(i).getCardPile().size(); j++) {
                 System.out.println(jeu.getHands().get(i).getCardPile().get(j).getImage());
                 elem = "player" + (i + 1) + "_" + (j + 1);
@@ -172,8 +174,8 @@ public class GameWindow {
                 System.out.println("aziz1 " + jeu.getHands().get(i).getCardPile().get(j).getName());
                 System.out.println("AZIZ " + jeu.getHands().get(i).getCardPile().get(j).getImage());
                 ImageView image = new ImageView(jeu.getHands().get(i).getCardPile().get(j).getImage());
-                image.setFitHeight(120);
-                image.setFitWidth(70);
+                image.setFitHeight(cardHeight);
+                image.setFitWidth(cardWidth);
                 button.setGraphic(image);
                 button.setPrefSize(0, 0);
                 button.setGraphic(image);
@@ -182,8 +184,8 @@ public class GameWindow {
                 elem = "player" + (i + 1) + "_" + (k + 1);
                 Button button = buttonMap.get(elem);
                 ImageView image = new ImageView("file:src/img/default.png");
-                image.setFitHeight(120);
-                image.setFitWidth(70);
+                image.setFitHeight(cardHeight);
+                image.setFitWidth(cardWidth);
                 button.setGraphic(image);
                 button.setPrefSize(0, 0);
                 button.setGraphic(image);
@@ -195,10 +197,10 @@ public class GameWindow {
                 System.out.println(elem);
                 Button button = buttonMap.get(elem);
                 ImageView image2 = new ImageView(jeu.getPlacedCards().get(i).getCardPile().get(j).getImage());
-                image2.setFitHeight(120);
-                image2.setFitWidth(70);
+                image2.setFitHeight(cardHeight);
+                image2.setFitWidth(cardWidth);
                 button.setGraphic(image2);
-                button.setPrefSize(120, 70);
+                button.setPrefSize(0, 0);
                 button.setGraphic(image2);
             }
 
@@ -206,8 +208,8 @@ public class GameWindow {
                 elem = "placed" + (i + 1) + "_" + (k + 1);
                 Button button = buttonMap.get(elem);
                 ImageView image2 = new ImageView("file:src/img/default.png");
-                image2.setFitHeight(120);
-                image2.setFitWidth(70);
+                image2.setFitHeight(cardHeight);
+                image2.setFitWidth(cardWidth);
                 button.setGraphic(image2);
                 button.setPrefSize(0, 0);
                 button.setGraphic(image2);
