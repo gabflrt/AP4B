@@ -106,6 +106,7 @@ public class Game {
         // player.askName();
         // this.players.add(player);
         // }
+        System.out.println("Test avant génération" + this.drawPileDungeon);
         this.nbPlayers = 4;
         System.out.println(player1Name);
         for (int i = 0; i < nbPlayers; i++) {
@@ -135,9 +136,14 @@ public class Game {
                     break;
             }
         }
-        System.out.println("debut" + this.drawPileDungeon);
+        //System.out.println("debut" + this.drawPileDungeon);
+        System.out.println("avant la génération encore une fois" + this.drawPileDungeon);
+        System.out.println("avant la génération encore une fois" + this.drawPileTreasure);
         this.drawPileDungeon.generateDungeonPile();
-        System.out.println("après" + this.drawPileDungeon);
+        System.out.println("après");
+        System.out.println(this.drawPileDungeon);
+        System.out.println("après2");
+        //System.out.println("après" + this.drawPileDungeon);
         this.drawPileTreasure.generateTreasurePile();
         this.players.get(0).setClasse("Elf"); // On donne la classe Elf à un joueur pour tester l'utilisation d'une
         // carte objet selon la classe.
@@ -199,7 +205,7 @@ public class Game {
      *
      * @return int, the value of the dice
      */
-    int throwDice() {
+    public int throwDice() {
         int dice = (int) (Math.random() * 6) + 1;
         return dice;
     }
@@ -210,7 +216,7 @@ public class Game {
      *
      * @return int, the number of the player that will start the game
      */
-    int bestThrowDice() {
+    public int bestThrowDice() {
         int highestScore = 0;
         System.out.println("Lancement des dés pour déterminer qui commence la partie.");
         System.out.println("");
@@ -237,7 +243,7 @@ public class Game {
      *
      * @return int, the number of players
      */
-    int howMuchPlayers() {
+    public int howMuchPlayers() {
         Scanner scanneur = new Scanner(System.in); // Create a Scanner object
         System.out.println("Combien de joueurs dans la partie (entre 3 et 6) ?"); // Asks how many people will play
         if (scanneur.hasNextInt()) { // Check that the value is an integer
@@ -265,7 +271,7 @@ public class Game {
      *               of players)
      * @param mob    the monster that the player will fight
      */
-    void fightMob(int player, MobCard mob) {
+    public void fightMob(int player, MobCard mob) {
         // this.players.get(player).setStrength(3);
         // calculateTotalStrength(player);
         System.out.println(this.players.get(player).getName() + " passe le final de " + mob.getName() + ".");
@@ -342,7 +348,7 @@ public class Game {
      * 
      * @param player the player that will draw a card
      */
-    void drawDungeonCard(int player) {
+    public void drawDungeonCard(int player) {
         Card card = this.drawPileDungeon.pickCardPile();
         if (this.drawPileDungeon.getCardPile().isEmpty()) {
             this.drawPileDungeon.generateDungeonPile();
@@ -363,7 +369,7 @@ public class Game {
      * 
      * @param player the player that will draw a card
      */
-    void drawTreasureCard(int player) {
+    public void drawTreasureCard(int player) {
         Card card = this.drawPileTreasure.pickCardPile();
         if (this.drawPileTreasure.getCardPile().isEmpty()) {
             this.drawPileTreasure.generateDungeonPile();
@@ -384,7 +390,7 @@ public class Game {
      * @param player the player that will place a card
      *               (place in the ArrayList of players)
      */
-    void placeCard(int player) {
+    public void placeCard(int player) {
         if (this.hands.get(player).getCardPile().isEmpty()) {
             System.out.println("Vous n'avez pas de carte en main, vous ne pouvez pas en placer.");
         } else {
@@ -425,7 +431,7 @@ public class Game {
      *               (place in the ArrayList of players)
      * @return true if the player is level 10, false otherwise
      */
-    boolean checkIfPlayerWin(int player) {
+    public boolean checkIfPlayerWin(int player) {
         if (this.players.get(player).getLevel() == 10) {
             System.out.println("Le joueur " + this.players.get(player).getName() + " a gagné !");
             return true;
@@ -442,7 +448,7 @@ public class Game {
      *               (place in the ArrayList of players)
      * @return the total strength of the player
      */
-    int calculateTotalStrength(int player) {
+    public int calculateTotalStrength(int player) {
         return this.players.get(player).getStrength() + this.placedCards.get(player).calculateStrength();
         // return this.placedCards.get(player).calculateStrength();
     }
