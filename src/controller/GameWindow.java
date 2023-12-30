@@ -145,6 +145,7 @@ public class GameWindow {
     private Button DrawTreasure;
 
     private game.Game jeu;
+    private int i = 0; // Position du joueur dans le jeu
 
     private Map<String, Button> buttonMap = new HashMap<>();
 
@@ -277,19 +278,23 @@ public class GameWindow {
 
     @FXML
     void DrawDungeon(ActionEvent event) {
-
+        jeu.drawDungeonCard(this.i);
+        this.i = this.i+1;
+        if(this.i == jeu.getNbPlayers()) {
+            this.i = 0;
+        }
     }
 
     @FXML
     void DrawTreasure(ActionEvent event) {
-
+        jeu.drawTreasureCard(0);
+        //ImageView image = new ImageView(jeu.getHands().get(0).getCardPile().get(4).getImage());
     }
 
     @FXML
     void player1_1(ActionEvent event) {
         System.out.println("AZIZ");
         System.out.println(jeu.getNbPlayers());
-
     }
 
     @FXML
