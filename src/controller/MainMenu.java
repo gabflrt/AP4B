@@ -52,7 +52,7 @@ public class MainMenu {
             Stage gameWindow = new Stage();
             gameWindow.setTitle("Munchkin UTBM");
             gameWindow.setScene(scene);
-            gameWindow.setMaximized(true);
+            // gameWindow.setMaximized(true);
             gameWindow.show();
 
         } catch (IOException e) {

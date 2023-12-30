@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" snapToPixel="false" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameWindow">
+<AnchorPane snapToPixel="false" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameWindow">
    <children>
       <Button fx:id="placed3_1" layoutX="688.0" layoutY="715.0" mnemonicParsing="false" onAction="#placed3_1" prefHeight="160.0" prefWidth="100.0" />
       <Button fx:id="placed3_2" layoutX="802.0" layoutY="715.0" mnemonicParsing="false" onAction="#placed3_2" prefHeight="160.0" prefWidth="100.0" />
@@ -29,7 +29,7 @@
       <Button fx:id="player4_3" layoutX="6.0" layoutY="446.0" mnemonicParsing="false" onAction="#player4_3" prefHeight="160.0" prefWidth="100.0" />
       <Button fx:id="placed4_3" layoutX="118.0" layoutY="446.0" mnemonicParsing="false" onAction="#placed4_3" prefHeight="160.0" prefWidth="100.0" />
       <Button fx:id="placed4_4" layoutX="118.0" layoutY="615.0" mnemonicParsing="false" onAction="#placed4_4" prefHeight="160.0" prefWidth="100.0" />
-      <Button fx:id="player4_4" layoutX="6.0" layoutY="786.0" mnemonicParsing="false" onAction="#player4_4" prefHeight="160.0" prefWidth="100.0" />
+      <Button fx:id="player4_5" layoutX="6.0" layoutY="786.0" mnemonicParsing="false" onAction="#player4_5" prefHeight="160.0" prefWidth="100.0" />
       <Button fx:id="player2_1" layoutX="1798.0" layoutY="107.0" mnemonicParsing="false" onAction="#player2_1" prefHeight="160.0" prefWidth="100.0" />
       <Button fx:id="placed2_1" layoutX="1686.0" layoutY="107.0" mnemonicParsing="false" onAction="#placed2_1" prefHeight="160.0" prefWidth="100.0" />
       <Button fx:id="placed2_2" layoutX="1686.0" layoutY="277.0" mnemonicParsing="false" onAction="#placed2_2" prefHeight="160.0" prefWidth="100.0" />
@@ -45,7 +45,7 @@
       <Button fx:id="player2_5" layoutX="1798.0" layoutY="786.0" mnemonicParsing="false" onAction="#player2_5" prefHeight="160.0" prefWidth="100.0" />
       <Button fx:id="placed2_5" layoutX="1686.0" layoutY="786.0" mnemonicParsing="false" onAction="#placed2_5" prefHeight="160.0" prefWidth="100.0" />
       <Button fx:id="placed4_5" layoutX="118.0" layoutY="786.0" mnemonicParsing="false" onAction="#placed4_5" prefHeight="160.0" prefWidth="100.0" />
-      <Button fx:id="player4_5" layoutX="6.0" layoutY="615.0" mnemonicParsing="false" onAction="#player4_5" prefHeight="160.0" prefWidth="100.0" />
+      <Button fx:id="player4_4" layoutX="6.0" layoutY="615.0" mnemonicParsing="false" onAction="#player4_4" prefHeight="160.0" prefWidth="100.0" />
       <Button fx:id="DrawDongeon" layoutX="732.0" layoutY="513.0" mnemonicParsing="false" onAction="#DrawDongeon" prefHeight="160.0" prefWidth="100.0" />
       <Button fx:id="DiscardDungeon" layoutX="842.0" layoutY="513.0" mnemonicParsing="false" onAction="#DiscardDungeon" prefHeight="160.0" prefWidth="100.0" />
       <Button fx:id="DrawTreasure" layoutX="979.0" layoutY="513.0" mnemonicParsing="false" onAction="#DrawTreasure" prefHeight="160.0" prefWidth="100.0" />

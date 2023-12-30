@@ -285,6 +285,7 @@ public class GameWindow {
 
     @FXML
     void player1_1(ActionEvent event) {
+        System.out.println("AZIZ");
 
     }
 
