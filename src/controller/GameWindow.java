@@ -144,6 +144,8 @@ public class GameWindow {
     @FXML
     private Button DrawTreasure;
 
+    private game.Game jeu;
+
     private Map<String, Button> buttonMap = new HashMap<>();
 
     private String player1Name;
@@ -156,9 +158,9 @@ public class GameWindow {
         this.player2Name = p2;
         this.player3Name = p3;
         this.player4Name = p4;
-        Game jeu = new Game();
-        jeu.initializeGame(4, this.player1Name, this.player2Name, this.player3Name, this.player4Name);
-        update(jeu);
+        this.jeu = new game.Game();
+        this.jeu.initializeGame(4, this.player1Name, this.player2Name, this.player3Name, this.player4Name);
+        update(this.jeu);
     }
 
     void update(game.Game jeu) {
@@ -286,6 +288,7 @@ public class GameWindow {
     @FXML
     void player1_1(ActionEvent event) {
         System.out.println("AZIZ");
+        System.out.println(jeu.getNbPlayers());
 
     }
 
