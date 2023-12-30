@@ -139,7 +139,7 @@ public class GameWindow {
     private Button DiscardTreasure;
 
     @FXML
-    private Button DrawDongeon;
+    private Button DrawDungeon;
 
     @FXML
     private Button DrawTreasure;
@@ -274,7 +274,7 @@ public class GameWindow {
     }
 
     @FXML
-    void DrawDongeon(ActionEvent event) {
+    void DrawDungeon(ActionEvent event) {
 
     }
 
