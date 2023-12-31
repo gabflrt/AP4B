@@ -303,9 +303,9 @@ public class Game {
             System.out.println("Note ECTS : A");
             System.out.println("Vous êtes désormais niveau " + this.players.get(player).getLevel() + ".");
             System.out.println("Vous pouvez piocher " + mob.getNbTreasureCardToDraw() + " carte(s) trésor(s).");
-            for (int i = 0; i < mob.getNbTreasureCardToDraw(); i++) {
+            /*for (int i = 0; i < mob.getNbTreasureCardToDraw(); i++) {
                 drawTreasureCard(player);
-            }
+            }*/
             System.out.println("Votre force est désormais de " + calculateTotalStrength(player) + ".");
             // checkIfPlayerWin(player);
             return mob.getNbTreasureCardToDraw();

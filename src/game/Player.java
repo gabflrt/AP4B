@@ -35,51 +35,51 @@ public class Player {
         this.boots = "";
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    void setName(String player) {
+    public void setName(String player) {
         this.name = player;
     }
 
-    int getLevel() {
+    public int getLevel() {
         return level;
     }
 
-    void setLevel(int level) {
+    public void setLevel(int level) {
         this.level = level;
     }
 
-    int getStrength() {
+    public int getStrength() {
         return strength;
     }
 
-    void setStrength(int strength) {
+    public void setStrength(int strength) {
         this.strength = strength;
     }
 
-    void setHelmet(String helmet) {
+    public void setHelmet(String helmet) {
         this.helmet = helmet;
     }
 
-    void setChestplate(String chestplate) {
+    public void setChestplate(String chestplate) {
         this.chestplate = chestplate;
     }
 
-    void setLegging(String legging) {
+    public void setLegging(String legging) {
         this.legging = legging;
     }
 
-    void setBoots(String boots) {
+    public void setBoots(String boots) {
         this.boots = boots;
     }
 
-    void setClasse(String classe) {
+    public void setClasse(String classe) {
         this.classe = classe;
     }
 
-    String getClasse() {
+    public String getClasse() {
         return this.classe;
     }
 
