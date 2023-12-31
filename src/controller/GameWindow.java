@@ -3,6 +3,7 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 import java.util.HashMap;
@@ -144,6 +145,9 @@ public class GameWindow {
     @FXML
     private Button DrawTreasure;
 
+    @FXML
+    private Label text;
+
     private game.Game jeu;
     private int i = 0; // Position du joueur dans le jeu
 
@@ -218,6 +222,7 @@ public class GameWindow {
                 button.setGraphic(image2);
             }
         }
+
     }
 
     @FXML
@@ -279,8 +284,8 @@ public class GameWindow {
     @FXML
     void DrawDungeon(ActionEvent event) {
         jeu.drawDungeonCard(this.i);
-        this.i = this.i+1;
-        if(this.i == jeu.getNbPlayers()) {
+        this.i = this.i + 1;
+        if (this.i == jeu.getNbPlayers()) {
             this.i = 0;
         }
     }
@@ -288,7 +293,8 @@ public class GameWindow {
     @FXML
     void DrawTreasure(ActionEvent event) {
         jeu.drawTreasureCard(0);
-        //ImageView image = new ImageView(jeu.getHands().get(0).getCardPile().get(4).getImage());
+        // ImageView image = new
+        // ImageView(jeu.getHands().get(0).getCardPile().get(4).getImage());
     }
 
     @FXML
