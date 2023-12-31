@@ -150,6 +150,7 @@ public class GameWindow {
 
     private game.Game jeu;
     private int i = 0; // Position du joueur dans le jeu
+    private game.Card clickedCard;
 
     private Map<String, Button> buttonMap = new HashMap<>();
 
@@ -284,6 +285,8 @@ public class GameWindow {
     @FXML
     void DrawDungeon(ActionEvent event) {
         jeu.drawDungeonCard(this.i);
+        this.clickedCard = jeu.getDrawPileDungeon().pickCardPile();
+        System.out.println(this.clickedCard.getName());
         this.i = this.i + 1;
         if (this.i == jeu.getNbPlayers()) {
             this.i = 0;
@@ -305,7 +308,8 @@ public class GameWindow {
 
     @FXML
     void player1_2(ActionEvent event) {
-
+        jeu.getHands().get(0).getCardPile().add(clickedCard);
+        update(jeu);
     }
 
     @FXML

@@ -2,7 +2,7 @@ package game;
 
 import java.util.Collections;
 
-class DrawPile extends CardPile {
+public class DrawPile extends CardPile {
 
     /**
      * The constructor of the drawPile
@@ -61,7 +61,7 @@ class DrawPile extends CardPile {
      * 
      * @return Card drawn
      */
-    Card pickCardPile() {
+    public Card pickCardPile() {
         if (getCardPile().isEmpty()) {
             System.out.println("Error: the draw pile is empty!");
             return new Card();

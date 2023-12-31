@@ -93,6 +93,16 @@ public class Game {
     }
 
     /**
+     * Getter that will return the draw pile of the dungeon.
+     *
+     * @return the draw pile of the dungeon.
+     */
+
+    public DrawPile getDrawPileDungeon() {
+        return this.drawPileDungeon;
+    }
+
+    /**
      * This method will initialize the game.
      * When we want to start a new game, this method will be called and initialize
      * all the things that we need.
@@ -136,14 +146,14 @@ public class Game {
                     break;
             }
         }
-        //System.out.println("debut" + this.drawPileDungeon);
+        // System.out.println("debut" + this.drawPileDungeon);
         System.out.println("avant la génération encore une fois" + this.drawPileDungeon);
         System.out.println("avant la génération encore une fois" + this.drawPileTreasure);
         this.drawPileDungeon.generateDungeonPile();
         System.out.println("après");
         System.out.println(this.drawPileDungeon);
         System.out.println("après2");
-        //System.out.println("après" + this.drawPileDungeon);
+        // System.out.println("après" + this.drawPileDungeon);
         this.drawPileTreasure.generateTreasurePile();
         this.players.get(0).setClasse("Elf"); // On donne la classe Elf à un joueur pour tester l'utilisation d'une
         // carte objet selon la classe.
