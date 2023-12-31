@@ -1,6 +1,6 @@
 package game;
 
-class DiscardPile extends CardPile {
+public class DiscardPile extends CardPile {
     /**
      * Method that will add a card inside the discard pile.
      *

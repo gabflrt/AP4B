@@ -103,6 +103,36 @@ public class Game {
     }
 
     /**
+     * Getter that will return the draw pile of the treasure.
+     *
+     * @return the draw pile of the treasure.
+     */
+
+    public DrawPile getDrawPileTreasure() {
+        return this.drawPileTreasure;
+    }
+
+    /**
+     * Getter that will return the discard pile of the dungeon.
+     *
+     * @return the discard pile of the dungeon.
+     */
+
+    public DiscardPile getDiscardPileDungeon() {
+        return this.discardPileDungeon;
+    }
+
+    /**
+     * Getter that will return the discard pile of the treasure.
+     *
+     * @return the discard pile of the treasure.
+     */
+
+    public DiscardPile getDiscardPileTreasure() {
+        return this.discardPileTreasure;
+    }
+
+    /**
      * This method will initialize the game.
      * When we want to start a new game, this method will be called and initialize
      * all the things that we need.
@@ -303,9 +333,11 @@ public class Game {
             System.out.println("Note ECTS : A");
             System.out.println("Vous êtes désormais niveau " + this.players.get(player).getLevel() + ".");
             System.out.println("Vous pouvez piocher " + mob.getNbTreasureCardToDraw() + " carte(s) trésor(s).");
-            /*for (int i = 0; i < mob.getNbTreasureCardToDraw(); i++) {
-                drawTreasureCard(player);
-            }*/
+            /*
+             * for (int i = 0; i < mob.getNbTreasureCardToDraw(); i++) {
+             * drawTreasureCard(player);
+             * }
+             */
             System.out.println("Votre force est désormais de " + calculateTotalStrength(player) + ".");
             // checkIfPlayerWin(player);
             return mob.getNbTreasureCardToDraw();
@@ -410,8 +442,8 @@ public class Game {
             System.out.println("Voici votre main :");
             System.out.println(this.hands.get(player));
             System.out.println("Quelle carte voulez-vous placer ? (1 à 12)");
-            //Scanner myObj = new Scanner(System.in); // Create a Scanner object
-            //int choice = myObj.nextInt();
+            // Scanner myObj = new Scanner(System.in); // Create a Scanner object
+            // int choice = myObj.nextInt();
             int choice = 3;
             if (choice > 0 && choice < 13) {
                 if (choice <= this.hands.get(player).getCardPile().size()) {

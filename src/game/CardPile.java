@@ -72,4 +72,8 @@ class CardPile {
         }
         return drawncard;
     }
+
+    public boolean isEmpty() {
+        return this.cardPile.isEmpty();
+    }
 }

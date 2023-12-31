@@ -1,4 +1,5 @@
 package game;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -49,4 +50,5 @@ public class Deck extends CardPile {
         }
         return deck;
     }
+
 }
