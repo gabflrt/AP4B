@@ -150,7 +150,10 @@ public class GameWindow {
 
     private game.Game jeu;
     private int i = 0; // Position du joueur dans le jeu
+    private int nbCardsToDraw = 0; // Nombre de cartes à piocher
     private game.Card clickedCard;
+    private boolean canDrawTreasure = false;
+    private boolean canDrawDungeon = true;
 
     private Map<String, Button> buttonMap = new HashMap<>();
 
@@ -284,18 +287,45 @@ public class GameWindow {
 
     @FXML
     void DrawDungeon(ActionEvent event) {
-        jeu.drawDungeonCard(this.i);
+        /*jeu.drawDungeonCard(this.i);
         this.clickedCard = jeu.getDrawPileDungeon().pickCardPile();
         System.out.println(this.clickedCard.getName());
         this.i = this.i + 1;
         if (this.i == jeu.getNbPlayers()) {
             this.i = 0;
+        }*/
+        if(canDrawDungeon){
+            this.jeu.getPlayers().get(this.i).setStrength(10); // C'est pour les tests, à enlever à la fin
+            this.nbCardsToDraw = jeu.drawDungeonCard(this.i);
+            System.out.println(this.nbCardsToDraw);
+            text.setText("Tu peux piocher " + this.nbCardsToDraw + " cartes.");
+            this.i = this.i + 1;
+            if (this.i == jeu.getNbPlayers()) {
+                this.i = 0;
+            }
+            this.canDrawTreasure = true;
+            this.canDrawDungeon = false;
         }
+        else{
+            text.setText("Tu ne peux pas piocher de carte donjon.");
+        }
+
+        //this.canDrawTreasure = false;
     }
 
     @FXML
     void DrawTreasure(ActionEvent event) {
-        jeu.drawTreasureCard(0);
+        if(this.canDrawTreasure) {
+            for(int j = 0; j < nbCardsToDraw; j++) {
+                jeu.drawTreasureCard(this.i-1);
+            }
+            this.canDrawTreasure = false;
+            this.canDrawDungeon = true;
+        }
+        else {
+            text.setText("Tu ne peux pas piocher de carte trésor.");
+        }
+        //jeu.drawTreasureCard(0);
         // ImageView image = new
         // ImageView(jeu.getHands().get(0).getCardPile().get(4).getImage());
     }
