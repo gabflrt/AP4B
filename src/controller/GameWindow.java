@@ -215,7 +215,7 @@ public class GameWindow {
             for (int k = j; k < 5; k++) {
                 elem = "placed" + (i + 1) + "_" + (k + 1);
                 Button button = buttonMap.get(elem);
-                ImageView image2 = new ImageView("file:src/img/2.png");
+                ImageView image2 = new ImageView("file:src/img/default.png");
                 image2.setFitHeight(cardHeight);
                 image2.setFitWidth(cardWidth);
                 button.setGraphic(image2);
