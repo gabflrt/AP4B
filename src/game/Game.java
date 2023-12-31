@@ -281,7 +281,7 @@ public class Game {
      *               of players)
      * @param mob    the monster that the player will fight
      */
-    public void fightMob(int player, MobCard mob) {
+    public int fightMob(int player, MobCard mob) {
         // this.players.get(player).setStrength(3);
         // calculateTotalStrength(player);
         System.out.println(this.players.get(player).getName() + " passe le final de " + mob.getName() + ".");
@@ -308,6 +308,7 @@ public class Game {
             }
             System.out.println("Votre force est désormais de " + calculateTotalStrength(player) + ".");
             // checkIfPlayerWin(player);
+            return mob.getNbTreasureCardToDraw();
         } else {
             int defaite = throwDice();
             System.out.println("Echec... Mais vous avez une chance de vous rattraper au jury.");
@@ -346,7 +347,7 @@ public class Game {
                 System.out.println(("Vous êtes désormais niveau " + this.players.get(player).getLevel() + "."));
                 System.out.println("Note ECTS : F");
             }
-
+            return 0;
         }
     }
 
@@ -358,19 +359,21 @@ public class Game {
      * 
      * @param player the player that will draw a card
      */
-    public void drawDungeonCard(int player) {
+    public int drawDungeonCard(int player) {
         Card card = this.drawPileDungeon.pickCardPile();
         if (this.drawPileDungeon.getCardPile().isEmpty()) {
             this.drawPileDungeon.generateDungeonPile();
         }
         if (card instanceof MobCard) {
-            fightMob(player, (MobCard) card);
+            int nbCardsToDraw = fightMob(player, (MobCard) card);
+            return nbCardsToDraw;
         } else if (card instanceof MaledictionCard) {
             ((MaledictionCard) card).applyMaledictionPlayer(this.getPlayers().get(player));
         } else {
             this.hands.get(player).getCardPile().add(card);
             System.out.println("Une autre carte a été piochée.");
         }
+        return 0;
     }
 
     /**
@@ -407,8 +410,9 @@ public class Game {
             System.out.println("Voici votre main :");
             System.out.println(this.hands.get(player));
             System.out.println("Quelle carte voulez-vous placer ? (1 à 12)");
-            Scanner myObj = new Scanner(System.in); // Create a Scanner object
-            int choice = myObj.nextInt();
+            //Scanner myObj = new Scanner(System.in); // Create a Scanner object
+            //int choice = myObj.nextInt();
+            int choice = 3;
             if (choice > 0 && choice < 13) {
                 if (choice <= this.hands.get(player).getCardPile().size()) {
                     if (this.hands.get(player).getCardPile().get(choice) instanceof ObjectCard) {

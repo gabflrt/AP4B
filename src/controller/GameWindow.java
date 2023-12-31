@@ -150,6 +150,7 @@ public class GameWindow {
 
     private game.Game jeu;
     private int i = 0; // Position du joueur dans le jeu
+    private int nbCardsToDraw = 0; // Nombre de cartes à piocher
     private game.Card clickedCard;
 
     private Map<String, Button> buttonMap = new HashMap<>();
@@ -284,12 +285,23 @@ public class GameWindow {
 
     @FXML
     void DrawDungeon(ActionEvent event) {
-        jeu.drawDungeonCard(this.i);
+        /*jeu.drawDungeonCard(this.i);
         this.clickedCard = jeu.getDrawPileDungeon().pickCardPile();
         System.out.println(this.clickedCard.getName());
         this.i = this.i + 1;
         if (this.i == jeu.getNbPlayers()) {
             this.i = 0;
+        }*/
+
+        this.nbCardsToDraw = jeu.drawDungeonCard(this.i);
+        System.out.println(this.nbCardsToDraw);
+        text.setText("Tu peux piocher " + this.nbCardsToDraw + " cartes.");
+        this.i = this.i + 1;
+        if (this.i == jeu.getNbPlayers()) {
+            this.i = 0;
+        }
+        for(int j = 0; j < nbCardsToDraw; j++) {
+            //TODO : afficher les cartes à piocher
         }
     }
 
