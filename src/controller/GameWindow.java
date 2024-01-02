@@ -174,8 +174,8 @@ public class GameWindow {
 
     void update(game.Game jeu) {
         String elem = "player";
-        int cardHeight = 160;
-        int cardWidth = 90;
+        int cardHeight = 192;
+        int cardWidth = 108;
         for (int i = 0; i < 4; i++) {
             int j = 0;
             for (j = 0; j < jeu.getHands().get(i).getCardPile().size(); j++) {
@@ -228,9 +228,9 @@ public class GameWindow {
         }
 
         Button buttonDrawDungeon = DrawDungeon;
-        ImageView imageDrawDungeon = new ImageView("file:src/img/default.png");
+        ImageView imageDrawDungeon = new ImageView("file:src/img/donjon.png");
         if (!jeu.getDrawPileDungeon().isEmpty()) {
-            imageDrawDungeon = new ImageView("file:src/img/default.png");
+            imageDrawDungeon = new ImageView("file:src/img/donjon.png");
         }
         imageDrawDungeon.setFitHeight(cardHeight);
         imageDrawDungeon.setFitWidth(cardWidth);
@@ -239,9 +239,9 @@ public class GameWindow {
         buttonDrawDungeon.setGraphic(imageDrawDungeon);
 
         Button buttonDiscardDungeon = DiscardDungeon;
-        ImageView imageDiscardDungeon = new ImageView("file:src/img/default.png");
+        ImageView imageDiscardDungeon = new ImageView("file:src/img/donjon.png");
         if (!jeu.getDiscardPileDungeon().isEmpty()) {
-            imageDiscardDungeon = new ImageView("file:src/img/default.png");
+            imageDiscardDungeon = new ImageView("file:src/img/donjon.png");
         }
         imageDiscardDungeon.setFitHeight(cardHeight);
         imageDiscardDungeon.setFitWidth(cardWidth);
@@ -250,9 +250,9 @@ public class GameWindow {
         buttonDiscardDungeon.setGraphic(imageDiscardDungeon);
 
         Button buttonDrawTreasure = DrawTreasure;
-        ImageView imageDrawTreasure = new ImageView("file:src/img/default.png");
+        ImageView imageDrawTreasure = new ImageView("file:src/img/tresor.png");
         if (!jeu.getDrawPileTreasure().isEmpty()) {
-            imageDrawTreasure = new ImageView("file:src/img/default.png");
+            imageDrawTreasure = new ImageView("file:src/img/tresor.png");
         }
         imageDrawTreasure.setFitHeight(cardHeight);
         imageDrawTreasure.setFitWidth(cardWidth);
@@ -261,9 +261,9 @@ public class GameWindow {
         buttonDrawTreasure.setGraphic(imageDrawTreasure);
 
         Button buttonDiscardTreasure = DiscardTreasure;
-        ImageView imageDiscardTreasure = new ImageView("file:src/img/default.png");
+        ImageView imageDiscardTreasure = new ImageView("file:src/img/tresor.png");
         if (!jeu.getDiscardPileTreasure().isEmpty()) {
-            imageDiscardTreasure = new ImageView("file:src/img/default.png");
+            imageDiscardTreasure = new ImageView("file:src/img/tresor.png");
         }
         imageDiscardTreasure.setFitHeight(cardHeight);
         imageDiscardTreasure.setFitWidth(cardWidth);

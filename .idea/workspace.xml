@@ -4,7 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="429bf84b-56ef-4366-9ed9-5c4dcf445eb0" name="Changes" comment="Test" />
+    <list default="true" id="429bf84b-56ef-4366-9ed9-5c4dcf445eb0" name="Changes" comment="images cartes">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Munchkin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Munchkin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/controller/GameWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/controller/GameWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/controller/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/controller/MainMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/CardPile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/CardPile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/ClassCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/ClassCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/DiscardPile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/DiscardPile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/DrawPile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/DrawPile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/GameLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/GameLoop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/MaledictionCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/MaledictionCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/MobCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/MobCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/ObjectCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/ObjectCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/img/UE/AP4A.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/img/UE/AP4A.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/img/UE/MTA.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/img/UE/MTA.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/img/UE/PS28.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/img/UE/PS28.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/img/UE/WE4A.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/img/UE/WE4A.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/view/GameWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/view/GameWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/CardPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/CardPile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/Malediction/Bus.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Malediction/Bus.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/Malediction/Coronavirus.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Malediction/Coronavirus.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/Malediction/Matos interdit.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Malediction/Matos interdit.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/Malediction/Triche.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Malediction/Triche.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/Objets/Annale.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/Annale.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/Objets/Boules Quies.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/Boules Quies.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/Objets/Café.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/Café.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/Objets/Calculatrice.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/Calculatrice.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/Objets/ChatGPT.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/ChatGPT.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/Objets/Exercices.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/Exercices.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/Objets/Ordinateur.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/Ordinateur.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/Objets/Prof particulier.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/Prof particulier.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/UE/AP4A.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/UE/AP4A.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/UE/MTA.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/UE/MTA.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/UE/PS28.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/UE/PS28.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/UE/WE4A.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/UE/WE4A.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,24 +56,58 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Quentin1er&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="4221334a-a467-45b5-86fc-ca0f68f71d9d" />
+        <option name="url" value="https://github.com/gabflrt/AP4B.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2YfSRBMKGdAeNu7gliKHt8jplUq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Java/javafx-sdk-21.0.1/lib&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="Munchkin" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Java\javafx-sdk-21.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -40,6 +117,28 @@
       <option name="presentableId" value="Default" />
       <updated>1700915131106</updated>
       <workItem from="1700915132113" duration="435000" />
+      <workItem from="1702049272479" duration="6001000" />
+      <workItem from="1702055561845" duration="1068000" />
+      <workItem from="1702115876974" duration="1231000" />
+      <workItem from="1702141893011" duration="2679000" />
+      <workItem from="1702281553115" duration="1034000" />
+      <workItem from="1702286452388" duration="25000" />
+      <workItem from="1702290026827" duration="2710000" />
+      <workItem from="1702458967369" duration="612000" />
+      <workItem from="1702462154725" duration="179000" />
+      <workItem from="1702993362546" duration="1643000" />
+      <workItem from="1703258060157" duration="1957000" />
+      <workItem from="1703346445056" duration="606000" />
+      <workItem from="1703355302016" duration="1575000" />
+      <workItem from="1703529594382" duration="19000" />
+      <workItem from="1703610800362" duration="179000" />
+      <workItem from="1703674480084" duration="865000" />
+      <workItem from="1703688158696" duration="448000" />
+      <workItem from="1703689892663" duration="1510000" />
+      <workItem from="1703925509744" duration="352000" />
+      <workItem from="1703946783426" duration="2212000" />
+      <workItem from="1704035919284" duration="737000" />
+      <workItem from="1704184921158" duration="1711000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -65,14 +164,123 @@
       <option name="project" value="LOCAL" />
       <updated>1700917974769</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Implementation classes MobCard et MaledictionCard">
+      <option name="closed" value="true" />
+      <created>1702052554788</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702052554788</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Implementation classes MobCard et MaledictionCard">
+      <option name="closed" value="true" />
+      <created>1702055370248</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702055370248</updated>
+    </task>
+    <task id="LOCAL-00006" summary="classes MobCard et MaledictionCard">
+      <option name="closed" value="true" />
+      <created>1702055523933</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702055523933</updated>
+    </task>
+    <task id="LOCAL-00007" summary="classe MobCard et MaledictionCard">
+      <option name="closed" value="true" />
+      <created>1702055622756</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702055622756</updated>
+    </task>
+    <task id="LOCAL-00008" summary="classe MobCard et MaledictionCard">
+      <option name="closed" value="true" />
+      <created>1702055726431</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702055726431</updated>
+    </task>
+    <task id="LOCAL-00009" summary="défaite et victoire">
+      <option name="closed" value="true" />
+      <created>1702144004264</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702144004264</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Changement lancement dé + ajout 2 cartes">
+      <option name="closed" value="true" />
+      <created>1702282556427</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1702282556427</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Combats">
+      <option name="closed" value="true" />
+      <created>1702291587103</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1702291587103</updated>
+    </task>
+    <task id="LOCAL-00012" summary="test">
+      <option name="closed" value="true" />
+      <created>1703258097301</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1703258097301</updated>
+    </task>
+    <task id="LOCAL-00013" summary="img">
+      <option name="closed" value="true" />
+      <created>1703688503343</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1703688503343</updated>
+    </task>
+    <task id="LOCAL-00014" summary="img2">
+      <option name="closed" value="true" />
+      <created>1703688562186</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1703688562186</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test" />
+    <MESSAGE value="Implementation classes MobCard et MaledictionCard" />
+    <MESSAGE value="classes MobCard et MaledictionCard" />
+    <MESSAGE value="classe MobCard et MaledictionCard" />
+    <MESSAGE value="défaite et victoire" />
+    <MESSAGE value="Changement lancement dé + ajout 2 cartes" />
+    <MESSAGE value="Combats" />
+    <MESSAGE value="test" />
+    <MESSAGE value="img" />
+    <MESSAGE value="img2" />
+    <MESSAGE value="images cartes" />
+    <option name="LAST_COMMIT_MESSAGE" value="images cartes" />
   </component>
 </project>

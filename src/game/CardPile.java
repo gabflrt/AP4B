@@ -3,7 +3,7 @@ package game;
 import java.util.ArrayList;
 import java.util.Collections;
 
-class CardPile {
+public class CardPile {
     /**
      * The ArrayList of cards that will be use for the discardPile, the drawPile and
      * the decks
