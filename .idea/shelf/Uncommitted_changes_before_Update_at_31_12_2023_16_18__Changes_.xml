@@ -1,0 +1,54 @@
+<changelist name="Uncommitted_changes_before_Update_at_31_12_2023_16_18_[Changes]" date="1704035939386" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_12_2023_16_18_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 31/12/2023 16:18 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/Card.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/Card.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_12_2023_16_18_[Changes]/Card.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/MaledictionCard.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/MaledictionCard.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_12_2023_16_18_[Changes]/MaledictionCard.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/DrawPile.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/DrawPile.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_12_2023_16_18_[Changes]/DrawPile.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/Game.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/Game.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_12_2023_16_18_[Changes]/Game.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/ObjectCard.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/ObjectCard.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_12_2023_16_18_[Changes]/ObjectCard.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/CardPile.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/CardPile.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_12_2023_16_18_[Changes]/CardPile.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/MobCard.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/MobCard.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_12_2023_16_18_[Changes]/MobCard.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/controller/MainMenu.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/controller/MainMenu.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_12_2023_16_18_[Changes]/MainMenu.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/ClassCard.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/ClassCard.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_12_2023_16_18_[Changes]/ClassCard.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/controller/GameWindow.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/controller/GameWindow.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_12_2023_16_18_[Changes]/GameWindow.class" />
+  </binary>
+</changelist>

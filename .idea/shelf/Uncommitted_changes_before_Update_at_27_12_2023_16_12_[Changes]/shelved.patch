@@ -1,0 +1,441 @@
+Index: src/game/DrawPile.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game;\r\n\r\nimport java.util.Collections;\r\n\r\nclass DrawPile extends CardPile {\r\n\r\n    void generateDungeonPile() {\r\n        if (this.getCardPile().isEmpty()) {\r\n            for (int i = 0; i < 23; i++) {\r\n                this.getCardPile().add(new MobCard(\"MTA\", \"Maths\", 1, 1, 1, \"\", 0));\r\n            }\r\n            for (int i = 0; i < 24; i++) {\r\n                this.getCardPile().add(new MobCard(\"AP4A\", \"Info\", 6, 2, 2, \"Chestplate\", 1));\r\n            }\r\n\r\n            for (int i = 0; i < 24; i++) {\r\n                this.getCardPile().add(new MobCard(\"WE4A\", \"Info\", 4, 1, 1, \"Chestplate\", 2));\r\n            }\r\n\r\n            for (int i = 0; i < 24; i++) {\r\n                this.getCardPile().add(new MobCard(\"PS28\", \"Energie\", 3, 1, 1, \"Chestplate\", 0));\r\n            }\r\n\r\n        } else {\r\n            System.out.println(\"The draw pile has already been generated.\");\r\n        }\r\n    }\r\n\r\n    void generateTreasurePile() {\r\n        if (this.getCardPile().isEmpty()) {\r\n            for (int i = 0; i < 38; i++) {\r\n                this.getCardPile().add(new ObjectCard(\"Couteau\", \"Aie\", 2, \"\"));\r\n            }\r\n            for (int i = 0; i < 39; i++) {\r\n                this.getCardPile().add(new ObjectCard(\"Casque\", \"C'est un casque\", 3, \"Elf\"));\r\n            }\r\n\r\n        } else {\r\n            System.out.println(\"The draw pile has already been generated.\");\r\n        }\r\n    }\r\n\r\n    /**\r\n     * This method will randomly pick a card in the draw card.\r\n     * We use shuffle to mix all the card randomly, and then, we pick the first card\r\n     * of the drawPile and return it.\r\n     * If the drawPile is empty, an error will be written in the console and an\r\n     * empty card will be return.\r\n     * \r\n     * @return Card drawn\r\n     */\r\n    Card pickCardPile() {\r\n        if (getCardPile().isEmpty()) {\r\n            System.out.println(\"Error: the draw pile is empty!\");\r\n            return new Card();\r\n        } else {\r\n            Collections.shuffle(this.getCardPile());\r\n            Card drawncard = new Card();\r\n            drawncard = this.getCardPile().get(0);\r\n            this.getCardPile().remove(0);\r\n            return drawncard;\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/DrawPile.java b/src/game/DrawPile.java
+--- a/src/game/DrawPile.java	(revision 522d77ab5af9015794ab4043e45e7ab9433477b2)
++++ b/src/game/DrawPile.java	(date 1703688183360)
+@@ -2,23 +2,23 @@
+ 
+ import java.util.Collections;
+ 
+-class DrawPile extends CardPile {
++public class DrawPile extends CardPile {
+ 
+     void generateDungeonPile() {
+         if (this.getCardPile().isEmpty()) {
+             for (int i = 0; i < 23; i++) {
+-                this.getCardPile().add(new MobCard("MTA", "Maths", 1, 1, 1, "", 0));
++                this.getCardPile().add(new MobCard("MTA", "Maths", 3, 1, 1, "", 0));
+             }
+             for (int i = 0; i < 24; i++) {
+-                this.getCardPile().add(new MobCard("AP4A", "Info", 6, 2, 2, "Chestplate", 1));
++                this.getCardPile().add(new MobCard("AP4A", "Info", 8, 2, 2, "Chestplate", 2));
+             }
+ 
+             for (int i = 0; i < 24; i++) {
+-                this.getCardPile().add(new MobCard("WE4A", "Info", 4, 1, 1, "Chestplate", 2));
++                this.getCardPile().add(new MobCard("WE4A", "Info", 6, 1, 1, "Chestplate", 1));
+             }
+ 
+             for (int i = 0; i < 24; i++) {
+-                this.getCardPile().add(new MobCard("PS28", "Energie", 3, 1, 1, "Chestplate", 0));
++                this.getCardPile().add(new MobCard("PS28", "Energie", 4, 1, 1, "Chestplate", 0));
+             }
+ 
+         } else {
+Index: src/game/Deck.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.ArrayList;\r\nimport java.util.Scanner;\r\n\r\npublic class Deck extends CardPile {\r\n    /**\r\n     * This method will give the 2 cards that a deck must have at the beginning of\r\n     * the game.\r\n     *\r\n     * @param drawPileDungeon  the draw pile of the dungeon\r\n     * @param drawPileTreasure the draw pile of the treasure\r\n     * @return an ArrayList with 2 cards.\r\n     */\r\n    public ArrayList<Card> initializeDeck(DrawPile drawPileDungeon, DrawPile drawPileTreasure) {\r\n        for (int i = 0; i < 2; i++) {\r\n            this.getCardPile().add(drawPileDungeon.pickCardPile());\r\n        }\r\n        for (int i = 0; i < 2; i++) {\r\n            this.getCardPile().add(drawPileTreasure.pickCardPile());\r\n        }\r\n        return this.getCardPile();\r\n    }\r\n\r\n    /**\r\n     * This method will calculate the strength of the cards that is in his deck.\r\n     *\r\n     * @return the strength of the deck\r\n     */\r\n    public int calculateStrength() {\r\n        int strength = 0;\r\n        for (int i = 0; i < this.getCardPile().size(); i++) {\r\n            if (this.getCardPile().get(i) instanceof ObjectCard) {\r\n                strength += ((ObjectCard) this.getCardPile().get(i)).getStrengthBonus();\r\n            }\r\n        }\r\n        return strength;\r\n    }\r\n\r\n    /**\r\n     * This method is a toString method that will print the deck of the player.\r\n     *\r\n     * @return a string with the deck of the player.\r\n     */\r\n    public String toString() {\r\n        String deck = \"\";\r\n        System.out.println(\"The deck of the player is : \");\r\n        for (int i = 0; i < this.getCardPile().size(); i++) {\r\n            deck += this.getCardPile().get(i).toString() + \"\\n\";\r\n        }\r\n        return deck;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/Deck.java b/src/game/Deck.java
+--- a/src/game/Deck.java	(revision 522d77ab5af9015794ab4043e45e7ab9433477b2)
++++ b/src/game/Deck.java	(date 1703688183372)
+@@ -1,6 +1,13 @@
++package game;
++
++import game.Card;
++import game.CardPile;
++import game.DrawPile;
++
+ import java.util.ArrayList;
+ import java.util.Scanner;
+ 
++
+ public class Deck extends CardPile {
+     /**
+      * This method will give the 2 cards that a deck must have at the beginning of
+Index: src/game/CardPile.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.Collections;\r\n\r\nclass CardPile {\r\n    /**\r\n     * The ArrayList of cards that will be use for the discardPile, the drawPile and\r\n     * the decks\r\n     */\r\n    private ArrayList<Card> cardPile = new ArrayList<>(150);\r\n\r\n    /**\r\n     * Method especially for debugging because it will be overwritten in the\r\n     * subclasses\r\n     * \r\n     * @return\r\n     */\r\n    public String toString() {\r\n        System.out.println(this.cardPile.size());\r\n        for (int i = 0; i < this.cardPile.size(); i++) {\r\n            System.out.println(String.valueOf(cardPile.get(i)));\r\n        }\r\n        return \"\";\r\n    }\r\n\r\n    /**\r\n     * The getter of the cardPile to allow us to get the arraylist in the other\r\n     * files\r\n     * \r\n     * @return\r\n     */\r\n    public ArrayList<Card> getCardPile() {\r\n        return cardPile;\r\n    }\r\n\r\n    /**\r\n     * The setter of the cardPile to allow us to modify the array list in the other\r\n     * files\r\n     * \r\n     * @param cardPile\r\n     */\r\n    void setCardPile(ArrayList<Card> cardPile) {\r\n        this.cardPile = cardPile;\r\n    }\r\n\r\n    /**\r\n     * This method will randomly pick a card in the draw card.\r\n     * We use shuffle to mix all the card randomly, and then, we pick the first card\r\n     * of the drawPile and return it.\r\n     * If the drawPile is empty, an error will be written in the console and an\r\n     * empty card will be return.\r\n     * \r\n     * @return Card drawn\r\n     */\r\n    Card pickCardPile() {\r\n        Card drawncard = new Card();\r\n        if (this.cardPile.isEmpty()) {\r\n            System.out.println(\"Error: the pile is empty!\");\r\n        } else {\r\n            Collections.shuffle(this.getCardPile());\r\n            drawncard = this.getCardPile().get(0);\r\n            this.getCardPile().remove(0);\r\n        }\r\n        return drawncard;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/CardPile.java b/src/game/CardPile.java
+--- a/src/game/CardPile.java	(revision 522d77ab5af9015794ab4043e45e7ab9433477b2)
++++ b/src/game/CardPile.java	(date 1703688183380)
+@@ -3,7 +3,7 @@
+ import java.util.ArrayList;
+ import java.util.Collections;
+ 
+-class CardPile {
++public class CardPile {
+     /**
+      * The ArrayList of cards that will be use for the discardPile, the drawPile and
+      * the decks
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_19\" default=\"true\" project-jdk-name=\"19\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 522d77ab5af9015794ab4043e45e7ab9433477b2)
++++ b/.idea/misc.xml	(date 1703688183390)
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="19" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"429bf84b-56ef-4366-9ed9-5c4dcf445eb0\" name=\"Changes\" comment=\"Test\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2YfSRBMKGdAeNu7gliKHt8jplUq\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"429bf84b-56ef-4366-9ed9-5c4dcf445eb0\" name=\"Changes\" comment=\"\" />\r\n      <created>1700915131106</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1700915131106</updated>\r\n      <workItem from=\"1700915132113\" duration=\"435000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Test\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1700915394478</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1700915394478</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Test\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1700915428952</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1700915428952</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Test\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1700917974769</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1700917974769</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Test\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Test\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 522d77ab5af9015794ab4043e45e7ab9433477b2)
++++ b/.idea/workspace.xml	(date 1703688609200)
+@@ -4,7 +4,73 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="429bf84b-56ef-4366-9ed9-5c4dcf445eb0" name="Changes" comment="Test" />
++    <list default="true" id="429bf84b-56ef-4366-9ed9-5c4dcf445eb0" name="Changes" comment="img2">
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2023_18_13_[Changes]/shelved.patch" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2023_18_13__Changes_.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_12_2023_15_43_[Changes]/shelved.patch" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_12_2023_15_43__Changes_.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/Main.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/Test.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/controller/GameWindow.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/controller/MainMenu.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/game/Card.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/game/CardPile.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/game/ClassCard.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/game/Deck.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/game/DiscardPile.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/game/DrawPile.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/game/Game.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/game/GameLoop.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/game/MaledictionCard.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/game/MobCard.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/game/ObjectCard.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/game/Player.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/game/RaceCard.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/1.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/Malediction/Bus.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/Malediction/Coronavirus.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/Malediction/Matos interdit.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/Malediction/Triche.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/Objets/Annale.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/Objets/Boules Quies.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/Objets/Café.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/Objets/Calculatrice.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/Objets/ChatGPT.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/Objets/Exercices.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/Objets/Ordinateur.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/Objets/Prof particulier.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/UE/AP4A.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/UE/MTA.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/UE/PS28.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/UE/WE4A.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/img/default.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/view/GameWindow.fxml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/out/production/Munchkin/view/MainMenu.fxml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/Malediction/Bus.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/Malediction/Coronavirus.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/Malediction/Matos interdit.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/Malediction/Triche.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/Objets/Annale.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/Objets/Boules Quies.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/Objets/Café.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/Objets/Calculatrice.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/Objets/ChatGPT.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/Objets/Exercices.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/Objets/Ordinateur.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/Objets/Prof particulier.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/UE/AP4A.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/UE/MTA.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/UE/PS28.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/UE/WE4A.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/img/default.png" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Munchkin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Munchkin.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/CardPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/CardPile.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Deck.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/DrawPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/DrawPile.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -13,24 +79,58 @@
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;lastFilter&quot;: {
++    &quot;state&quot;: &quot;OPEN&quot;,
++    &quot;assignee&quot;: &quot;Quentin1er&quot;
++  }
++}</component>
++  <component name="GithubPullRequestsUISettings">
++    <option name="selectedUrlAndAccountId">
++      <UrlAndAccount>
++        <option name="accountId" value="4221334a-a467-45b5-86fc-ca0f68f71d9d" />
++        <option name="url" value="https://github.com/gabflrt/AP4B.git" />
++      </UrlAndAccount>
++    </option>
++  </component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 0
++}</component>
+   <component name="ProjectId" id="2YfSRBMKGdAeNu7gliKHt8jplUq" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Java/javafx-sdk-21.0.1/lib&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
++  <component name="RunManager">
++    <configuration name="Main" type="Application" factoryName="Application">
++      <option name="MAIN_CLASS_NAME" value="Test" />
++      <module name="Munchkin" />
++      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Java\javafx-sdk-21.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -40,6 +140,23 @@
+       <option name="presentableId" value="Default" />
+       <updated>1700915131106</updated>
+       <workItem from="1700915132113" duration="435000" />
++      <workItem from="1702049272479" duration="6001000" />
++      <workItem from="1702055561845" duration="1068000" />
++      <workItem from="1702115876974" duration="1231000" />
++      <workItem from="1702141893011" duration="2679000" />
++      <workItem from="1702281553115" duration="1034000" />
++      <workItem from="1702286452388" duration="25000" />
++      <workItem from="1702290026827" duration="2710000" />
++      <workItem from="1702458967369" duration="612000" />
++      <workItem from="1702462154725" duration="179000" />
++      <workItem from="1702993362546" duration="1643000" />
++      <workItem from="1703258060157" duration="1957000" />
++      <workItem from="1703346445056" duration="606000" />
++      <workItem from="1703355302016" duration="1575000" />
++      <workItem from="1703529594382" duration="19000" />
++      <workItem from="1703610800362" duration="179000" />
++      <workItem from="1703674480084" duration="865000" />
++      <workItem from="1703688158696" duration="448000" />
+     </task>
+     <task id="LOCAL-00001" summary="Test">
+       <option name="closed" value="true" />
+@@ -65,14 +182,122 @@
+       <option name="project" value="LOCAL" />
+       <updated>1700917974769</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="Implementation classes MobCard et MaledictionCard">
++      <option name="closed" value="true" />
++      <created>1702052554788</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1702052554788</updated>
++    </task>
++    <task id="LOCAL-00005" summary="Implementation classes MobCard et MaledictionCard">
++      <option name="closed" value="true" />
++      <created>1702055370248</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1702055370248</updated>
++    </task>
++    <task id="LOCAL-00006" summary="classes MobCard et MaledictionCard">
++      <option name="closed" value="true" />
++      <created>1702055523933</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1702055523933</updated>
++    </task>
++    <task id="LOCAL-00007" summary="classe MobCard et MaledictionCard">
++      <option name="closed" value="true" />
++      <created>1702055622756</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1702055622756</updated>
++    </task>
++    <task id="LOCAL-00008" summary="classe MobCard et MaledictionCard">
++      <option name="closed" value="true" />
++      <created>1702055726431</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1702055726431</updated>
++    </task>
++    <task id="LOCAL-00009" summary="défaite et victoire">
++      <option name="closed" value="true" />
++      <created>1702144004264</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1702144004264</updated>
++    </task>
++    <task id="LOCAL-00010" summary="Changement lancement dé + ajout 2 cartes">
++      <option name="closed" value="true" />
++      <created>1702282556427</created>
++      <option name="number" value="00010" />
++      <option name="presentableId" value="LOCAL-00010" />
++      <option name="project" value="LOCAL" />
++      <updated>1702282556427</updated>
++    </task>
++    <task id="LOCAL-00011" summary="Combats">
++      <option name="closed" value="true" />
++      <created>1702291587103</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1702291587103</updated>
++    </task>
++    <task id="LOCAL-00012" summary="test">
++      <option name="closed" value="true" />
++      <created>1703258097301</created>
++      <option name="number" value="00012" />
++      <option name="presentableId" value="LOCAL-00012" />
++      <option name="project" value="LOCAL" />
++      <updated>1703258097301</updated>
++    </task>
++    <task id="LOCAL-00013" summary="img">
++      <option name="closed" value="true" />
++      <created>1703688503343</created>
++      <option name="number" value="00013" />
++      <option name="presentableId" value="LOCAL-00013" />
++      <option name="project" value="LOCAL" />
++      <updated>1703688503343</updated>
++    </task>
++    <task id="LOCAL-00014" summary="img2">
++      <option name="closed" value="true" />
++      <created>1703688562186</created>
++      <option name="number" value="00014" />
++      <option name="presentableId" value="LOCAL-00014" />
++      <option name="project" value="LOCAL" />
++      <updated>1703688562186</updated>
++    </task>
++    <option name="localTasksCounter" value="15" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Test" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Test" />
++    <MESSAGE value="Implementation classes MobCard et MaledictionCard" />
++    <MESSAGE value="classes MobCard et MaledictionCard" />
++    <MESSAGE value="classe MobCard et MaledictionCard" />
++    <MESSAGE value="défaite et victoire" />
++    <MESSAGE value="Changement lancement dé + ajout 2 cartes" />
++    <MESSAGE value="Combats" />
++    <MESSAGE value="test" />
++    <MESSAGE value="img" />
++    <MESSAGE value="img2" />
++    <option name="LAST_COMMIT_MESSAGE" value="img2" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: Munchkin.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\r\n    <exclude-output />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src\" isTestSource=\"false\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Munchkin.iml b/Munchkin.iml
+--- a/Munchkin.iml	(revision 522d77ab5af9015794ab4043e45e7ab9433477b2)
++++ b/Munchkin.iml	(date 1703688183412)
+@@ -7,5 +7,6 @@
+     </content>
+     <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="library" name="lib" level="project" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: .idea/libraries/lib.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/lib.xml b/.idea/libraries/lib.xml
+new file mode 100644
+--- /dev/null	(date 1703688183423)
++++ b/.idea/libraries/lib.xml	(date 1703688183423)
+@@ -0,0 +1,10 @@
++<component name="libraryTable">
++  <library name="lib">
++    <CLASSES>
++      <root url="file://$PROJECT_DIR$/../../../../Java/javafx-sdk-21.0.1/lib" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++    <jarDirectory url="file://$PROJECT_DIR$/../../../../Java/javafx-sdk-21.0.1/lib" recursive="false" />
++  </library>
++</component>
+\ No newline at end of file

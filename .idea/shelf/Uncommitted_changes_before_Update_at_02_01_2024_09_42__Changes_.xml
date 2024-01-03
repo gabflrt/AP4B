@@ -1,0 +1,104 @@
+<changelist name="Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]" date="1704184960515" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 02/01/2024 09:42 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/Player.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/Player.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/Player.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/MaledictionCard.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/MaledictionCard.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/MaledictionCard.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/DrawPile.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/DrawPile.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/DrawPile.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/ObjectCard.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/ObjectCard.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/ObjectCard.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/MobCard.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/MobCard.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/MobCard.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/controller/MainMenu.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/controller/MainMenu.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/MainMenu.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/img/UE/MTA.png" />
+    <option name="AFTER_PATH" value="src/img/UE/MTA.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/MTA.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/GameLoop.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/GameLoop.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/GameLoop.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/img/UE/AP4A.png" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/img/UE/AP4A.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/AP4A.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/img/UE/AP4A.png" />
+    <option name="AFTER_PATH" value="src/img/UE/AP4A.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/AP4A1.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/ClassCard.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/ClassCard.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/ClassCard.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/controller/GameWindow.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/controller/GameWindow.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/GameWindow.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/img/UE/MTA.png" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/img/UE/MTA.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/MTA1.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/Card.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/Card.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/Card.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/img/UE/PS28.png" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/img/UE/PS28.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/PS28.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/Game.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/Game.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/Game.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/game/CardPile.class" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/game/CardPile.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/CardPile.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Munchkin/img/UE/WE4A.png" />
+    <option name="AFTER_PATH" value="out/production/Munchkin/img/UE/WE4A.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/WE4A.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/img/UE/WE4A.png" />
+    <option name="AFTER_PATH" value="src/img/UE/WE4A.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/WE4A1.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/img/UE/PS28.png" />
+    <option name="AFTER_PATH" value="src/img/UE/PS28.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_01_2024_09_42_[Changes]/PS281.png" />
+  </binary>
+</changelist>
