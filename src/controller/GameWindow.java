@@ -25,8 +25,7 @@ public class GameWindow {
     @FXML
     private Button player1_4;
 
-    @FXML
-    private Button player1_5;
+
 
     @FXML
     private Button player2_1;
@@ -40,8 +39,7 @@ public class GameWindow {
     @FXML
     private Button player2_4;
 
-    @FXML
-    private Button player2_5;
+
 
     @FXML
     private Button player3_1;
@@ -55,8 +53,7 @@ public class GameWindow {
     @FXML
     private Button player3_4;
 
-    @FXML
-    private Button player3_5;
+
 
     @FXML
     private Button player4_1;
@@ -70,8 +67,7 @@ public class GameWindow {
     @FXML
     private Button player4_4;
 
-    @FXML
-    private Button player4_5;
+
 
     @FXML
     private Button placed1_1;
@@ -85,8 +81,7 @@ public class GameWindow {
     @FXML
     private Button placed1_4;
 
-    @FXML
-    private Button placed1_5;
+
 
     @FXML
     private Button placed2_1;
@@ -100,8 +95,7 @@ public class GameWindow {
     @FXML
     private Button placed2_4;
 
-    @FXML
-    private Button placed2_5;
+
 
     @FXML
     private Button placed3_1;
@@ -115,8 +109,7 @@ public class GameWindow {
     @FXML
     private Button placed3_4;
 
-    @FXML
-    private Button placed3_5;
+
 
     @FXML
     private Button placed4_1;
@@ -130,8 +123,7 @@ public class GameWindow {
     @FXML
     private Button placed4_4;
 
-    @FXML
-    private Button placed4_5;
+
 
     @FXML
     private Button DiscardDungeon;
@@ -174,8 +166,10 @@ public class GameWindow {
 
     void update(game.Game jeu) {
         String elem = "player";
-        int cardHeight = 192;
-        int cardWidth = 108;
+        int cardHeight = 150;
+        int cardWidth = 120;
+        int cardHeightDraw = 100;
+        int cardWidthDraw = 80;
         for (int i = 0; i < 4; i++) {
             int j = 0;
             for (j = 0; j < jeu.getHands().get(i).getCardPile().size(); j++) {
@@ -191,7 +185,7 @@ public class GameWindow {
                 button.setPrefSize(0, 0);
                 button.setGraphic(image);
             }
-            for (int k = j; k < 5; k++) {
+            for (int k = j; k < 4; k++) {
                 elem = "player" + (i + 1) + "_" + (k + 1);
                 Button button = buttonMap.get(elem);
                 ImageView image = new ImageView("file:src/img/default.png");
@@ -215,7 +209,7 @@ public class GameWindow {
                 button.setGraphic(image2);
             }
 
-            for (int k = j; k < 5; k++) {
+            for (int k = j; k < 4; k++) {
                 elem = "placed" + (i + 1) + "_" + (k + 1);
                 Button button = buttonMap.get(elem);
                 ImageView image2 = new ImageView("file:src/img/default.png");
@@ -232,13 +226,13 @@ public class GameWindow {
         if (!jeu.getDrawPileDungeon().isEmpty()) {
             imageDrawDungeon = new ImageView("file:src/img/donjon.png");
         }
-        imageDrawDungeon.setFitHeight(cardHeight);
-        imageDrawDungeon.setFitWidth(cardWidth);
+        imageDrawDungeon.setFitHeight(cardHeightDraw);
+        imageDrawDungeon.setFitWidth(cardWidthDraw);
         buttonDrawDungeon.setGraphic(imageDrawDungeon);
         buttonDrawDungeon.setPrefSize(0, 0);
         buttonDrawDungeon.setGraphic(imageDrawDungeon);
 
-        Button buttonDiscardDungeon = DiscardDungeon;
+        /*Button buttonDiscardDungeon = DiscardDungeon;
         ImageView imageDiscardDungeon = new ImageView("file:src/img/donjon.png");
         if (!jeu.getDiscardPileDungeon().isEmpty()) {
             imageDiscardDungeon = new ImageView("file:src/img/donjon.png");
@@ -249,18 +243,21 @@ public class GameWindow {
         buttonDiscardDungeon.setPrefSize(0, 0);
         buttonDiscardDungeon.setGraphic(imageDiscardDungeon);
 
+         */
+
         Button buttonDrawTreasure = DrawTreasure;
         ImageView imageDrawTreasure = new ImageView("file:src/img/tresor.png");
         if (!jeu.getDrawPileTreasure().isEmpty()) {
             imageDrawTreasure = new ImageView("file:src/img/tresor.png");
         }
-        imageDrawTreasure.setFitHeight(cardHeight);
-        imageDrawTreasure.setFitWidth(cardWidth);
+        imageDrawTreasure.setFitHeight(cardHeightDraw);
+        imageDrawTreasure.setFitWidth(cardWidthDraw);
         buttonDrawTreasure.setGraphic(imageDrawTreasure);
         buttonDrawTreasure.setPrefSize(0, 0);
         buttonDrawTreasure.setGraphic(imageDrawTreasure);
 
-        Button buttonDiscardTreasure = DiscardTreasure;
+
+        /*Button buttonDiscardTreasure = DiscardTreasure;
         ImageView imageDiscardTreasure = new ImageView("file:src/img/tresor.png");
         if (!jeu.getDiscardPileTreasure().isEmpty()) {
             imageDiscardTreasure = new ImageView("file:src/img/tresor.png");
@@ -270,6 +267,7 @@ public class GameWindow {
         buttonDiscardTreasure.setGraphic(imageDiscardTreasure);
         buttonDiscardTreasure.setPrefSize(0, 0);
         buttonDiscardTreasure.setGraphic(imageDiscardTreasure);
+        */
 
     }
 
@@ -279,43 +277,43 @@ public class GameWindow {
         buttonMap.put("player1_2", player1_2);
         buttonMap.put("player1_3", player1_3);
         buttonMap.put("player1_4", player1_4);
-        buttonMap.put("player1_5", player1_5);
+
         buttonMap.put("player2_1", player2_1);
         buttonMap.put("player2_2", player2_2);
         buttonMap.put("player2_3", player2_3);
         buttonMap.put("player2_4", player2_4);
-        buttonMap.put("player2_5", player2_5);
+
         buttonMap.put("player3_1", player3_1);
         buttonMap.put("player3_2", player3_2);
         buttonMap.put("player3_3", player3_3);
         buttonMap.put("player3_4", player3_4);
-        buttonMap.put("player3_5", player3_5);
+
         buttonMap.put("player4_1", player4_1);
         buttonMap.put("player4_2", player4_2);
         buttonMap.put("player4_3", player4_3);
         buttonMap.put("player4_4", player4_4);
-        buttonMap.put("player4_5", player4_5);
+
 
         buttonMap.put("placed1_1", placed1_1);
         buttonMap.put("placed1_2", placed1_2);
         buttonMap.put("placed1_3", placed1_3);
         buttonMap.put("placed1_4", placed1_4);
-        buttonMap.put("placed1_5", placed1_5);
+
         buttonMap.put("placed2_1", placed2_1);
         buttonMap.put("placed2_2", placed2_2);
         buttonMap.put("placed2_3", placed2_3);
         buttonMap.put("placed2_4", placed2_4);
-        buttonMap.put("placed2_5", placed2_5);
+
         buttonMap.put("placed3_1", placed3_1);
         buttonMap.put("placed3_2", placed3_2);
         buttonMap.put("placed3_3", placed3_3);
         buttonMap.put("placed3_4", placed3_4);
-        buttonMap.put("placed3_5", placed3_5);
+
         buttonMap.put("placed4_1", placed4_1);
         buttonMap.put("placed4_2", placed4_2);
         buttonMap.put("placed4_3", placed4_3);
         buttonMap.put("placed4_4", placed4_4);
-        buttonMap.put("placed4_5", placed4_5);
+
 
     }
 
@@ -424,10 +422,7 @@ public class GameWindow {
 
     }
 
-    @FXML
-    void player1_5(ActionEvent event) {
 
-    }
 
     @FXML
     void player2_1(ActionEvent event) {
@@ -449,10 +444,7 @@ public class GameWindow {
 
     }
 
-    @FXML
-    void player2_5(ActionEvent event) {
 
-    }
 
     @FXML
     void player3_1(ActionEvent event) {
@@ -474,10 +466,7 @@ public class GameWindow {
 
     }
 
-    @FXML
-    void player3_5(ActionEvent event) {
 
-    }
 
     @FXML
     void player4_1(ActionEvent event) {
@@ -499,10 +488,7 @@ public class GameWindow {
 
     }
 
-    @FXML
-    void player4_5(ActionEvent event) {
 
-    }
 
     @FXML
     void placed1_1(ActionEvent event) {
@@ -524,10 +510,7 @@ public class GameWindow {
 
     }
 
-    @FXML
-    void placed1_5(ActionEvent event) {
 
-    }
 
     @FXML
     void placed2_1(ActionEvent event) {
@@ -549,10 +532,7 @@ public class GameWindow {
 
     }
 
-    @FXML
-    void placed2_5(ActionEvent event) {
 
-    }
 
     @FXML
     void placed3_1(ActionEvent event) {
@@ -574,10 +554,7 @@ public class GameWindow {
 
     }
 
-    @FXML
-    void placed3_5(ActionEvent event) {
 
-    }
 
     @FXML
     void placed4_1(ActionEvent event) {
@@ -599,9 +576,6 @@ public class GameWindow {
 
     }
 
-    @FXML
-    void placed4_5(ActionEvent event) {
 
-    }
 
 }

@@ -5,48 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="429bf84b-56ef-4366-9ed9-5c4dcf445eb0" name="Changes" comment="images cartes">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2023_18_13__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Munchkin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Munchkin.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Munchkin/controller/GameWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/controller/GameWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/controller/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/controller/MainMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/CardPile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/CardPile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/ClassCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/ClassCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/Deck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/DiscardPile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/DiscardPile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/DrawPile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/DrawPile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/GameLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/GameLoop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/MaledictionCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/MaledictionCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/MobCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/MobCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/ObjectCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/ObjectCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/game/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/game/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Munchkin/img/UE/AP4A.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/img/UE/AP4A.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Munchkin/img/UE/MTA.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/img/UE/MTA.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Munchkin/img/UE/PS28.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/img/UE/PS28.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Munchkin/img/UE/WE4A.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/img/UE/WE4A.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Munchkin/img/default.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/img/default.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Munchkin/view/GameWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Munchkin/view/GameWindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/CardPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/CardPile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/Malediction/Bus.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Malediction/Bus.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/Malediction/Coronavirus.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Malediction/Coronavirus.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/Malediction/Matos interdit.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Malediction/Matos interdit.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/Malediction/Triche.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Malediction/Triche.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/Objets/Annale.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/Annale.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/Objets/Boules Quies.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/Boules Quies.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/Objets/Café.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/Café.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/Objets/Calculatrice.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/Calculatrice.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/Objets/ChatGPT.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/ChatGPT.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/Objets/Exercices.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/Exercices.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/Objets/Ordinateur.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/Ordinateur.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/Objets/Prof particulier.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/Objets/Prof particulier.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/img/UE/AP4A.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/UE/AP4A.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/img/UE/MTA.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/UE/MTA.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/img/UE/PS28.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/UE/PS28.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/img/UE/WE4A.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/UE/WE4A.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/default.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/default.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/GameWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GameWindow.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,6 +114,11 @@
       <workItem from="1703946783426" duration="2212000" />
       <workItem from="1704035919284" duration="737000" />
       <workItem from="1704184921158" duration="1711000" />
+      <workItem from="1704234051911" duration="1577000" />
+      <workItem from="1704270023978" duration="3017000" />
+      <workItem from="1704273198732" duration="314000" />
+      <workItem from="1704277137780" duration="649000" />
+      <workItem from="1704292476037" duration="1236000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -252,7 +232,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703688562186</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="images cartes">
+      <option name="closed" value="true" />
+      <created>1704234097405</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1704234097405</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
