@@ -332,15 +332,17 @@ public class GameWindow {
             System.out.println(this.nbCardsToDraw);
             text.setText("Tu peux piocher " + this.nbCardsToDraw + " cartes.");
             // this.i = this.i + 1;
-            this.canDrawTreasure = true;
-            this.canDrawDungeon = false;
             if (this.nbCardsToDraw == 0) {
                 this.i = this.i + 1;
                 if (this.i == jeu.getNbPlayers()) {
                     this.i = 0;
                 }
+            }else{
+                    this.canDrawTreasure = true;
+                    this.canDrawDungeon = false;
+                }
             }
-        } else {
+        else {
             text.setText("Tu ne peux pas piocher de carte donjon.");
         }
 
