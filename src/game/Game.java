@@ -228,7 +228,7 @@ public class Game {
         for (int i = 0; i < nbPlayers; i++) {
             Deck placedCard = new Deck();
             this.placedCards.add(placedCard);
-            placeCard(i); // Ask the player if he wants to place a card from his hand to
+            //placeCard(i); // Ask the player if he wants to place a card from his hand to
             // his deck with the
             // method placeCard
             System.out.println(this.placedCards.get(i));
@@ -414,13 +414,14 @@ public class Game {
      * 
      * @param player the player that will draw a card
      */
-    public void drawTreasureCard(int player) {
+    public Card drawTreasureCard(int player) {
         Card card = this.drawPileTreasure.pickCardPile();
         if (this.drawPileTreasure.getCardPile().isEmpty()) {
             this.drawPileTreasure.generateDungeonPile();
         }
-        this.hands.get(player).getCardPile().add(card);
-        placeCard(player);
+        //this.hands.get(player).getCardPile().add(card);
+        //placeCard(player);
+        return card;
     }
 
     /**
@@ -434,8 +435,11 @@ public class Game {
      *
      * @param player the player that will place a card
      *               (place in the ArrayList of players)
+     * @param position the position where the card will be placed
+     *                 (place in the ArrayList of placedCards)
+     * @param card the card that will be placed
      */
-    public void placeCard(int player) {
+    public void placeCard(int player, int position, Card card) {
         if (this.hands.get(player).getCardPile().isEmpty()) {
             System.out.println("Vous n'avez pas de carte en main, vous ne pouvez pas en placer.");
         } else {
@@ -447,7 +451,16 @@ public class Game {
             int choice = 3;
             if (choice > 0 && choice < 13) {
                 if (choice <= this.hands.get(player).getCardPile().size()) {
-                    if (this.hands.get(player).getCardPile().get(choice) instanceof ObjectCard) {
+                    if (card instanceof ObjectCard) {
+                        if (this.players.get(player)
+                                .canUseObject((ObjectCard) card)) {
+                            this.placedCards.get(player).getCardPile()
+                                    .add(card);
+                            System.out.println("La carte " + card.getName() + " a été placée pour le joueur." + this.players.get(player).getName() + "à l'emplacement" + position);
+                            //this.hands.get(player).getCardPile().remove(choice - 1);
+                        }
+                    }
+                    /*if (this.hands.get(player).getCardPile().get(choice) instanceof ObjectCard) {
                         if (this.players.get(player)
                                 .canUseObject((ObjectCard) this.hands.get(player).getCardPile().get(choice - 1))) {
                             this.placedCards.get(player).getCardPile()
@@ -461,7 +474,7 @@ public class Game {
                         }
                     } else {
                         System.out.println("Vous n'avez pas cette carte en main.");
-                    }
+                    }*/
                 } else {
                     System.out.println("Vous n'avez pas cette carte en main.");
                 }
