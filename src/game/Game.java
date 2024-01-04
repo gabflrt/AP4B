@@ -467,9 +467,9 @@ public class Game {
                                     .add(this.hands.get(player).getCardPile().get(choice - 1));
                             this.hands.get(player).getCardPile().remove(choice - 1);
                         } else {
-                            System.out.println("Vous ne pouvez pas utiliser cette carte car vous devriez être "
-                                    + ((ObjectCard) this.hands.get(player).getCardPile().get(choice - 1))
-                                            .getClasseCondition()
+                            System.out.println("Vous ne pouvez pas utiliser cette carte car vous devriez être [inserer nom classe]."
+                                    //+ ((ObjectCard) this.hands.get(player).getCardPile().get(choice - 1))
+                                            //.getClasseCondition()
                                     + " pour l'utiliser.");
                         }
                     } else {

@@ -2,18 +2,18 @@ package game;
 
 class ObjectCard extends Card {
     private int strengthBonus;
-    private String classeCondition;
+    private String typeOfObject;
 
     ObjectCard() {
         super();
         this.strengthBonus = 0;
-        this.classeCondition = "";
+        this.typeOfObject = "";
     }
 
-    ObjectCard(String name, String description, String image, int strengthBonus, String classeCondition) {
+    ObjectCard(String name, String description, String image, int strengthBonus, String typeOfObject) {
         super(name, description, image);
         this.strengthBonus = strengthBonus;
-        this.classeCondition = classeCondition;
+        this.typeOfObject = typeOfObject;
     }
 
     /**
@@ -39,8 +39,8 @@ class ObjectCard extends Card {
      * 
      * @return the class condition of an object
      */
-    String getClasseCondition() {
-        return this.classeCondition;
+    String getTypeOfObject() {
+        return this.typeOfObject;
     }
 
 }
