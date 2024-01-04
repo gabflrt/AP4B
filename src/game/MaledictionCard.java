@@ -23,16 +23,16 @@ class MaledictionCard extends Card {
     void applyMaledictionPlayer(Player player) { // Method that will apply the malediction to the player
 
         switch (this.WhatLosingArmor) {
-            case "Casque":
+            case "Outil":
                 player.setHelmet("");
                 break;
-            case "Plastron":
+            case "Aide":
                 player.setChestplate("");
                 break;
-            case "Pantalon":
+            case "Materiel":
                 player.setLegging("");
                 break;
-            case "Bottes":
+            case "Equipement":
                 player.setBoots("");
                 break;
             default:
