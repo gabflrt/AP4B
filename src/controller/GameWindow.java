@@ -358,15 +358,17 @@ public class GameWindow {
             System.out.println(this.nbCardsToDraw);
             text.setText("Tu peux piocher " + this.nbCardsToDraw + " cartes.");
             // this.i = this.i + 1;
-            this.canDrawTreasure = true;
-            this.canDrawDungeon = false;
             if (this.nbCardsToDraw == 0) {
                 this.i = this.i + 1;
                 if (this.i == jeu.getNbPlayers()) {
                     this.i = 0;
                 }
+            }else{
+                    this.canDrawTreasure = true;
+                    this.canDrawDungeon = false;
+                }
             }
-        } else {
+        else {
             text.setText("Tu ne peux pas piocher de carte donjon.");
         }
 
@@ -494,12 +496,9 @@ public class GameWindow {
 
     }
 
-    @FXML
-    void placed1_1(ActionEvent event) {
-        System.out.println("AZIZ");
-        System.out.println(jeu.getNbPlayers());
+    void placed(int deck_position) {
         if (this.canPlaceCard) {
-            this.jeu.placeCard(this.i, 0, this.clickedCard);
+            this.jeu.placeCard(this.i, deck_position, this.clickedCard);
             update(jeu);
             this.canPlaceCard = false;
             if (this.nbCardsToDraw == 0) {
@@ -512,69 +511,99 @@ public class GameWindow {
         } else {
             text.setText("Tu ne peux pas placer de carte.");
         }
+    }
+
+    @FXML
+    void placed1_1(ActionEvent event) {
+        System.out.println("AZIZ");
+        System.out.println(jeu.getNbPlayers());
+        // if (this.canPlaceCard) {
+        // this.jeu.placeCard(this.i, 0, this.clickedCard);
+        // update(jeu);
+        // this.canPlaceCard = false;
+        // if (this.nbCardsToDraw == 0) {
+        // this.i = this.i + 1;
+        // if (this.i == jeu.getNbPlayers()) {
+        // this.i = 0;
+        // }
+        // this.canDrawDungeon = true;
+        // }
+        // } else {
+        // text.setText("Tu ne peux pas placer de carte.");
+        // }
+        placed(0);
     }
 
     @FXML
     void placed1_2(ActionEvent event) {
         System.out.println("AZIZ");
         System.out.println(jeu.getNbPlayers());
-        if (this.canPlaceCard) {
-            this.jeu.placeCard(this.i, 1, this.clickedCard);
-            update(jeu);
-            this.canPlaceCard = false;
-            if (this.nbCardsToDraw == 0) {
-                this.i = this.i + 1;
-                if (this.i == jeu.getNbPlayers()) {
-                    this.i = 0;
-                }
-                this.canDrawDungeon = true;
-            }
-        } else {
-            text.setText("Tu ne peux pas placer de carte.");
-        }
+        // if (this.canPlaceCard) {
+        // this.jeu.placeCard(this.i, 1, this.clickedCard);
+        // update(jeu);
+        // this.canPlaceCard = false;
+        // if (this.nbCardsToDraw == 0) {
+        // this.i = this.i + 1;
+        // if (this.i == jeu.getNbPlayers()) {
+        // this.i = 0;
+        // }
+        // this.canDrawDungeon = true;
+        // }
+        // } else {
+        // text.setText("Tu ne peux pas placer de carte.");
+        // }
+        placed(1);
+
     }
 
     @FXML
     void placed1_3(ActionEvent event) {
+        placed(2);
 
     }
 
     @FXML
     void placed1_4(ActionEvent event) {
+        placed(3);
 
     }
 
     @FXML
     void placed2_1(ActionEvent event) {
-        System.out.println(jeu.getNbPlayers());
-        if (this.canPlaceCard) {
-            this.jeu.placeCard(this.i, 0, this.clickedCard);
-            update(jeu);
-            this.canPlaceCard = false;
-            if (this.nbCardsToDraw == 0) {
-                this.i = this.i + 1;
-                if (this.i == jeu.getNbPlayers()) {
-                    this.i = 0;
-                }
-                this.canDrawDungeon = true;
-            }
-        } else {
-            text.setText("Tu ne peux pas placer de carte.");
-        }
+        // System.out.println(jeu.getNbPlayers());
+        // if (this.canPlaceCard) {
+        // this.jeu.placeCard(this.i, 0, this.clickedCard);
+        // update(jeu);
+        // this.canPlaceCard = false;
+        // if (this.nbCardsToDraw == 0) {
+        // this.i = this.i + 1;
+        // if (this.i == jeu.getNbPlayers()) {
+        // this.i = 0;
+        // }
+        // this.canDrawDungeon = true;
+        // }
+        // } else {
+        // text.setText("Tu ne peux pas placer de carte.");
+        // }
+        placed(0);
+
     }
 
     @FXML
     void placed2_2(ActionEvent event) {
+        placed(1);
 
     }
 
     @FXML
     void placed2_3(ActionEvent event) {
+        placed(2);
 
     }
 
     @FXML
     void placed2_4(ActionEvent event) {
+        placed(3);
 
     }
 
