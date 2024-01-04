@@ -170,6 +170,8 @@ public class GameWindow {
                 button.setGraphic(image);
                 if (this.i == i)
                     button.setStyle("-fx-background-color: #ff0000;");
+                else
+                    button.setStyle("-fx-background-color: #ffffff;");
 
             }
             for (int k = j; k < 4; k++) {
