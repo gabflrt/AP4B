@@ -14,10 +14,10 @@ public class Card {
     /**
      * Constructs an empty Card object.
      */
-    Card() {
+    public Card() {
         this.name = "";
         this.description = "";
-        this.image = "defaut.jpg";
+        this.image = "file:src/img/default.png";
     }
 
     /**

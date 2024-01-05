@@ -439,84 +439,94 @@ public class GameWindow {
         // ImageView(jeu.getHands().get(0).getCardPile().get(4).getImage());
     }
 
+    void player(int position) {
+        this.clickedCard = this.jeu.getHands().get(this.i).getCardPile().get(position);
+        this.jeu.getHands().get(this.i).getCardPile().set(position, new Card());
+        this.canPlaceCard = true;
+        update(jeu);
+    }
+
     @FXML
     void player1_1(ActionEvent event) {
-
+        player(0);
     }
 
     @FXML
     void player1_2(ActionEvent event) {
+        player(1);
 
     }
 
     @FXML
     void player1_3(ActionEvent event) {
+        player(2);
 
     }
 
     @FXML
     void player1_4(ActionEvent event) {
+        player(3);
 
     }
 
     @FXML
     void player2_1(ActionEvent event) {
-
+        player(0);
     }
 
     @FXML
     void player2_2(ActionEvent event) {
-
+        player(1);
     }
 
     @FXML
     void player2_3(ActionEvent event) {
-
+        player(2);
     }
 
     @FXML
     void player2_4(ActionEvent event) {
-
+        player(3);
     }
 
     @FXML
     void player3_1(ActionEvent event) {
-
+        player(0);
     }
 
     @FXML
     void player3_2(ActionEvent event) {
-
+        player(1);
     }
 
     @FXML
     void player3_3(ActionEvent event) {
-
+        player(2);
     }
 
     @FXML
     void player3_4(ActionEvent event) {
-
+        player(3);
     }
 
     @FXML
     void player4_1(ActionEvent event) {
-
+        player(0);
     }
 
     @FXML
     void player4_2(ActionEvent event) {
-
+        player(1);
     }
 
     @FXML
     void player4_3(ActionEvent event) {
-
+        player(2);
     }
 
     @FXML
     void player4_4(ActionEvent event) {
-
+        player(3);
     }
 
     void placed(int deck_position) {
