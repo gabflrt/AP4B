@@ -355,7 +355,7 @@ public class GameWindow {
             this.jeu.getPlayers().get(this.i).setStrength(10); // C'est pour les tests, à enlever à la fin
             this.nbCardsToDraw = jeu.drawDungeonCard(this.i);
             System.out.println(this.nbCardsToDraw);
-            text.setText("Tu peux piocher " + this.nbCardsToDraw + " cartes.");
+            text.setText("Tu peux piocher " + this.nbCardsToDraw + " cartes Trésor.");
             // this.i = this.i + 1;
             if (this.nbCardsToDraw == 0) {
                 this.i = this.i + 1;
@@ -380,7 +380,7 @@ public class GameWindow {
             if (this.nbCardsToDraw == 1) {
                 this.clickedCard = jeu.drawTreasureCard(this.i);
                 text.setText(
-                        "Tu ne peux plus piocher de cartes. \nC'est au prochain joueur de piocher une carte donjon");
+                        "Place la carte que tu viens de piocher\nTu ne peux plus piocher de cartes. \nC'est au prochain joueur de piocher une carte donjon");
                 /*
                  * this.i = this.i + 1;
                  * if (this.i == jeu.getNbPlayers()) {
@@ -394,7 +394,8 @@ public class GameWindow {
             } else if (this.nbCardsToDraw > 1) {
                 jeu.drawTreasureCard(this.i);
                 this.nbCardsToDraw = this.nbCardsToDraw - 1;
-                text.setText("Tu peux encore piocher " + this.nbCardsToDraw + " cartes.");
+                text.setText("Place la carte que tu viens de piocher\nPuis tu peux encore piocher " + this.nbCardsToDraw
+                        + " cartes.");
                 this.canPlaceCard = true;
             } else {
                 text.setText("Tu ne peux plus piocher de cartes.");
