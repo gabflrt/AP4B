@@ -124,6 +124,31 @@ public class GameWindow {
     @FXML
     private Label text;
 
+    @FXML
+    private Label Player1Level;
+
+    @FXML
+    private Label Player2Level;
+
+    @FXML
+    private Label Player3Level;
+
+    @FXML
+    private Label Player4Level;
+
+    @FXML
+    private Label Player1Strenght;
+
+    @FXML
+    private Label Player2Strenght;
+
+    @FXML
+    private Label Player3Strenght;
+
+    @FXML
+    private Label Player4Strenght;
+
+
     private game.Game jeu;
     private int i = 0; // Position du joueur dans le jeu
     private int nbCardsToDraw = 0; // Nombre de cartes à piocher
@@ -326,6 +351,7 @@ public class GameWindow {
          * this.i = 0;
          * }
          */
+        refreshStats();
         if (this.canDrawDungeon && !this.canPlaceCard) {
             this.jeu.getPlayers().get(this.i).setStrength(10); // C'est pour les tests, à enlever à la fin
             this.nbCardsToDraw = jeu.drawDungeonCard(this.i);
@@ -447,6 +473,7 @@ public class GameWindow {
     void player3_4(ActionEvent event) {
 
     }
+
 
     @FXML
     void player4_1(ActionEvent event) {
@@ -661,4 +688,19 @@ public class GameWindow {
 
     }
 
+    @FXML
+    void refreshStats() {
+        Player1Level.setText("Niveau : " + jeu.getPlayers().get(0).getLevel());
+        Player2Level.setText("Niveau : " + jeu.getPlayers().get(1).getLevel());
+        Player3Level.setText("Niveau : " + jeu.getPlayers().get(2).getLevel());
+        Player4Level.setText("Niveau : " + jeu.getPlayers().get(3).getLevel());
+
+        Player1Strenght.setText("Intelligence : " + jeu.getPlayers().get(0).getStrength());
+        Player2Strenght.setText("Intelligence : " + jeu.getPlayers().get(1).getStrength());
+        Player3Strenght.setText("Intelligence : " + jeu.getPlayers().get(2).getStrength());
+        Player4Strenght.setText("Intelligence : " + jeu.getPlayers().get(3).getStrength());
+    }
+
 }
+
+
