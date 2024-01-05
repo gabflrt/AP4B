@@ -154,6 +154,7 @@ public class GameWindow {
     private game.Card clickedCard;
     private boolean canDrawTreasure, canPlaceCard = false;
     private boolean canDrawDungeon = true;
+    private int showCardPile = 0;
 
     private Map<String, Button> buttonMap = new HashMap<>();
 
@@ -249,6 +250,9 @@ public class GameWindow {
         if (!jeu.getDrawPileDungeon().isEmpty()) {
             imageDrawDungeon = new ImageView("file:src/img/donjon.png");
         }
+        if (this.showCardPile == 1) {
+            imageDrawDungeon = new ImageView(this.clickedCard.getImage());
+        }
         imageDrawDungeon.setFitHeight(cardHeightDraw);
         imageDrawDungeon.setFitWidth(cardWidthDraw);
         buttonDrawDungeon.setGraphic(imageDrawDungeon);
@@ -273,6 +277,9 @@ public class GameWindow {
         ImageView imageDrawTreasure = new ImageView("file:src/img/tresor.png");
         if (!jeu.getDrawPileTreasure().isEmpty()) {
             imageDrawTreasure = new ImageView("file:src/img/tresor.png");
+        }
+        if (this.showCardPile == 2) {
+            imageDrawTreasure = new ImageView(this.clickedCard.getImage());
         }
         imageDrawTreasure.setFitHeight(cardHeightDraw);
         imageDrawTreasure.setFitWidth(cardWidthDraw);
@@ -365,6 +372,7 @@ public class GameWindow {
             this.jeu.getPlayers().get(this.i).setStrength(10); // C'est pour les tests, à enlever à la fin
             this.nbCardsToDraw = jeu.drawDungeonCard(this.i);
             System.out.println(this.nbCardsToDraw);
+            // this.showCardPile = 1;
             text.setText("Tu peux piocher " + this.nbCardsToDraw + " cartes Trésor.");
             // this.i = this.i + 1;
             if (this.nbCardsToDraw == 0) {
@@ -389,6 +397,8 @@ public class GameWindow {
         if (this.canDrawTreasure && !this.canPlaceCard) {
             if (this.nbCardsToDraw == 1) {
                 this.clickedCard = jeu.drawTreasureCard(this.i);
+                this.showCardPile = 2;
+
                 text.setText(
                         "Place la carte que tu viens de piocher\nTu ne peux plus piocher de cartes. \nC'est au prochain joueur de piocher une carte donjon");
                 /*
@@ -403,6 +413,8 @@ public class GameWindow {
                 this.canPlaceCard = true;
             } else if (this.nbCardsToDraw > 1) {
                 jeu.drawTreasureCard(this.i);
+                this.showCardPile = 2;
+
                 this.nbCardsToDraw = this.nbCardsToDraw - 1;
                 text.setText("Place la carte que tu viens de piocher\nPuis tu peux encore piocher " + this.nbCardsToDraw
                         + " cartes.");
@@ -511,6 +523,7 @@ public class GameWindow {
         if (this.canPlaceCard) {
             this.jeu.placeCard(this.i, deck_position, this.clickedCard);
             this.canPlaceCard = false;
+            this.showCardPile = 0;
             if (this.nbCardsToDraw == 0) {
                 this.i = this.i + 1;
                 if (this.i == jeu.getNbPlayers()) {
