@@ -337,12 +337,11 @@ public class GameWindow {
                 if (this.i == jeu.getNbPlayers()) {
                     this.i = 0;
                 }
-            }else{
-                    this.canDrawTreasure = true;
-                    this.canDrawDungeon = false;
-                }
+            } else {
+                this.canDrawTreasure = true;
+                this.canDrawDungeon = false;
             }
-        else {
+        } else {
             text.setText("Tu ne peux pas piocher de carte donjon.");
         }
 
