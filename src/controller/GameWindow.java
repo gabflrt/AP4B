@@ -207,6 +207,10 @@ public class GameWindow {
                 button.setGraphic(image);
                 button.setPrefSize(0, 0);
                 button.setGraphic(image);
+                if (this.i == i)
+                    button.setStyle("-fx-background-color: #ff0000;");
+                else
+                    button.setStyle("-fx-background-color: #ffffff;");
             }
 
             for (j = 0; j < jeu.getPlacedCards().get(i).getCardPile().size(); j++) {
@@ -220,6 +224,8 @@ public class GameWindow {
                 button.setGraphic(image2);
                 button.setPrefSize(0, 0);
                 button.setGraphic(image2);
+                button.setStyle("-fx-background-color: #ffffff;");
+
             }
 
             for (int k = j; k < 4; k++) {
@@ -231,6 +237,10 @@ public class GameWindow {
                 button.setGraphic(image2);
                 button.setPrefSize(0, 0);
                 button.setGraphic(image2);
+                if (this.i == i && this.canPlaceCard)
+                    button.setStyle("-fx-background-color: #00ff00;");
+                else
+                    button.setStyle("-fx-background-color: #ffffff;");
             }
         }
 
