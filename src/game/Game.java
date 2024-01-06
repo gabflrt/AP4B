@@ -456,10 +456,14 @@ public class Game {
                     if (card instanceof ObjectCard) {
                         if (this.players.get(player)
                                 .canUseObject((ObjectCard) card)) {
-                            this.placedCards.get(player).getCardPile()
-                                    .add(card);
-                            System.out.println("La carte " + card.getName() + " a été placée pour le joueur."
-                                    + this.players.get(player).getName() + "à l'emplacement" + position);
+                            if(!this.placedCards.get(player).checkTypeOfObject(card)) {
+                                this.placedCards.get(player).getCardPile()
+                                        .add(card);
+                                System.out.println("La carte " + card.getName() + " a été placée pour le joueur."
+                                        + this.players.get(player).getName() + "à l'emplacement" + position);
+                            }
+                            }
+
                             // this.hands.get(player).getCardPile().remove(choice - 1);
                         }
                     }
@@ -487,7 +491,6 @@ public class Game {
                 }
             }
         }
-    }
 
     /**
      * This method will check if a player is level 10.
