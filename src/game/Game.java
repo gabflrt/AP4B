@@ -392,8 +392,9 @@ public class Game {
      * If the player draws another card, it will add it to his hand.
      * 
      * @param player the player that will draw a card
+     * @return the number of cards that the player will draw
      */
-    public int drawDungeonCard(int player) {
+    /*public int drawDungeonCard(int player) {
         Card card = this.drawPileDungeon.pickCardPile();
         if (this.drawPileDungeon.getCardPile().isEmpty()) {
             this.drawPileDungeon.generateDungeonPile();
@@ -408,6 +409,22 @@ public class Game {
             System.out.println("Une autre carte a été piochée.");
         }
         return 0;
+    }*/
+
+    /**
+     * This method will make a player draw a card from the dungeon pile.
+     *
+     * @param player the player that will draw a card
+     * @return the card that the player will draw
+     */
+    public Card drawDungeonCard(int player) {
+        Card card = this.drawPileDungeon.pickCardPile();
+        if (this.drawPileDungeon.getCardPile().isEmpty()) {
+            this.drawPileDungeon.generateDungeonPile();
+        }
+        // this.hands.get(player).getCardPile().add(card);
+        // placeCard(player);
+        return card;
     }
 
     /**
@@ -415,6 +432,7 @@ public class Game {
      * It will add the card to his hand.
      * 
      * @param player the player that will draw a card
+     * @return the card that the player will draw
      */
     public Card drawTreasureCard(int player) {
         Card card = this.drawPileTreasure.pickCardPile();
