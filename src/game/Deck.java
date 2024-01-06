@@ -37,6 +37,25 @@ public class Deck extends CardPile {
     }
 
     /**
+     * This method will check all the cards of the deck and will return true if the
+     * player has already a card with the same typeOfObject in his deck.
+     *
+     * @param card the card that we want to check
+     * @return true if the player has already a card with the same typeOfObject in his deck, false otherwise.
+     */
+    public boolean checkTypeOfObject(Card card) {
+        for (int i = 0; i < this.getCardPile().size(); i++) {
+            if (this.getCardPile().get(i) instanceof ObjectCard) {
+                if (((ObjectCard) this.getCardPile().get(i)).getTypeOfObject()
+                        .equals(((ObjectCard) card).getTypeOfObject())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
      * This method is a toString method that will print the deck of the player.
      *
      * @return a string with the deck of the player.
