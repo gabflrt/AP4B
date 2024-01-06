@@ -2,7 +2,7 @@ package game;
 
 import javafx.scene.image.ImageView;
 
-class MobCard extends Card {
+public class MobCard extends Card {
     private int strength; // Strength of the mob
     private int nbLevelEarned; // Number of level earned when the mob is defeated
     private int NbTreasureCardToDraw; // Number of treasure card to draw
@@ -43,11 +43,11 @@ class MobCard extends Card {
      *
      * @return the strength of a mob
      */
-    int getStrength() {
+    public int getStrength() {
         return this.strength;
     }
 
-    int getNbLevelEarned() {
+    public int getNbLevelEarned() {
         return this.nbLevelEarned;
     }
 
@@ -55,7 +55,7 @@ class MobCard extends Card {
         return this.NbTreasureCardToDraw;
     }
 
-    int getHowManyLosingLevel() {
+    public int getHowManyLosingLevel() {
         return this.HowManyLosingLevel;
     }
 

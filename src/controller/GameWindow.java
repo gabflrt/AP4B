@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import java.util.HashMap;
 import java.util.Map;
 
+
 import game.*;
 
 public class GameWindow {
@@ -114,6 +115,9 @@ public class GameWindow {
 
     @FXML
     private Button DiscardTreasure;
+
+    @FXML
+    private Button placed_mob;
 
     @FXML
     private Button DrawDungeon;
@@ -300,6 +304,8 @@ public class GameWindow {
          * buttonDiscardTreasure.setGraphic(imageDiscardTreasure);
          */
 
+
+
     }
 
     @FXML
@@ -344,6 +350,9 @@ public class GameWindow {
         buttonMap.put("placed4_3", placed4_3);
         buttonMap.put("placed4_4", placed4_4);
 
+        buttonMap.put("place_mob", placed_mob);
+
+
     }
 
     @FXML
@@ -368,7 +377,7 @@ public class GameWindow {
          * }
          */
         if (this.canDrawDungeon && !this.canPlaceCard) {
-            this.jeu.getPlayers().get(this.i).setStrength(10); // C'est pour les tests, à enlever à la fin
+            //this.jeu.getPlayers().get(this.i).setStrength(10); // C'est pour les tests, à enlever à la fin
             this.nbCardsToDraw = jeu.drawDungeonCard(this.i);
             System.out.println(this.nbCardsToDraw);
             // this.showCardPile = 1;
@@ -530,9 +539,47 @@ public class GameWindow {
 
     void placed(int deck_position) {
         if (this.canPlaceCard) {
-            this.jeu.placeCard(this.i, deck_position, this.clickedCard);
+            if (!(this.clickedCard instanceof MobCard)) {
+                this.jeu.placeCard(this.i, deck_position, this.clickedCard);
+
+
+                if (this.clickedCard instanceof ObjectCard card) {
+                    switch (card.getTypeOfObject()) {
+                        case "Outil" -> this.jeu.getPlayers().get(this.i).setOutil(card);
+                        case "Materiel" -> this.jeu.getPlayers().get(this.i).setMateriel(card);
+                        case "Aide" -> this.jeu.getPlayers().get(this.i).setAide(card);
+                        case "Equipement" -> this.jeu.getPlayers().get(this.i).setEquipement(card);
+                    }
+                    text.setText("Plus " + card.getStrenghtBonus() + " d'intelligence");
+                }
+
+            }
+            else {
+
+                Button buttonPlaced_mob = placed_mob;
+                ImageView imagePlaced_mob = new ImageView(this.clickedCard.getImage());
+                imagePlaced_mob.setFitHeight(100);
+                imagePlaced_mob.setFitWidth(80);
+                buttonPlaced_mob.setGraphic(imagePlaced_mob);
+                buttonPlaced_mob.setPrefSize(0, 0);
+                buttonPlaced_mob.setGraphic(imagePlaced_mob);
+
+                text.setText("Partiel !! \n " +
+                        "Intelligence requise : " + ((MobCard) this.clickedCard).getStrength() + " \n" +
+                        "Ton intelligence : " + this.jeu.getPlayers().get(this.i).getStrength());
+                if ((jeu.fightMob(this.i, (MobCard) this.clickedCard) > 0)) {
+                    text.setText("Tu as gagné le combat ! \n" +
+                            "Tu gagnes " + ((MobCard) this.clickedCard).getNbLevelEarned() + " niveau");
+                } else {
+                    text.setText("Tu as perdu le combat ! \n" +
+                            "Tu perds " + ((MobCard) this.clickedCard).getHowManyLosingLevel() + " niveau");
+                }
+
+
+            }
             this.canPlaceCard = false;
             this.showCardPile = 0;
+
             if (this.nbCardsToDraw == 0) {
                 this.i = this.i + 1;
                 if (this.i == jeu.getNbPlayers()) {
@@ -540,15 +587,7 @@ public class GameWindow {
                 }
                 this.canDrawDungeon = true;
             }
-            if (this.clickedCard instanceof ObjectCard card) {
-                switch (card.getTypeOfObject()) {
-                    case "Outil" -> this.jeu.getPlayers().get(this.i - 1).setOutil(card);
-                    case "Materiel" -> this.jeu.getPlayers().get(this.i - 1).setMateriel(card);
-                    case "Aide" -> this.jeu.getPlayers().get(this.i - 1).setAide(card);
-                    case "Equipement" -> this.jeu.getPlayers().get(this.i - 1).setEquipement(card);
-                }
-                text.setText("Plus" + card.getStrenghtBonus() + " d'intelligence");
-                        }
+
             refreshStats();
             update(jeu);
 
@@ -557,6 +596,8 @@ public class GameWindow {
             text.setText("Tu ne peux pas placer de carte.");
         }
     }
+
+
 
     @FXML
     void placed1_1(ActionEvent event) {
@@ -741,6 +782,10 @@ public class GameWindow {
     @FXML
     void placed4_4(ActionEvent event) {
         placed(3);
+    }
+
+    @FXML
+    void placed_mob(ActionEvent event) {
     }
 
     @FXML

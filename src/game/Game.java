@@ -312,22 +312,14 @@ public class Game {
      * @param mob    the monster that the player will fight
      */
     public int fightMob(int player, MobCard mob) {
-        // this.players.get(player).setStrength(3);
-        // calculateTotalStrength(player);
-        System.out.println(this.players.get(player).getName() + " passe le final de " + mob.getName() + ".");
-        System.out.println("Vous avez "
-                + (this.players.get(player).getStrength() + this.placedCards.get(player).calculateStrength())
-                + " d'intelligence.");
-        System.out.println("L'UV nécessite " + mob.getStrength() + " d'intelligence.");
-        System.out.println("Vous avez actuellement " + calculateTotalStrength(player) + " d'intelligence.");
-        System.out.println("");
 
         // if (this.players.get(player).getStrength() +
         // this.placedCards.get(player).calculateStrength() > mob
         // .getStrength()) {
-        if (calculateTotalStrength(player) > mob.getStrength()) {
+        if (this.players.get(player).getStrength() > mob.getStrength()) {
             this.players.get(player).setLevel(this.players.get(player).getLevel() + mob.getNbLevelEarned());
-            this.players.get(player).setStrength(this.players.get(player).getStrength() + mob.getNbLevelEarned());
+
+
             System.out.println("Succès !");
             System.out.println("Après délibération, le jury de l'UV " + mob.getName() + " vous attribue l'UV.");
             System.out.println("Note ECTS : A");
@@ -338,7 +330,7 @@ public class Game {
              * drawTreasureCard(player);
              * }
              */
-            System.out.println("Votre force est désormais de " + calculateTotalStrength(player) + ".");
+            System.out.println("Votre force est de " + this.players.get(player).getStrength() + ".");
             // checkIfPlayerWin(player);
             return mob.getNbTreasureCardToDraw();
         } else {
@@ -350,8 +342,8 @@ public class Game {
                 System.out.println("Note ECTS : E");
             } else {
                 System.out.println("Passage au jury raté !");
-                if ((this.players.get(player).getLevel() - mob.getHowManyLosingLevel()) < 0) {
-                    this.players.get(player).setLevel(0);
+                if ((this.players.get(player).getLevel() - mob.getHowManyLosingLevel()) < 1) {
+                    this.players.get(player).setLevel(1);
                 } else {
                     this.players.get(player)
                             .setLevel(this.players.get(player).getLevel() - mob.getHowManyLosingLevel());
@@ -360,18 +352,18 @@ public class Game {
                 }
                 switch (mob.getWhatLosingArmor()) {
                     case "Outil":
-                        this.players.get(player).setOutil(new ObjectCard("", "", "file:src/img/default", 0, "outil"));
+                        this.players.get(player).setOutil(new ObjectCard("", "", "file:src/img/default", 0, "Outil"));
                         break;
                     case "Materiel":
                         this.players.get(player).setMateriel(new ObjectCard("", "", "file:src/img/default", 0,
-                                "materiel"));
+                                "Materiel"));
                         break;
                     case "Equipement":
                         this.players.get(player).setEquipement(new ObjectCard("", "", "file:src/img/default", 0,
-                                "equipement"));
+                                "Equipement"));
                         break;
                     case "Aide":
-                        this.players.get(player).setAide(new ObjectCard("", "", "file:src/img/default", 0, "aide"));
+                        this.players.get(player).setAide(new ObjectCard("", "", "file:src/img/default", 0, "Aide"));
                         break;
                     default:
                         break;
@@ -380,6 +372,7 @@ public class Game {
                         "Après délibération, le jury de l'UV " + mob.getName() + " ne vous attribue pas l'UV.");
                 System.out.println(("Vous êtes désormais niveau " + this.players.get(player).getLevel() + "."));
                 System.out.println("Note ECTS : F");
+                return 0;
             }
             return 0;
         }
@@ -514,8 +507,4 @@ public class Game {
      *               (place in the ArrayList of players)
      * @return the total strength of the player
      */
-    public int calculateTotalStrength(int player) {
-        return this.players.get(player).getStrength() + this.placedCards.get(player).calculateStrength();
-        // return this.placedCards.get(player).calculateStrength();
-    }
 }

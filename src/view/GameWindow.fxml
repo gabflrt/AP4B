@@ -39,9 +39,10 @@
       <Button fx:id="placed2_4" layoutX="1160.0" layoutY="546.0" mnemonicParsing="false" onAction="#placed2_4" prefHeight="150.0" prefWidth="120.0" />
       <Button fx:id="placed2_3" layoutX="1160.0" layoutY="384.0" mnemonicParsing="false" onAction="#placed2_3" prefHeight="150.0" prefWidth="120.0" />
       <Button fx:id="player2_3" layoutX="1300.0" layoutY="384.0" mnemonicParsing="false" onAction="#player2_3" prefHeight="150.0" prefWidth="120.0" />
-
-
       <Button fx:id="player4_4" layoutX="0.0" layoutY="546.0" mnemonicParsing="false" onAction="#player4_4" prefHeight="150.0" prefWidth="120.0" />
+
+      <Button fx:id="placed_mob" layoutX="680.0" layoutY="340.0" mnemonicParsing="false" onAction="#placed_mob" prefHeight="100.0" prefWidth="80.0" />
+
       <Button fx:id="DrawDungeon" layoutX="780" layoutY="340.0" mnemonicParsing="false" onAction="#DrawDungeon" prefHeight="100.0" prefWidth="80.0" />
       <!-- <Button fx:id="DiscardDungeon" layoutX="602.0" layoutY="300.0" mnemonicParsing="false" onAction="#DiscardDungeon" prefHeight="150.0" prefWidth="120.0" />-->
       <Button fx:id="DrawTreasure" layoutX="880.0" layoutY="340.0" mnemonicParsing="false" onAction="#DrawTreasure" prefHeight="100.0" prefWidth="80.0" />

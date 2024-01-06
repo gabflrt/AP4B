@@ -15,21 +15,21 @@ public class DrawPile extends CardPile {
     void generateDungeonPile() {
         if (this.getCardPile().isEmpty()) {
             for (int i = 0; i < 15; i++) {
-                this.getCardPile().add(new MobCard("MTA", "Maths", "file:src/img/UE/MTA.png", 1, 1, 1, "", 0));
+                this.getCardPile().add(new MobCard("MTA", "Maths", "file:src/img/UE/MTA.png", 3, 1, 1, "", 0));
             }
             for (int i = 0; i < 15; i++) {
                 this.getCardPile()
-                        .add(new MobCard("AP4A", "Info", "file:src/img/UE/AP4A.png", 6, 2, 2, "", 1));
-            }
-
-            for (int i = 0; i < 15; i++) {
-                this.getCardPile()
-                        .add(new MobCard("WE4A", "Info", "file:src/img/UE/WE4A.png", 4, 1, 1, "", 2));
+                        .add(new MobCard("AP4A", "Info", "file:src/img/UE/AP4A.png", 8, 2, 2, "", 1));
             }
 
             for (int i = 0; i < 15; i++) {
                 this.getCardPile()
-                        .add(new MobCard("PS28", "Energie", "file:src/img/UE/PS28.png", 3, 1, 1, "", 0));
+                        .add(new MobCard("WE4A", "Info", "file:src/img/UE/WE4A.png", 6, 1, 1, "", 2));
+            }
+
+            for (int i = 0; i < 15; i++) {
+                this.getCardPile()
+                        .add(new MobCard("PS28", "Energie", "file:src/img/UE/PS28.png", 4, 1, 1, "", 0));
             }
 
             for (int i = 0; i < 5; i++) {
