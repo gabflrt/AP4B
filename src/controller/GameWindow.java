@@ -259,20 +259,6 @@ public class GameWindow {
         buttonDrawDungeon.setPrefSize(0, 0);
         buttonDrawDungeon.setGraphic(imageDrawDungeon);
 
-        /*
-         * Button buttonDiscardDungeon = DiscardDungeon;
-         * ImageView imageDiscardDungeon = new ImageView("file:src/img/donjon.png");
-         * if (!jeu.getDiscardPileDungeon().isEmpty()) {
-         * imageDiscardDungeon = new ImageView("file:src/img/donjon.png");
-         * }
-         * imageDiscardDungeon.setFitHeight(cardHeight);
-         * imageDiscardDungeon.setFitWidth(cardWidth);
-         * buttonDiscardDungeon.setGraphic(imageDiscardDungeon);
-         * buttonDiscardDungeon.setPrefSize(0, 0);
-         * buttonDiscardDungeon.setGraphic(imageDiscardDungeon);
-         * 
-         */
-
         Button buttonDrawTreasure = DrawTreasure;
         ImageView imageDrawTreasure = new ImageView("file:src/img/tresor.png");
         if (!jeu.getDrawPileTreasure().isEmpty()) {
@@ -286,19 +272,6 @@ public class GameWindow {
         buttonDrawTreasure.setGraphic(imageDrawTreasure);
         buttonDrawTreasure.setPrefSize(0, 0);
         buttonDrawTreasure.setGraphic(imageDrawTreasure);
-
-        /*
-         * Button buttonDiscardTreasure = DiscardTreasure;
-         * ImageView imageDiscardTreasure = new ImageView("file:src/img/tresor.png");
-         * if (!jeu.getDiscardPileTreasure().isEmpty()) {
-         * imageDiscardTreasure = new ImageView("file:src/img/tresor.png");
-         * }
-         * imageDiscardTreasure.setFitHeight(cardHeight);
-         * imageDiscardTreasure.setFitWidth(cardWidth);
-         * buttonDiscardTreasure.setGraphic(imageDiscardTreasure);
-         * buttonDiscardTreasure.setPrefSize(0, 0);
-         * buttonDiscardTreasure.setGraphic(imageDiscardTreasure);
-         */
 
     }
 
@@ -563,43 +536,11 @@ public class GameWindow {
 
     @FXML
     void placed1_1(ActionEvent event) {
-        System.out.println("AZIZ");
-        System.out.println(jeu.getNbPlayers());
-        // if (this.canPlaceCard) {
-        // this.jeu.placeCard(this.i, 0, this.clickedCard);
-        // update(jeu);
-        // this.canPlaceCard = false;
-        // if (this.nbCardsToDraw == 0) {
-        // this.i = this.i + 1;
-        // if (this.i == jeu.getNbPlayers()) {
-        // this.i = 0;
-        // }
-        // this.canDrawDungeon = true;
-        // }
-        // } else {
-        // text.setText("Tu ne peux pas placer de carte.");
-        // }
         placed(0);
     }
 
     @FXML
     void placed1_2(ActionEvent event) {
-        System.out.println("AZIZ");
-        System.out.println(jeu.getNbPlayers());
-        // if (this.canPlaceCard) {
-        // this.jeu.placeCard(this.i, 1, this.clickedCard);
-        // update(jeu);
-        // this.canPlaceCard = false;
-        // if (this.nbCardsToDraw == 0) {
-        // this.i = this.i + 1;
-        // if (this.i == jeu.getNbPlayers()) {
-        // this.i = 0;
-        // }
-        // this.canDrawDungeon = true;
-        // }
-        // } else {
-        // text.setText("Tu ne peux pas placer de carte.");
-        // }
         placed(1);
 
     }
@@ -618,21 +559,6 @@ public class GameWindow {
 
     @FXML
     void placed2_1(ActionEvent event) {
-        // System.out.println(jeu.getNbPlayers());
-        // if (this.canPlaceCard) {
-        // this.jeu.placeCard(this.i, 0, this.clickedCard);
-        // update(jeu);
-        // this.canPlaceCard = false;
-        // if (this.nbCardsToDraw == 0) {
-        // this.i = this.i + 1;
-        // if (this.i == jeu.getNbPlayers()) {
-        // this.i = 0;
-        // }
-        // this.canDrawDungeon = true;
-        // }
-        // } else {
-        // text.setText("Tu ne peux pas placer de carte.");
-        // }
         placed(0);
 
     }
@@ -657,21 +583,6 @@ public class GameWindow {
 
     @FXML
     void placed3_1(ActionEvent event) {
-        // System.out.println(jeu.getNbPlayers());
-        // if (this.canPlaceCard) {
-        // this.jeu.placeCard(this.i, 0, this.clickedCard);
-        // update(jeu);
-        // this.canPlaceCard = false;
-        // if (this.nbCardsToDraw == 0) {
-        // this.i = this.i + 1;
-        // if (this.i == jeu.getNbPlayers()) {
-        // this.i = 0;
-        // }
-        // this.canDrawDungeon = true;
-        // }
-        // } else {
-        // text.setText("Tu ne peux pas placer de carte.");
-        // }
         placed(0);
     }
 
@@ -695,21 +606,6 @@ public class GameWindow {
 
     @FXML
     void placed4_1(ActionEvent event) {
-        // System.out.println("placed4_1");
-        // if (this.canPlaceCard) {
-        // this.jeu.placeCard(this.i, 0, this.clickedCard);
-        // update(jeu);
-        // this.canPlaceCard = false;
-        // if (this.nbCardsToDraw == 0) {
-        // this.i = this.i + 1;
-        // if (this.i == jeu.getNbPlayers()) {
-        // this.i = 0;
-        // }
-        // this.canDrawDungeon = true;
-        // }
-        // } else {
-        // text.setText("Tu ne peux pas placer de carte.");
-        // }
         placed(0);
 
     }
@@ -722,22 +618,6 @@ public class GameWindow {
 
     @FXML
     void placed4_3(ActionEvent event) {
-        // System.out.println("placed4_3");
-        // if (this.canPlaceCard) {
-        // this.jeu.placeCard(this.i, 2, this.clickedCard);
-        // update(jeu);
-        // this.canPlaceCard = false;
-        // if (this.nbCardsToDraw == 0) {
-        // this.i = this.i + 1;
-        // if (this.i == jeu.getNbPlayers()) {
-        // this.i = 0;
-        // }
-        // this.canDrawDungeon = true;
-        // }
-        // } else {
-        // text.setText("Tu ne peux pas placer de carte.");
-        // }
-
         placed(2);
     }
 
