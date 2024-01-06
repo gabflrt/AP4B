@@ -48,17 +48,17 @@
       <!--<Button fx:id="DiscardTreasure" layoutX="849.0" layoutY="300.0" mnemonicParsing="false" onAction="#DiscardTreasure" prefHeight="150.0" prefWidth="120.0" />-->
       <Label fx:id="text" layoutX="455.0" layoutY="347.0" prefHeight="89.0" prefWidth="307.0" text="Tu peux piocher une carte Donjon." textAlignment="CENTER" />
 
-      <Label fx:id="Player1Level" layoutX="990.0" layoutY="0.0" prefHeight="30.0" prefWidth="200.0" text="Niveau :" textAlignment="CENTER" />
-      <Label fx:id="Player1Strenght" layoutX="990.0" layoutY="30.0" prefHeight="30.0" prefWidth="200.0" text="Intelligence :" textAlignment="CENTER" />
+      <Label fx:id="Player1Level" layoutX="990.0" layoutY="0.0" prefHeight="30.0" prefWidth="200.0" text="Niveau : 1" textAlignment="CENTER" />
+      <Label fx:id="Player1Strenght" layoutX="990.0" layoutY="30.0" prefHeight="30.0" prefWidth="200.0" text="Intelligence : 1" textAlignment="CENTER" />
 
-      <Label fx:id="Player2Level" layoutX="1160.0" layoutY="700.0" prefHeight="30.0" prefWidth="200.0" text="Niveau :" textAlignment="CENTER" />
-      <Label fx:id="Player2Strenght" layoutX="1160.0" layoutY="730.0" prefHeight="30.0" prefWidth="200.0" text="Intelligence :" textAlignment="CENTER" />
+      <Label fx:id="Player2Level" layoutX="1160.0" layoutY="700.0" prefHeight="30.0" prefWidth="200.0" text="Niveau : 1" textAlignment="CENTER" />
+      <Label fx:id="Player2Strenght" layoutX="1160.0" layoutY="730.0" prefHeight="30.0" prefWidth="200.0" text="Intelligence : 1" textAlignment="CENTER" />
 
-      <Label fx:id="Player3Level" layoutX="340.0" layoutY="710.0" prefHeight="30.0" prefWidth="200.0" text="Niveau :" textAlignment="CENTER" />
-      <Label fx:id="Player3Strenght" layoutX="340.0" layoutY="740.0" prefHeight="30.0" prefWidth="200.0" text="Intelligence :" textAlignment="CENTER" />
+      <Label fx:id="Player3Level" layoutX="340.0" layoutY="710.0" prefHeight="30.0" prefWidth="200.0" text="Niveau : 1" textAlignment="CENTER" />
+      <Label fx:id="Player3Strenght" layoutX="340.0" layoutY="740.0" prefHeight="30.0" prefWidth="200.0" text="Intelligence : 1" textAlignment="CENTER" />
 
-      <Label fx:id="Player4Level" layoutX="10.0" layoutY="0.0" prefHeight="30.0" prefWidth="200.0" text="Niveau :" textAlignment="CENTER" />
-      <Label fx:id="Player4Strenght" layoutX="10.0" layoutY="25.0" prefHeight="30.0" prefWidth="200.0" text="Intelligence :" textAlignment="CENTER" />
+      <Label fx:id="Player4Level" layoutX="10.0" layoutY="0.0" prefHeight="30.0" prefWidth="200.0" text="Niveau : 1" textAlignment="CENTER" />
+      <Label fx:id="Player4Strenght" layoutX="10.0" layoutY="25.0" prefHeight="30.0" prefWidth="200.0" text="Intelligence : 1" textAlignment="CENTER" />
 
    </children>
 </AnchorPane>

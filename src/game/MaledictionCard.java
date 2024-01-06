@@ -24,16 +24,18 @@ class MaledictionCard extends Card {
 
         switch (this.WhatLosingArmor) {
             case "Outil":
-                player.setHelmet("");
-                break;
-            case "Aide":
-                player.setChestplate("");
+                player.setOutil(new ObjectCard("", "", "file:src/img/default", 0, "outil"));
                 break;
             case "Materiel":
-                player.setLegging("");
+                player.setMateriel(new ObjectCard("", "", "file:src/img/default", 0,
+                        "materiel"));
                 break;
             case "Equipement":
-                player.setBoots("");
+                player.setEquipement(new ObjectCard("", "", "file:src/img/default", 0,
+                        "equipement"));
+                break;
+            case "Aide":
+                player.setAide(new ObjectCard("", "", "file:src/img/default", 0, "aide"));
                 break;
             default:
                 break;

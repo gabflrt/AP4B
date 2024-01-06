@@ -65,17 +65,19 @@ class MobCard extends Card {
 
     void looseFight(Player player) {
         switch (this.WhatLosingArmor) {
-            case "Casque":
-                player.setHelmet("");
+            case "Outil":
+                player.setOutil(new ObjectCard("", "", "file:src/img/default", 0, "outil"));
                 break;
-            case "Plastron":
-                player.setChestplate("");
+            case "Materiel":
+                player.setMateriel(new ObjectCard("", "", "file:src/img/default", 0,
+                        "materiel"));
                 break;
-            case "Pantalon":
-                player.setLegging("");
+            case "Equipement":
+                player.setEquipement(new ObjectCard("", "", "file:src/img/default", 0,
+                        "equipement"));
                 break;
-            case "Bottes":
-                player.setBoots("");
+            case "Aide":
+                player.setAide(new ObjectCard("", "", "file:src/img/default", 0, "aide"));
                 break;
             default:
                 break;

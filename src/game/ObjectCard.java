@@ -1,6 +1,6 @@
 package game;
 
-class ObjectCard extends Card {
+public class ObjectCard extends Card {
     private int strengthBonus;
     private String typeOfObject;
 
@@ -18,10 +18,10 @@ class ObjectCard extends Card {
 
     /**
      * Getter for the strength bonus of an object
-     * 
+     *
      * @return the strength bonus of an object
      */
-    int getStrengthBonus() {
+   public int getStrenghtBonus() {
         return this.strengthBonus;
     }
 
@@ -39,7 +39,7 @@ class ObjectCard extends Card {
      * 
      * @return the class condition of an object
      */
-    String getTypeOfObject() {
+    public String getTypeOfObject() {
         return this.typeOfObject;
     }
 

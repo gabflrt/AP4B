@@ -7,7 +7,7 @@ public class Player {
     private int level, strength;
     private String race, classe;
     private Boolean sex;
-    private String helmet, chestplate, legging, boots;
+    private String outil, materiel, aide, equipement;
 
     Player() {
         this.name = "";
@@ -16,10 +16,10 @@ public class Player {
         this.race = "";
         this.classe = "";
         this.sex = true;
-        this.helmet = "";
-        this.chestplate = "";
-        this.legging = "";
-        this.boots = "";
+        this.outil = "";
+        this.materiel = "";
+        this.aide = "";
+        this.equipement = "";
     }
 
     Player(String name) {
@@ -29,10 +29,10 @@ public class Player {
         this.race = "";
         this.classe = "";
         this.sex = true;
-        this.helmet = "";
-        this.chestplate = "";
-        this.legging = "";
-        this.boots = "";
+        this.outil = "";
+        this.materiel = "";
+        this.aide = "";
+        this.equipement = "";
     }
 
     public String getName() {
@@ -59,20 +59,24 @@ public class Player {
         this.strength = strength;
     }
 
-    public void setHelmet(String helmet) {
-        this.helmet = helmet;
+    public void setOutil(ObjectCard outil) {
+        this.outil = outil.getName();
+        this.strength += outil.getStrenghtBonus();
     }
 
-    public void setChestplate(String chestplate) {
-        this.chestplate = chestplate;
+    public void setMateriel(ObjectCard materiel) {
+        this.materiel = materiel.getName();
+        this.strength += materiel.getStrenghtBonus();
     }
 
-    public void setLegging(String legging) {
-        this.legging = legging;
+    public void setAide(ObjectCard aide) {
+        this.aide = aide.getName();
+        this.strength += aide.getStrenghtBonus();
     }
 
-    public void setBoots(String boots) {
-        this.boots = boots;
+    public void setEquipement(ObjectCard equipement) {
+        this.equipement = equipement.getName();
+        this.strength += equipement.getStrenghtBonus();
     }
 
     public void setClasse(String classe) {
@@ -120,10 +124,10 @@ public class Player {
                 ", race='" + race + '\'' +
                 ", classe='" + classe + '\'' +
                 ", sex=" + sex +
-                ", helmet='" + helmet + '\'' +
-                ", chestplate='" + chestplate + '\'' +
-                ", legging='" + legging + '\'' +
-                ", boots='" + boots + '\'' +
+                ", outil='" + outil + '\'' +
+                ", materiel='" + materiel + '\'' +
+                ", aide='" + aide + '\'' +
+                ", equipement='" + equipement + '\'' +
                 '}';
     }
 

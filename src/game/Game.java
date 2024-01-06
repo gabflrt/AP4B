@@ -359,17 +359,19 @@ public class Game {
                             .setStrength(this.players.get(player).getStrength() - mob.getHowManyLosingLevel());
                 }
                 switch (mob.getWhatLosingArmor()) {
-                    case "Casque":
-                        this.players.get(player).setHelmet("");
+                    case "Outil":
+                        this.players.get(player).setOutil(new ObjectCard("", "", "file:src/img/default", 0, "outil"));
                         break;
-                    case "Plastron":
-                        this.players.get(player).setChestplate("");
+                    case "Materiel":
+                        this.players.get(player).setMateriel(new ObjectCard("", "", "file:src/img/default", 0,
+                                "materiel"));
                         break;
-                    case "Pantalon":
-                        this.players.get(player).setLegging("");
+                    case "Equipement":
+                        this.players.get(player).setEquipement(new ObjectCard("", "", "file:src/img/default", 0,
+                                "equipement"));
                         break;
-                    case "Bottes":
-                        this.players.get(player).setBoots("");
+                    case "Aide":
+                        this.players.get(player).setAide(new ObjectCard("", "", "file:src/img/default", 0, "aide"));
                         break;
                     default:
                         break;

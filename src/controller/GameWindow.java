@@ -367,7 +367,6 @@ public class GameWindow {
          * this.i = 0;
          * }
          */
-        refreshStats();
         if (this.canDrawDungeon && !this.canPlaceCard) {
             this.jeu.getPlayers().get(this.i).setStrength(10); // C'est pour les tests, à enlever à la fin
             this.nbCardsToDraw = jeu.drawDungeonCard(this.i);
@@ -541,7 +540,18 @@ public class GameWindow {
                 }
                 this.canDrawDungeon = true;
             }
+            if (this.clickedCard instanceof ObjectCard card) {
+                switch (card.getTypeOfObject()) {
+                    case "Outil" -> this.jeu.getPlayers().get(this.i - 1).setOutil(card);
+                    case "Materiel" -> this.jeu.getPlayers().get(this.i - 1).setMateriel(card);
+                    case "Aide" -> this.jeu.getPlayers().get(this.i - 1).setAide(card);
+                    case "Equipement" -> this.jeu.getPlayers().get(this.i - 1).setEquipement(card);
+                }
+                text.setText("Plus" + card.getStrenghtBonus() + " d'intelligence");
+                        }
+            refreshStats();
             update(jeu);
+
 
         } else {
             text.setText("Tu ne peux pas placer de carte.");
