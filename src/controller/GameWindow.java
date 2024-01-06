@@ -439,10 +439,12 @@ public class GameWindow {
     }
 
     void player(int position) {
-        this.clickedCard = this.jeu.getHands().get(this.i).getCardPile().get(position);
-        this.jeu.getHands().get(this.i).getCardPile().set(position, new Card());
-        this.canPlaceCard = true;
-        update(jeu);
+        if (!this.canPlaceCard) {
+            this.clickedCard = this.jeu.getHands().get(this.i).getCardPile().get(position);
+            this.jeu.getHands().get(this.i).getCardPile().set(position, new Card());
+            this.canPlaceCard = true;
+            update(jeu);
+        }
     }
 
     @FXML
@@ -548,10 +550,9 @@ public class GameWindow {
                     case "Equipement" -> this.jeu.getPlayers().get(this.i - 1).setEquipement(card);
                 }
                 text.setText("Plus" + card.getStrenghtBonus() + " d'intelligence");
-                        }
+            }
             refreshStats();
             update(jeu);
-
 
         } else {
             text.setText("Tu ne peux pas placer de carte.");
