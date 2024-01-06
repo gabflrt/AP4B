@@ -369,7 +369,9 @@ public class GameWindow {
          */
         if (this.canDrawDungeon && !this.canPlaceCard) {
             this.jeu.getPlayers().get(this.i).setStrength(10); // C'est pour les tests, à enlever à la fin
-            this.nbCardsToDraw = jeu.drawDungeonCard(this.i);
+            this.clickedCard = jeu.drawDungeonCard(this.i);
+            this.showCardPile = 1;
+            this.nbCardsToDraw = 2;
             System.out.println(this.nbCardsToDraw);
             // this.showCardPile = 1;
             text.setText("Tu peux piocher " + this.nbCardsToDraw + " cartes Trésor.");
@@ -411,7 +413,7 @@ public class GameWindow {
                 this.canDrawDungeon = true;
                 this.canPlaceCard = true;
             } else if (this.nbCardsToDraw > 1) {
-                jeu.drawTreasureCard(this.i);
+                this.clickedCard = jeu.drawTreasureCard(this.i);
                 this.showCardPile = 2;
 
                 this.nbCardsToDraw = this.nbCardsToDraw - 1;
