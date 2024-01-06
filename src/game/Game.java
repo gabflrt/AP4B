@@ -394,11 +394,13 @@ public class Game {
      * @param player the player that will draw a card
      * @return the number of cards that the player will draw
      */
-    /*public int drawDungeonCard(int player) {
-        Card card = this.drawPileDungeon.pickCardPile();
-        if (this.drawPileDungeon.getCardPile().isEmpty()) {
-            this.drawPileDungeon.generateDungeonPile();
-        }
+    public int useDungeonCard(int player, Card card) {
+        /*
+         * Card card = this.drawPileDungeon.pickCardPile();
+         * if (this.drawPileDungeon.getCardPile().isEmpty()) {
+         * this.drawPileDungeon.generateDungeonPile();
+         * }
+         */
         if (card instanceof MobCard) {
             int nbCardsToDraw = fightMob(player, (MobCard) card);
             return nbCardsToDraw;
@@ -409,7 +411,7 @@ public class Game {
             System.out.println("Une autre carte a été piochée.");
         }
         return 0;
-    }*/
+    }
 
     /**
      * This method will make a player draw a card from the dungeon pile.
@@ -474,41 +476,41 @@ public class Game {
                     if (card instanceof ObjectCard) {
                         if (this.players.get(player)
                                 .canUseObject((ObjectCard) card)) {
-                            if(!this.placedCards.get(player).checkTypeOfObject(card)) {
+                            if (!this.placedCards.get(player).checkTypeOfObject(card)) {
                                 this.placedCards.get(player).getCardPile()
                                         .add(card);
                                 System.out.println("La carte " + card.getName() + " a été placée pour le joueur."
                                         + this.players.get(player).getName() + "à l'emplacement" + position);
                             }
-                            }
-
-                            // this.hands.get(player).getCardPile().remove(choice - 1);
                         }
+
+                        // this.hands.get(player).getCardPile().remove(choice - 1);
                     }
-                    /*
-                     * if (this.hands.get(player).getCardPile().get(choice) instanceof ObjectCard) {
-                     * if (this.players.get(player)
-                     * .canUseObject((ObjectCard) this.hands.get(player).getCardPile().get(choice -
-                     * 1))) {
-                     * this.placedCards.get(player).getCardPile()
-                     * .add(this.hands.get(player).getCardPile().get(choice - 1));
-                     * this.hands.get(player).getCardPile().remove(choice - 1);
-                     * } else {
-                     * System.out.
-                     * println("Vous ne pouvez pas utiliser cette carte car vous devriez être [inserer nom classe]."
-                     * //+ ((ObjectCard) this.hands.get(player).getCardPile().get(choice - 1))
-                     * //.getClasseCondition()
-                     * + " pour l'utiliser.");
-                     * }
-                     * } else {
-                     * System.out.println("Vous n'avez pas cette carte en main.");
-                     * }
-                     */
-                } else {
-                    System.out.println("Vous n'avez pas cette carte en main.");
                 }
+                /*
+                 * if (this.hands.get(player).getCardPile().get(choice) instanceof ObjectCard) {
+                 * if (this.players.get(player)
+                 * .canUseObject((ObjectCard) this.hands.get(player).getCardPile().get(choice -
+                 * 1))) {
+                 * this.placedCards.get(player).getCardPile()
+                 * .add(this.hands.get(player).getCardPile().get(choice - 1));
+                 * this.hands.get(player).getCardPile().remove(choice - 1);
+                 * } else {
+                 * System.out.
+                 * println("Vous ne pouvez pas utiliser cette carte car vous devriez être [inserer nom classe]."
+                 * //+ ((ObjectCard) this.hands.get(player).getCardPile().get(choice - 1))
+                 * //.getClasseCondition()
+                 * + " pour l'utiliser.");
+                 * }
+                 * } else {
+                 * System.out.println("Vous n'avez pas cette carte en main.");
+                 * }
+                 */
+            } else {
+                System.out.println("Vous n'avez pas cette carte en main.");
             }
         }
+    }
 
     /**
      * This method will check if a player is level 10.

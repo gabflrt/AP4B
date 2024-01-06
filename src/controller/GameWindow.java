@@ -371,7 +371,7 @@ public class GameWindow {
             this.jeu.getPlayers().get(this.i).setStrength(10); // C'est pour les tests, à enlever à la fin
             this.clickedCard = jeu.drawDungeonCard(this.i);
             this.showCardPile = 1;
-            this.nbCardsToDraw = 2;
+            this.nbCardsToDraw = jeu.useDungeonCard(this.i, this.clickedCard);
             System.out.println(this.nbCardsToDraw);
             // this.showCardPile = 1;
             text.setText("Tu peux piocher " + this.nbCardsToDraw + " cartes Trésor.");
