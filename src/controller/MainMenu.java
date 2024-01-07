@@ -24,6 +24,8 @@ public class MainMenu {
     @FXML
     private TextField player4;
 
+    static Stage gameWindow = new Stage();
+
     // private String player1Name;
 
     // protected static String getPlayer1Name() {
@@ -49,7 +51,6 @@ public class MainMenu {
             GameWindow controller = loader.getController();
             controller.startGame(player1Name, player2Name, player3Name, player4Name);
             Scene scene = new Scene(gamew);
-            Stage gameWindow = new Stage();
             gameWindow.setTitle("Munchkin UTBM");
             gameWindow.setScene(scene);
             // gameWindow.setMaximized(true);
