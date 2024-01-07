@@ -390,6 +390,9 @@ public class GameWindow {
             } else {
                 this.canDrawTreasure = true;
                 this.canDrawDungeon = false;
+                if(jeu.checkIfPlayerWin(this.i)){
+                    text.setText("Le joueur " + jeu.getPlayers().get(this.i).getName() + " a gagné !");
+                }
             }
             update(jeu);
         } else {
