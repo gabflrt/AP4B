@@ -357,6 +357,9 @@ public class GameWindow {
             } else {
                 this.canDrawTreasure = true;
                 this.canDrawDungeon = false;
+                if(jeu.checkIfPlayerWin(this.i)){
+                    text.setText("Le joueur " + jeu.getPlayers().get(this.i).getName() + " a gagné !");
+                }
             }
             update(jeu);
         } else {
@@ -508,23 +511,24 @@ public class GameWindow {
     void placed(int deck_position) {
         if (this.canPlaceCard) {
             this.jeu.placeCard(this.i, deck_position, this.clickedCard);
+            System.out.println("La valeur de i est : " + this.i);
             this.canPlaceCard = false;
             this.showCardPile = 0;
+            if (this.clickedCard instanceof ObjectCard card) {
+                switch (card.getTypeOfObject()) {
+                    case "Outil" -> this.jeu.getPlayers().get(this.i).setOutil(card);
+                    case "Materiel" -> this.jeu.getPlayers().get(this.i).setMateriel(card);
+                    case "Aide" -> this.jeu.getPlayers().get(this.i).setAide(card);
+                    case "Equipement" -> this.jeu.getPlayers().get(this.i).setEquipement(card);
+                }
+                text.setText("Plus" + card.getStrenghtBonus() + " d'intelligence");
+            }
             if (this.nbCardsToDraw == 0) {
                 this.i = this.i + 1;
                 if (this.i == jeu.getNbPlayers()) {
                     this.i = 0;
                 }
                 this.canDrawDungeon = true;
-            }
-            if (this.clickedCard instanceof ObjectCard card) {
-                switch (card.getTypeOfObject()) {
-                    case "Outil" -> this.jeu.getPlayers().get(this.i - 1).setOutil(card);
-                    case "Materiel" -> this.jeu.getPlayers().get(this.i - 1).setMateriel(card);
-                    case "Aide" -> this.jeu.getPlayers().get(this.i - 1).setAide(card);
-                    case "Equipement" -> this.jeu.getPlayers().get(this.i - 1).setEquipement(card);
-                }
-                text.setText("Plus" + card.getStrenghtBonus() + " d'intelligence");
             }
             refreshStats();
             update(jeu);

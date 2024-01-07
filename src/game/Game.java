@@ -481,6 +481,8 @@ public class Game {
                                         .add(card);
                                 System.out.println("La carte " + card.getName() + " a été placée pour le joueur."
                                         + this.players.get(player).getName() + "à l'emplacement" + position);
+                            } else {
+                                System.out.println("Vous ne pouvez pas placer cette carte car vous avez déjà une carte de ce type.");
                             }
                         }
 
@@ -521,7 +523,7 @@ public class Game {
      * @return true if the player is level 10, false otherwise
      */
     public boolean checkIfPlayerWin(int player) {
-        if (this.players.get(player).getLevel() == 10) {
+        if (this.players.get(player).getLevel() >= 10) {
             System.out.println("Le joueur " + this.players.get(player).getName() + " a gagné !");
             return true;
         } else {
