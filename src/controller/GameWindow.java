@@ -374,13 +374,39 @@ public class GameWindow {
          * }
          */
         if (this.canDrawDungeon && !this.canPlaceCard) {
-            this.jeu.getPlayers().get(this.i).setStrength(10); // C'est pour les tests, à enlever à la fin
+            this.jeu.getPlayers().get(this.i).setStrength(5); // C'est pour les tests, à enlever à la fin
             this.clickedCard = jeu.drawDungeonCard(this.i);
             this.showCardPile = 1;
             this.nbCardsToDraw = jeu.useDungeonCard(this.i, this.clickedCard);
-            System.out.println(this.nbCardsToDraw);
+            if (this.clickedCard instanceof MobCard)
+            {
+                Button button_placed_mod = placed_mob;
+                ImageView imagePlacedMob = new ImageView(new Image(this.clickedCard.getImage()));
+                imagePlacedMob.setFitHeight(100);
+                imagePlacedMob.setFitWidth(80);
+                button_placed_mod.setGraphic(imagePlacedMob);
+                button_placed_mod.setPrefSize(0, 0);
+                button_placed_mod.setGraphic(imagePlacedMob);
+
+                if (nbCardsToDraw > 0){
+                    text.setText("Ton intelligence : " + jeu.getPlayers().get(this.i).getStrength()
+                            + "\nIntelligence requise pour l'UE : "
+                            + ((MobCard) this.clickedCard).getStrength()
+                            + "\nTu gagnes " + ((MobCard) this.clickedCard).getNbLevelEarned() + " niveau(x) \n Tu pioches "
+                            + ((MobCard) this.clickedCard).getNbTreasureCardToDraw() + " carte(s) trésor(s)");
+                }
+                else{
+                    text.setText("Ton intelligence : " + jeu.getPlayers().get(this.i).getStrength()
+                            + "\nIntelligence requise pour l'UE : "
+                            + ((MobCard) this.clickedCard).getStrength()
+                            + "\nTu perds " + ((MobCard) this.clickedCard).getHowManyLosingLevel()
+                            + " niveau(x) \n Tu perds ton "
+                            + ((MobCard) this.clickedCard).getWhatLosingArmor());
+                }
+            }
+
             // this.showCardPile = 1;
-            text.setText("Tu peux piocher " + this.nbCardsToDraw + " cartes Trésor.");
+
             // this.i = this.i + 1;
             if (this.nbCardsToDraw == 0) {
                 this.i = this.i + 1;
@@ -548,7 +574,8 @@ public class GameWindow {
             if (!(this.clickedCard instanceof MobCard)) {
                 this.jeu.placeCard(this.i, deck_position, this.clickedCard);
 
-                if (this.clickedCard instanceof ObjectCard card) {
+
+                 if (this.clickedCard instanceof ObjectCard card) {
                     switch (card.getTypeOfObject()) {
                         case "Outil" -> this.jeu.getPlayers().get(this.i).setOutil(card);
                         case "Materiel" -> this.jeu.getPlayers().get(this.i).setMateriel(card);
@@ -793,10 +820,10 @@ public class GameWindow {
         Player3Level.setText("Niveau : " + jeu.getPlayers().get(2).getLevel());
         Player4Level.setText("Niveau : " + jeu.getPlayers().get(3).getLevel());
 
-        Player1Strenght.setText("Intelligence : " + jeu.getPlayers().get(0).getStrength());
-        Player2Strenght.setText("Intelligence : " + jeu.getPlayers().get(1).getStrength());
-        Player3Strenght.setText("Intelligence : " + jeu.getPlayers().get(2).getStrength());
-        Player4Strenght.setText("Intelligence : " + jeu.getPlayers().get(3).getStrength());
+        Player1Strenght.setText("Intelligence : " + jeu.getPlayers().get(0).getTotalStrength());
+        Player2Strenght.setText("Intelligence : " + jeu.getPlayers().get(1).getTotalStrength());
+        Player3Strenght.setText("Intelligence : " + jeu.getPlayers().get(2).getTotalStrength());
+        Player4Strenght.setText("Intelligence : " + jeu.getPlayers().get(3).getTotalStrength());
     }
 
 }

@@ -7,7 +7,9 @@ public class Player {
     private int level, strength;
     private String race, classe;
     private Boolean sex;
-    private String outil, materiel, aide, equipement;
+    private String outilName, materielName, aideName, equipementName;
+
+    private int outilBonus, materielBonus, aideBonus, equipementBonus;
 
     Player() {
         this.name = "";
@@ -16,10 +18,15 @@ public class Player {
         this.race = "";
         this.classe = "";
         this.sex = true;
-        this.outil = "";
-        this.materiel = "";
-        this.aide = "";
-        this.equipement = "";
+        this.outilName = "";
+        this.materielName = "";
+        this.aideName = "";
+        this.equipementName = "";
+        this.outilBonus = 0;
+        this.materielBonus = 0;
+        this.aideBonus = 0;
+        this.equipementBonus = 0;
+
     }
 
     Player(String name) {
@@ -29,10 +36,14 @@ public class Player {
         this.race = "";
         this.classe = "";
         this.sex = true;
-        this.outil = "";
-        this.materiel = "";
-        this.aide = "";
-        this.equipement = "";
+        this.outilName = "";
+        this.materielName = "";
+        this.aideName = "";
+        this.equipementName = "";
+        this.outilBonus = 0;
+        this.materielBonus = 0;
+        this.aideBonus = 0;
+        this.equipementBonus = 0;
     }
 
     public String getName() {
@@ -59,24 +70,28 @@ public class Player {
         this.strength = strength;
     }
 
+    public int getTotalStrength() {
+        return this.strength + this.outilBonus + this.materielBonus + this.aideBonus + this.equipementBonus;
+    }
+
     public void setOutil(ObjectCard outil) {
-        this.outil = outil.getName();
-        this.strength += outil.getStrenghtBonus();
+        this.outilName = outil.getName();
+        this.outilBonus = outil.getStrenghtBonus();
     }
 
     public void setMateriel(ObjectCard materiel) {
-        this.materiel = materiel.getName();
-        this.strength += materiel.getStrenghtBonus();
+        this.materielName = materiel.getName();
+        this.materielBonus = materiel.getStrenghtBonus();
     }
 
     public void setAide(ObjectCard aide) {
-        this.aide = aide.getName();
-        this.strength += aide.getStrenghtBonus();
+        this.aideName = aide.getName();
+        this.aideBonus = aide.getStrenghtBonus();
     }
 
     public void setEquipement(ObjectCard equipement) {
-        this.equipement = equipement.getName();
-        this.strength += equipement.getStrenghtBonus();
+        this.equipementName = equipement.getName();
+        this.equipementBonus = equipement.getStrenghtBonus();
     }
 
     public void setClasse(String classe) {
@@ -124,10 +139,10 @@ public class Player {
                 ", race='" + race + '\'' +
                 ", classe='" + classe + '\'' +
                 ", sex=" + sex +
-                ", outil='" + outil + '\'' +
-                ", materiel='" + materiel + '\'' +
-                ", aide='" + aide + '\'' +
-                ", equipement='" + equipement + '\'' +
+                ", outil='" + outilName + '\'' +
+                ", materiel='" + materielName + '\'' +
+                ", aide='" + aideName + '\'' +
+                ", equipement='" + equipementName + '\'' +
                 '}';
     }
 

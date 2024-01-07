@@ -316,7 +316,7 @@ public class Game {
         // if (this.players.get(player).getStrength() +
         // this.placedCards.get(player).calculateStrength() > mob
         // .getStrength()) {
-        if (this.players.get(player).getStrength() > mob.getStrength()) {
+        if (this.players.get(player).getTotalStrength() > mob.getStrength()) {
             this.players.get(player).setLevel(this.players.get(player).getLevel() + mob.getNbLevelEarned());
 
 
