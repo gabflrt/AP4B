@@ -51,7 +51,7 @@ public class MobCard extends Card {
         return this.nbLevelEarned;
     }
 
-    int getNbTreasureCardToDraw() {
+    public int getNbTreasureCardToDraw() {
         return this.NbTreasureCardToDraw;
     }
 
@@ -59,9 +59,10 @@ public class MobCard extends Card {
         return this.HowManyLosingLevel;
     }
 
-    String getWhatLosingArmor() {
+    public String getWhatLosingArmor() {
         return this.WhatLosingArmor;
     }
+
 
     void looseFight(Player player) {
         switch (this.WhatLosingArmor) {

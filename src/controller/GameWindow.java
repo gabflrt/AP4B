@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.util.HashMap;
@@ -114,6 +115,9 @@ public class GameWindow {
 
     @FXML
     private Button DiscardTreasure;
+
+    @FXML
+    private Button placed_mob;
 
     @FXML
     private Button DrawDungeon;
@@ -344,6 +348,8 @@ public class GameWindow {
         buttonMap.put("placed4_3", placed4_3);
         buttonMap.put("placed4_4", placed4_4);
 
+        buttonMap.put("placed_mob", placed_mob);
+
     }
 
     @FXML
@@ -369,7 +375,9 @@ public class GameWindow {
          */
         if (this.canDrawDungeon && !this.canPlaceCard) {
             this.jeu.getPlayers().get(this.i).setStrength(10); // C'est pour les tests, à enlever à la fin
-            this.nbCardsToDraw = jeu.drawDungeonCard(this.i);
+            this.clickedCard = jeu.drawDungeonCard(this.i);
+            this.showCardPile = 1;
+            this.nbCardsToDraw = jeu.useDungeonCard(this.i, this.clickedCard);
             System.out.println(this.nbCardsToDraw);
             // this.showCardPile = 1;
             text.setText("Tu peux piocher " + this.nbCardsToDraw + " cartes Trésor.");
@@ -530,9 +538,52 @@ public class GameWindow {
         player(3);
     }
 
+    @FXML
+    void placed_mob(ActionEvent event) {
+    }
+
     void placed(int deck_position) {
         if (this.canPlaceCard) {
-            this.jeu.placeCard(this.i, deck_position, this.clickedCard);
+
+            if (!(this.clickedCard instanceof MobCard)) {
+                this.jeu.placeCard(this.i, deck_position, this.clickedCard);
+
+                if (this.clickedCard instanceof ObjectCard card) {
+                    switch (card.getTypeOfObject()) {
+                        case "Outil" -> this.jeu.getPlayers().get(this.i).setOutil(card);
+                        case "Materiel" -> this.jeu.getPlayers().get(this.i).setMateriel(card);
+                        case "Aide" -> this.jeu.getPlayers().get(this.i).setAide(card);
+                        case "Equipement" -> this.jeu.getPlayers().get(this.i).setEquipement(card);
+                    }
+                    text.setText("Plus " + card.getStrenghtBonus() + " d'intelligence");
+                }
+            } else {
+                Button button_placed_mod = placed_mob;
+                ImageView imagePlacedMob = new ImageView(new Image(this.clickedCard.getImage()));
+                imagePlacedMob.setFitHeight(100);
+                imagePlacedMob.setFitWidth(80);
+                button_placed_mod.setGraphic(imagePlacedMob);
+                button_placed_mod.setPrefSize(0, 0);
+                button_placed_mod.setGraphic(imagePlacedMob);
+
+                int win = jeu.fightMob(this.i, (MobCard) this.clickedCard);
+                if (win > 0){
+                    text.setText("Ton intelligence : " + jeu.getPlayers().get(this.i).getStrength()
+                            + "\nIntelligence requise pour l'UE : "
+                            + ((MobCard) this.clickedCard).getStrength()
+                            + "\nTu gagnes " + ((MobCard) this.clickedCard).getNbLevelEarned() + " niveau(x) \n Tu pioches "
+                            + ((MobCard) this.clickedCard).getNbTreasureCardToDraw() + " carte(s) trésor(s)");
+                }
+                else{
+                    text.setText("Ton intelligence : " + jeu.getPlayers().get(this.i).getStrength()
+                            + "\nIntelligence requise pour l'UE : "
+                            + ((MobCard) this.clickedCard).getStrength()
+                            + "\nTu perds " + ((MobCard) this.clickedCard).getHowManyLosingLevel()
+                            + " niveau(x) \n Tu perds ton "
+                            + ((MobCard) this.clickedCard).getWhatLosingArmor());
+                }
+            }
+
             this.canPlaceCard = false;
             this.showCardPile = 0;
             if (this.nbCardsToDraw == 0) {
@@ -541,21 +592,12 @@ public class GameWindow {
                     this.i = 0;
                 }
                 this.canDrawDungeon = true;
-            }
-            if (this.clickedCard instanceof ObjectCard card) {
-                switch (card.getTypeOfObject()) {
-                    case "Outil" -> this.jeu.getPlayers().get(this.i - 1).setOutil(card);
-                    case "Materiel" -> this.jeu.getPlayers().get(this.i - 1).setMateriel(card);
-                    case "Aide" -> this.jeu.getPlayers().get(this.i - 1).setAide(card);
-                    case "Equipement" -> this.jeu.getPlayers().get(this.i - 1).setEquipement(card);
-                }
-                text.setText("Plus" + card.getStrenghtBonus() + " d'intelligence");
-            }
-            refreshStats();
-            update(jeu);
+                refreshStats();
+                update(jeu);
 
-        } else {
-            text.setText("Tu ne peux pas placer de carte.");
+            } else {
+                text.setText("Tu ne peux pas placer de carte.");
+            }
         }
     }
 
