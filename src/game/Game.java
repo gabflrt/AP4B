@@ -454,7 +454,7 @@ public class Game {
      *                 (place in the ArrayList of placedCards)
      * @param card     the card that will be placed
      */
-    public void placeCard(int player, int position, Card card) {
+    public boolean placeCard(int player, int position, Card card) {
         if (this.hands.get(player).getCardPile().isEmpty()) {
             System.out.println("Vous n'avez pas de carte en main, vous ne pouvez pas en placer.");
         } else {
@@ -474,6 +474,7 @@ public class Game {
                                         .add(card);
                                 System.out.println("La carte " + card.getName() + " a été placée pour le joueur."
                                         + this.players.get(player).getName() + "à l'emplacement" + position);
+                                return true;
                             } else {
                                 System.out.println("Vous ne pouvez pas placer cette carte car vous avez déjà une carte de ce type.");
                             }
@@ -505,6 +506,7 @@ public class Game {
                 System.out.println("Vous n'avez pas cette carte en main.");
             }
         }
+        return false;
     }
 
     /**

@@ -2,11 +2,16 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -363,7 +368,7 @@ public class GameWindow {
     }
 
     @FXML
-    void DrawDungeon(ActionEvent event) {
+    void DrawDungeon(ActionEvent event) throws IOException {
         /*
          * jeu.drawDungeonCard(this.i);
          * this.clickedCard = jeu.getDrawPileDungeon().pickCardPile();
@@ -373,6 +378,7 @@ public class GameWindow {
          * this.i = 0;
          * }
          */
+
         if (this.canDrawDungeon && !this.canPlaceCard) {
             this.jeu.getPlayers().get(this.i).setStrength(5); // C'est pour les tests, à enlever à la fin
             this.clickedCard = jeu.drawDungeonCard(this.i);
@@ -416,6 +422,20 @@ public class GameWindow {
             } else {
                 this.canDrawTreasure = true;
                 this.canDrawDungeon = false;
+                if (jeu.checkIfPlayerWin(this.i)) {
+                    text.setText("Le joueur " + jeu.getPlayers().get(this.i).getName() + " a gagné !");
+                    MainMenu.gameWindow.close();
+                    FXMLLoader winloader = new FXMLLoader(getClass().getResource("/view/WinWindow.fxml"));
+                    Parent winp = winloader.load();
+                    WinWindow wincontroller = winloader.getController();
+                    String msg = "Le joueur " + jeu.getPlayers().get(this.i).getName() + " a gagné !";
+                    wincontroller.setText(msg);
+                    Scene scene = new Scene(winp);
+                    Stage winWindow = new Stage();
+                    winWindow.setTitle("Munchkin UTBM");
+                    winWindow.setScene(scene);
+                    winWindow.show();
+                }
             }
             update(jeu);
         } else {
@@ -594,14 +614,14 @@ public class GameWindow {
                 button_placed_mod.setGraphic(imagePlacedMob);
 
                 int win = jeu.fightMob(this.i, (MobCard) this.clickedCard);
-                if (win > 0){
+                if (win > 0) {
                     text.setText("Ton intelligence : " + jeu.getPlayers().get(this.i).getStrength()
                             + "\nIntelligence requise pour l'UE : "
                             + ((MobCard) this.clickedCard).getStrength()
-                            + "\nTu gagnes " + ((MobCard) this.clickedCard).getNbLevelEarned() + " niveau(x) \n Tu pioches "
+                            + "\nTu gagnes " + ((MobCard) this.clickedCard).getNbLevelEarned()
+                            + " niveau(x) \n Tu pioches "
                             + ((MobCard) this.clickedCard).getNbTreasureCardToDraw() + " carte(s) trésor(s)");
-                }
-                else{
+                } else {
                     text.setText("Ton intelligence : " + jeu.getPlayers().get(this.i).getStrength()
                             + "\nIntelligence requise pour l'UE : "
                             + ((MobCard) this.clickedCard).getStrength()
