@@ -125,6 +125,9 @@ public class GameWindow {
     private Button placed_mob;
 
     @FXML
+    private Button placed_malediction;
+
+    @FXML
     private Button DrawDungeon;
 
     @FXML
@@ -156,6 +159,9 @@ public class GameWindow {
 
     @FXML
     private Label Player4Strenght;
+
+    @FXML
+    private MaledictionCard maledictionCard = new MaledictionCard();
 
     private game.Game jeu;
     private int i = 0; // Position du joueur dans le jeu
@@ -354,6 +360,7 @@ public class GameWindow {
         buttonMap.put("placed4_4", placed4_4);
 
         buttonMap.put("placed_mob", placed_mob);
+        buttonMap.put("placed_malediction", placed_malediction);
 
     }
 
@@ -383,7 +390,7 @@ public class GameWindow {
             this.jeu.getPlayers().get(this.i).setStrength(5); // C'est pour les tests, à enlever à la fin
             this.clickedCard = jeu.drawDungeonCard(this.i);
             this.showCardPile = 1;
-            this.nbCardsToDraw = jeu.useDungeonCard(this.i, this.clickedCard);
+            this.nbCardsToDraw = jeu.useDungeonCard(this.i, this.clickedCard, this.maledictionCard);
             if (this.clickedCard instanceof MobCard)
             {
                 Button button_placed_mod = placed_mob;
@@ -588,48 +595,63 @@ public class GameWindow {
     void placed_mob(ActionEvent event) {
     }
 
+    @FXML
+    void placed_malediction(ActionEvent event) {
+    }
+
     void placed(int deck_position) {
         if (this.canPlaceCard) {
 
-            if (!(this.clickedCard instanceof MobCard)) {
+            if (this.clickedCard instanceof ObjectCard card) {
                 this.jeu.placeCard(this.i, deck_position, this.clickedCard);
 
-
-                 if (this.clickedCard instanceof ObjectCard card) {
-                    switch (card.getTypeOfObject()) {
-                        case "Outil" -> this.jeu.getPlayers().get(this.i).setOutil(card);
-                        case "Materiel" -> this.jeu.getPlayers().get(this.i).setMateriel(card);
-                        case "Aide" -> this.jeu.getPlayers().get(this.i).setAide(card);
-                        case "Equipement" -> this.jeu.getPlayers().get(this.i).setEquipement(card);
-                    }
-                    text.setText("Plus " + card.getStrenghtBonus() + " d'intelligence");
+                switch (card.getTypeOfObject()) {
+                    case "Outil" -> this.jeu.getPlayers().get(this.i).setOutil(card);
+                    case "Materiel" -> this.jeu.getPlayers().get(this.i).setMateriel(card);
+                    case "Aide" -> this.jeu.getPlayers().get(this.i).setAide(card);
+                    case "Equipement" -> this.jeu.getPlayers().get(this.i).setEquipement(card);
                 }
-            } else {
-                Button button_placed_mod = placed_mob;
+                text.setText("Plus " + card.getStrenghtBonus() + " d'intelligence");
+            } else if (this.clickedCard instanceof MaledictionCard) {
+                this.maledictionCard = (MaledictionCard) this.clickedCard;
+                Button button_placed_malediction = placed_malediction;
+                ImageView imagePlacedMalediction = new ImageView(new Image(this.clickedCard.getImage()));
+                imagePlacedMalediction.setFitHeight(100);
+                imagePlacedMalediction.setFitWidth(80);
+                button_placed_malediction.setGraphic(imagePlacedMalediction);
+                button_placed_malediction.setPrefSize(0, 0);
+                button_placed_malediction.setGraphic(imagePlacedMalediction);
+                text.setText("Au prochain combat, le joueur perdra " + this.maledictionCard.getHowManyUpgrademob() + " d'intelligence");
+
+            } else if (this.clickedCard instanceof MobCard) {
+                Button button_placed_mob = placed_mob;
                 ImageView imagePlacedMob = new ImageView(new Image(this.clickedCard.getImage()));
                 imagePlacedMob.setFitHeight(100);
                 imagePlacedMob.setFitWidth(80);
-                button_placed_mod.setGraphic(imagePlacedMob);
-                button_placed_mod.setPrefSize(0, 0);
-                button_placed_mod.setGraphic(imagePlacedMob);
+                button_placed_mob.setGraphic(imagePlacedMob);
+                button_placed_mob.setPrefSize(0, 0);
+                button_placed_mob.setGraphic(imagePlacedMob);
 
-                int win = jeu.fightMob(this.i, (MobCard) this.clickedCard);
+                int win = jeu.fightMob(this.i, (MobCard) this.clickedCard, (MaledictionCard) this.maledictionCard);
+                int intelligence = jeu.getPlayers().get(this.i).getTotalStrength() - this.maledictionCard.getHowManyUpgrademob();
                 if (win > 0) {
-                    text.setText("Ton intelligence : " + jeu.getPlayers().get(this.i).getStrength()
+                    text.setText("Ton intelligence : " + intelligence
                             + "\nIntelligence requise pour l'UE : "
                             + ((MobCard) this.clickedCard).getStrength()
                             + "\nTu gagnes " + ((MobCard) this.clickedCard).getNbLevelEarned()
                             + " niveau(x) \n Tu pioches "
                             + ((MobCard) this.clickedCard).getNbTreasureCardToDraw() + " carte(s) trésor(s)");
                 } else {
-                    text.setText("Ton intelligence : " + jeu.getPlayers().get(this.i).getStrength()
+                    text.setText("Ton intelligence : " + intelligence
                             + "\nIntelligence requise pour l'UE : "
                             + ((MobCard) this.clickedCard).getStrength()
                             + "\nTu perds " + ((MobCard) this.clickedCard).getHowManyLosingLevel()
                             + " niveau(x) \n Tu perds ton "
                             + ((MobCard) this.clickedCard).getWhatLosingArmor());
                 }
+                this.maledictionCard = new MaledictionCard();
             }
+        }
 
             this.canPlaceCard = false;
             this.showCardPile = 0;
@@ -646,7 +668,7 @@ public class GameWindow {
                 text.setText("Tu ne peux pas placer de carte.");
             }
         }
-    }
+
 
     @FXML
     void placed1_1(ActionEvent event) {

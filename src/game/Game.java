@@ -311,12 +311,12 @@ public class Game {
      *               of players)
      * @param mob    the monster that the player will fight
      */
-    public int fightMob(int player, MobCard mob) {
+    public int fightMob(int player, MobCard mob, MaledictionCard malediction) {
 
         // if (this.players.get(player).getStrength() +
         // this.placedCards.get(player).calculateStrength() > mob
         // .getStrength()) {
-        if (this.players.get(player).getTotalStrength() > mob.getStrength()) {
+        if (this.players.get(player).getTotalStrength () > mob.getStrength() + malediction.getHowManyUpgrademob()) {
             this.players.get(player).setLevel(this.players.get(player).getLevel() + mob.getNbLevelEarned());
 
 
@@ -387,7 +387,7 @@ public class Game {
      * @param player the player that will draw a card
      * @return the number of cards that the player will draw
      */
-    public int useDungeonCard(int player, Card card) {
+    public int useDungeonCard(int player, Card card, MaledictionCard malediction) {
         /*
          * Card card = this.drawPileDungeon.pickCardPile();
          * if (this.drawPileDungeon.getCardPile().isEmpty()) {
@@ -395,7 +395,7 @@ public class Game {
          * }
          */
         if (card instanceof MobCard) {
-            int nbCardsToDraw = fightMob(player, (MobCard) card);
+            int nbCardsToDraw = fightMob(player, (MobCard) card, malediction);
             return nbCardsToDraw;
         } else if (card instanceof MaledictionCard) {
             ((MaledictionCard) card).applyMaledictionPlayer(this.getPlayers().get(player));

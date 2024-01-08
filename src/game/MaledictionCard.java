@@ -1,11 +1,11 @@
 package game;
 
-class MaledictionCard extends Card {
+public class MaledictionCard extends Card {
     private String WhatLosingArmor; // Which piece of armor the player will lose
     private int HowManyLosingLevel; // How many level the player will lose
     private int HowManyUpgrademob; // How many strength the mob will gain
 
-    MaledictionCard() { // Default constructor
+    public MaledictionCard() { // Default constructor
         super();
         this.WhatLosingArmor = "";
         this.HowManyLosingLevel = 0;
@@ -40,11 +40,14 @@ class MaledictionCard extends Card {
             default:
                 break;
         }
-        player.setLevel(player.getLevel() - this.HowManyLosingLevel);
+        if (this.HowManyLosingLevel > player.getLevel()) {
+            player.setLevel(1);
+        } else{
+            player.setLevel(player.getLevel() - this.HowManyLosingLevel);
+        }
     }
 
-    void applyMaledictionMob(MobCard mob) { // Method that will apply the malediction to the mob
-        mob.setStrength(mob.getStrength() + this.HowManyUpgrademob);
+    public int getHowManyUpgrademob() {
+        return this.HowManyUpgrademob;
     }
-
 }
