@@ -640,7 +640,16 @@ public class GameWindow {
         Button button_placed_malediction = placed_malediction;
         Button button_placed_mob = placed_mob;
 
-        if (this.canPlaceCard) {
+        if (this.jetecarte == 1) {
+            this.jeu.getPlacedCards().get(this.i).getCardPile().set(deck_position, new Card());
+            this.jetecarte = 0;
+            this.jetecarte = 0;
+            this.i = this.i + 1;
+            if (this.i == jeu.getNbPlayers()) {
+                this.i = 0;
+            }
+            update(jeu);
+        } else if (this.canPlaceCard) {
 
             if (this.clickedCard instanceof ObjectCard card) {
                 this.jeu.placeCard(this.i, deck_position, this.clickedCard);
@@ -699,20 +708,20 @@ public class GameWindow {
                 }
                 refreshMalediction();
             }
+            this.canPlaceCard = false;
+            this.showCardPile = 0;
+            if (this.nbCardsToDraw == 0) {
+                this.i = this.i + 1;
+                if (this.i == jeu.getNbPlayers()) {
+                    this.i = 0;
+                }
+                this.canDrawDungeon = true;
+                refreshStats();
+                update(jeu);
+            }
         }
 
-        this.canPlaceCard = false;
-        this.showCardPile = 0;
-        if (this.nbCardsToDraw == 0) {
-            this.i = this.i + 1;
-            if (this.i == jeu.getNbPlayers()) {
-                this.i = 0;
-            }
-            this.canDrawDungeon = true;
-            refreshStats();
-            update(jeu);
-
-        } else {
+        else {
             text.setText("Tu ne peux pas placer de carte.");
         }
     }
