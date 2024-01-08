@@ -316,9 +316,8 @@ public class Game {
         // if (this.players.get(player).getStrength() +
         // this.placedCards.get(player).calculateStrength() > mob
         // .getStrength()) {
-        if (this.players.get(player).getTotalStrength () > mob.getStrength() + malediction.getHowManyUpgrademob()) {
+        if (this.players.get(player).getTotalStrength() > mob.getStrength() + malediction.getHowManyUpgrademob()) {
             this.players.get(player).setLevel(this.players.get(player).getLevel() + mob.getNbLevelEarned());
-
 
             System.out.println("Succès !");
             System.out.println("Après délibération, le jury de l'UV " + mob.getName() + " vous attribue l'UV.");
@@ -476,7 +475,8 @@ public class Game {
                                         + this.players.get(player).getName() + "à l'emplacement" + position);
                                 return true;
                             } else {
-                                System.out.println("Vous ne pouvez pas placer cette carte car vous avez déjà une carte de ce type.");
+                                System.out.println(
+                                        "Vous ne pouvez pas placer cette carte car vous avez déjà une carte de ce type.");
                             }
                         }
 
@@ -526,12 +526,13 @@ public class Game {
         }
     }
 
-    /**
-     * This method will calculate the total strength of a player.
-     * It will take the strength of the player and the strength of his deck.
-     *
-     * @param player the player that will be checked
-     *               (place in the ArrayList of players)
-     * @return the total strength of the player
-     */
+    public void deleteCardFromPlaced(int player, String condition) {
+        for (int i = 0; i < this.placedCards.get(player).getCardPile().size(); i++) {
+            if (this.placedCards.get(player).getCardPile().get(i) instanceof ObjectCard
+                    && ((ObjectCard) this.placedCards.get(player).getCardPile().get(i)).getTypeOfObject()
+                            .equals(condition)) {
+                this.placedCards.get(player).getCardPile().remove(i);
+            }
+        }
+    }
 }
