@@ -134,6 +134,9 @@ public class GameWindow {
     private Button DrawTreasure;
 
     @FXML
+    private Button jeter;
+
+    @FXML
     private Label text;
 
     @FXML
@@ -170,6 +173,7 @@ public class GameWindow {
     private boolean canDrawTreasure, canPlaceCard = false;
     private boolean canDrawDungeon = true;
     private int showCardPile = 0;
+    private int jetecarte = 0;
 
     private Map<String, Button> buttonMap = new HashMap<>();
 
@@ -268,6 +272,16 @@ public class GameWindow {
         buttonDrawDungeon.setGraphic(imageDrawDungeon);
         buttonDrawDungeon.setPrefSize(0, 0);
         buttonDrawDungeon.setGraphic(imageDrawDungeon);
+
+        ImageView imagej = new ImageView("file:src/img/jeter.png");
+        imagej.setFitHeight(40);
+        imagej.setFitWidth(40);
+        jeter.setGraphic(imagej);
+        if (this.jetecarte == 1) {
+            jeter.setStyle("-fx-background-color: #ff0000;");
+        } else {
+            jeter.setStyle("-fx-background-color: #ffffff;");
+        }
 
         /*
          * Button buttonDiscardDungeon = DiscardDungeon;
@@ -369,6 +383,12 @@ public class GameWindow {
     @FXML
     void DiscardTreasure(ActionEvent event) {
 
+    }
+
+    @FXML
+    void jeter() {
+        jetecarte = 1;
+        update(jeu);
     }
 
     @FXML
@@ -508,7 +528,16 @@ public class GameWindow {
     }
 
     void player(int position) {
-        if (!this.canPlaceCard) {
+        if (this.jetecarte == 1) {
+            this.jeu.getHands().get(this.i).getCardPile().set(position, new Card());
+            this.jetecarte = 0;
+            this.jetecarte = 0;
+            this.i = this.i + 1;
+            if (this.i == jeu.getNbPlayers()) {
+                this.i = 0;
+            }
+            update(jeu);
+        } else if (!this.canPlaceCard) {
             this.clickedCard = this.jeu.getHands().get(this.i).getCardPile().get(position);
             this.jeu.getHands().get(this.i).getCardPile().set(position, new Card());
             this.canPlaceCard = true;

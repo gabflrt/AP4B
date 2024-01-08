@@ -61,6 +61,7 @@
 
       <Label fx:id="Player4Level" layoutX="10.0" layoutY="0.0" prefHeight="30.0" prefWidth="200.0" text="Niveau : 1" textAlignment="CENTER" />
       <Label fx:id="Player4Strenght" layoutX="10.0" layoutY="25.0" prefHeight="30.0" prefWidth="200.0" text="Intelligence : 1" textAlignment="CENTER" />
+      <Button fx:id="jeter" layoutX="287.0" layoutY="363.0" mnemonicParsing="false" onAction="#jeter" prefHeight="55.0" prefWidth="52.0" />
 
    </children>
 </AnchorPane>
