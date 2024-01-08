@@ -669,6 +669,7 @@ public class GameWindow {
 
                 }
                 refreshMalediction();
+                this.canDrawDungeon = true;
             }
 
         }
