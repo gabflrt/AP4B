@@ -173,7 +173,7 @@ public class GameWindow {
     private boolean canDrawTreasure, canPlaceCard = false;
     private boolean canDrawDungeon = true;
     private int showCardPile = 0;
-    private int jetecarte = 0;
+    private boolean jetecarte = false;
 
     private Map<String, Button> buttonMap = new HashMap<>();
 
@@ -277,7 +277,7 @@ public class GameWindow {
         imagej.setFitHeight(40);
         imagej.setFitWidth(40);
         jeter.setGraphic(imagej);
-        if (this.jetecarte == 1) {
+        if (this.jetecarte) {
             jeter.setStyle("-fx-background-color: #ff0000;");
         } else {
             jeter.setStyle("-fx-background-color: #ffffff;");
@@ -387,7 +387,8 @@ public class GameWindow {
 
     @FXML
     void jeter() {
-        jetecarte = 1;
+        jetecarte = true;
+        text.setText("Choisis une carte à jeter");
         update(jeu);
     }
 
@@ -403,7 +404,7 @@ public class GameWindow {
          * }
          */
 
-        if (this.canDrawDungeon && !this.canPlaceCard) {
+        if (this.canDrawDungeon && !this.canPlaceCard && !this.jetecarte) {
             this.jeu.getPlayers().get(this.i).setStrength(5); // C'est pour les tests, à enlever à la fin
             this.clickedCard = jeu.drawDungeonCard(this.i);
             this.showCardPile = 1;
@@ -481,7 +482,7 @@ public class GameWindow {
     void DrawTreasure(ActionEvent event) {
         refreshUE();
         refreshMalediction();
-        if (this.canDrawTreasure && !this.canPlaceCard) {
+        if (this.canDrawTreasure && !this.canPlaceCard && !this.jetecarte) {
             refreshUE();
             if (this.nbCardsToDraw == 1) {
                 this.clickedCard = jeu.drawTreasureCard(this.i);
@@ -528,10 +529,9 @@ public class GameWindow {
     }
 
     void player(int position) {
-        if (this.jetecarte == 1) {
+        if (this.jetecarte) {
             this.jeu.getHands().get(this.i).getCardPile().set(position, new Card());
-            this.jetecarte = 0;
-            this.jetecarte = 0;
+            this.jetecarte = false;
             this.i = this.i + 1;
             if (this.i == jeu.getNbPlayers()) {
                 this.i = 0;
@@ -640,10 +640,9 @@ public class GameWindow {
         Button button_placed_malediction = placed_malediction;
         Button button_placed_mob = placed_mob;
 
-        if (this.jetecarte == 1) {
+        if (this.jetecarte) {
             this.jeu.getPlacedCards().get(this.i).getCardPile().set(deck_position, new Card());
-            this.jetecarte = 0;
-            this.jetecarte = 0;
+            this.jetecarte = false;
             this.i = this.i + 1;
             if (this.i == jeu.getNbPlayers()) {
                 this.i = 0;
