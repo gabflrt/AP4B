@@ -669,7 +669,9 @@ public class GameWindow {
 
                 }
                 refreshMalediction();
+                this.canPlaceCard = false;
                 this.canDrawDungeon = true;
+                update(jeu);
             }
 
         }
