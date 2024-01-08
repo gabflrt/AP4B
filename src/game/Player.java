@@ -14,7 +14,7 @@ public class Player {
     Player() {
         this.name = "";
         this.level = 1;
-        this.strength = 1;
+        this.strength = 3;
         this.race = "";
         this.classe = "";
         this.sex = true;
@@ -32,7 +32,7 @@ public class Player {
     Player(String name) {
         this.name = name;
         this.level = 1;
-        this.strength = 1;
+        this.strength = 3;
         this.race = "";
         this.classe = "";
         this.sex = true;

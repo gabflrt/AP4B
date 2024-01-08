@@ -62,7 +62,7 @@ public class DrawPile extends CardPile {
 
             for (int i = 0; i < 8; i++) {
                 this.getCardPile()
-                        .add(new ObjectCard("Annale", "" , "file:src/img/Objets/Annale.png", 2, "Outil"));
+                        .add(new ObjectCard("Annale", "" , "file:src/img/Objets/Annale.png", 3, "Outil"));
             }
             for (int i = 0; i < 8; i++) {
                 this.getCardPile()
@@ -70,23 +70,23 @@ public class DrawPile extends CardPile {
             }
             for (int i = 0; i < 8; i++) {
                 this.getCardPile()
-                        .add(new ObjectCard("Café", "" , "file:src/img/Objets/Cafe.png", 1, "Equipement"));
+                        .add(new ObjectCard("Café", "" , "file:src/img/Objets/Cafe.png", 2, "Equipement"));
             }
             for (int i = 0; i < 8; i++) {
                 this.getCardPile()
-                        .add(new ObjectCard("Calculatrice", "" , "file:src/img/Objets/Calculatrice.png", 1, "Materiel"));
+                        .add(new ObjectCard("Calculatrice", "" , "file:src/img/Objets/Calculatrice.png", 2, "Materiel"));
             }
             for (int i = 0; i < 8; i++) {
                 this.getCardPile()
-                        .add(new ObjectCard("ChatGPT", "" , "file:src/img/Objets/ChatGPT.png", 2, "Aide"));
+                        .add(new ObjectCard("ChatGPT", "" , "file:src/img/Objets/ChatGPT.png", 3, "Aide"));
             }
             for (int i = 0; i < 8; i++) {
                 this.getCardPile()
-                        .add(new ObjectCard("Exercices", "" , "file:src/img/Objets/Exercices.png", 1, "Outil"));
+                        .add(new ObjectCard("Exercices", "" , "file:src/img/Objets/Exercices.png", 3, "Outil"));
             }
             for (int i = 0; i < 8; i++) {
                 this.getCardPile()
-                        .add(new ObjectCard("Ordinateur", "" , "file:src/img/Objets/Ordinateur.png", 2, "Materiel"));
+                        .add(new ObjectCard("Ordinateur", "" , "file:src/img/Objets/Ordinateur.png", 3, "Materiel"));
             }
             for (int i = 0; i < 8; i++) {
                 this.getCardPile()
