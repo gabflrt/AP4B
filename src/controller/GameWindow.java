@@ -294,7 +294,7 @@ public class GameWindow {
     }
 
     @FXML
-    void initialize() { //on initialise l'ensemble des boutons au lancement de la fenêtre
+    void initialize() { // on initialise l'ensemble des boutons au lancement de la fenêtre
         buttonMap.put("player1_1", player1_1);
         buttonMap.put("player1_2", player1_2);
         buttonMap.put("player1_3", player1_3);
@@ -343,14 +343,15 @@ public class GameWindow {
     }
 
     @FXML
-    void jeter() { //Pour jeter une carte
+    void jeter() { // Pour jeter une carte
         jetecarte = true;
         text.setText("Choisis une carte à jeter");
         update(jeu);
     }
 
     @FXML
-    void DrawDungeon(ActionEvent event) throws IOException { //Pour piocher une carte donjon et adapter le comportement du jeu en fonction du type de la carte
+    void DrawDungeon(ActionEvent event) throws IOException { // Pour piocher une carte donjon et adapter le comportement
+                                                             // du jeu en fonction du type de la carte
 
         if (this.canDrawDungeon && !this.canPlaceCard && !this.jetecarte) {
             this.clickedCard = jeu.drawDungeonCard(this.i);
@@ -423,7 +424,8 @@ public class GameWindow {
     }
 
     @FXML
-    void DrawTreasure(ActionEvent event) { //Pour piocher une carte trésor et adapter le comportement du jeu en fonction du type de la carte
+    void DrawTreasure(ActionEvent event) { // Pour piocher une carte trésor et adapter le comportement du jeu en
+                                           // fonction du type de la carte
         refreshUE();
         refreshMalediction();
         if (this.canDrawTreasure && !this.canPlaceCard && !this.jetecarte) {
@@ -455,7 +457,6 @@ public class GameWindow {
         } else {
             text.setText("Tu ne peux pas piocher de carte trésor.");
         }
-
 
     }
 
@@ -567,18 +568,25 @@ public class GameWindow {
     void placed_malediction(ActionEvent event) {
     }
 
-    void placed(int deck_position) { //Pour placer une carte dans le jeu en fonction de son type. Si c'est une ue, le combat a lieu
+    void placed(int deck_position) { // Pour placer une carte dans le jeu en fonction de son type. Si c'est une ue,
+                                     // le combat a lieu
         Button button_placed_malediction = placed_malediction;
         Button button_placed_mob = placed_mob;
 
         if (this.jetecarte) {
             this.jeu.getPlacedCards().get(this.i).getCardPile().set(deck_position, new Card());
             this.jetecarte = false;
-            this.i = this.i + 1;
-            if (this.i == jeu.getNbPlayers()) {
-                this.i = 0;
+            this.canPlaceCard = false;
+            this.showCardPile = 0;
+            if (this.nbCardsToDraw == 0) {
+                this.i = this.i + 1;
+                if (this.i == jeu.getNbPlayers()) {
+                    this.i = 0;
+                }
+                this.canDrawDungeon = true;
+                refreshStats();
+                update(jeu);
             }
-            update(jeu);
         } else if (this.canPlaceCard) {
 
             if (this.clickedCard instanceof ObjectCard card) {
@@ -594,6 +602,19 @@ public class GameWindow {
                 refreshUE();
 
                 text.setText("Plus " + card.getStrenghtBonus() + " d'intelligence");
+
+                this.canPlaceCard = false;
+                this.showCardPile = 0;
+                if (this.nbCardsToDraw == 0) {
+                    this.i = this.i + 1;
+                    if (this.i == jeu.getNbPlayers()) {
+                        this.i = 0;
+                    }
+                    this.canDrawDungeon = true;
+                    refreshStats();
+                    update(jeu);
+                }
+
             } else if (this.clickedCard instanceof MaledictionCard) {
                 this.maledictionCard = (MaledictionCard) this.clickedCard;
 
@@ -607,6 +628,17 @@ public class GameWindow {
                         + " d'intelligence");
 
                 refreshUE();
+                this.canPlaceCard = false;
+                this.showCardPile = 0;
+                if (this.nbCardsToDraw == 0) {
+                    this.i = this.i + 1;
+                    if (this.i == jeu.getNbPlayers()) {
+                        this.i = 0;
+                    }
+                    this.canDrawDungeon = true;
+                    refreshStats();
+                    update(jeu);
+                }
 
             } else if (this.clickedCard instanceof MobCard) {
                 ImageView imagePlacedMob = new ImageView(new Image(this.clickedCard.getImage()));
@@ -638,17 +670,7 @@ public class GameWindow {
                 }
                 refreshMalediction();
             }
-            this.canPlaceCard = false;
-            this.showCardPile = 0;
-            if (this.nbCardsToDraw == 0) {
-                this.i = this.i + 1;
-                if (this.i == jeu.getNbPlayers()) {
-                    this.i = 0;
-                }
-                this.canDrawDungeon = true;
-                refreshStats();
-                update(jeu);
-            }
+
         }
 
         else {
@@ -755,7 +777,7 @@ public class GameWindow {
     }
 
     @FXML
-    void refreshStats() { //pour rafraichir l'affichage des statistiques des joueurs
+    void refreshStats() { // pour rafraichir l'affichage des statistiques des joueurs
         Player1Level.setText("Niveau : " + jeu.getPlayers().get(0).getLevel());
         Player2Level.setText("Niveau : " + jeu.getPlayers().get(1).getLevel());
         Player3Level.setText("Niveau : " + jeu.getPlayers().get(2).getLevel());
@@ -768,7 +790,7 @@ public class GameWindow {
     }
 
     @FXML
-    void refreshUE() { //pour rafraichir l'affichage de l'emplacement des cartes UE à son état initial
+    void refreshUE() { // pour rafraichir l'affichage de l'emplacement des cartes UE à son état initial
         Button button_placed_mob = placed_mob;
         ImageView imagePlacedMob = new ImageView("file:src/img/ue_default.png");
         imagePlacedMob.setFitHeight(100);
@@ -778,7 +800,8 @@ public class GameWindow {
         button_placed_mob.setGraphic(imagePlacedMob);
     }
 
-    void refreshMalediction() {//pour rafraichir l'affichage de l'emplacement des cartes Malédictions à son état initial
+    void refreshMalediction() {// pour rafraichir l'affichage de l'emplacement des cartes Malédictions à son
+                               // état initial
         Button button_placed_malediction = placed_malediction;
         this.maledictionCard = new MaledictionCard();
         ImageView imagePlacedMalediction = new ImageView("file:src/img/malediction_default.png");
