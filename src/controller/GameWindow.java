@@ -648,7 +648,8 @@ public class GameWindow {
                 button_placed_mob.setPrefSize(0, 0);
                 button_placed_mob.setGraphic(imagePlacedMob);
 
-                int win = jeu.fightMob(this.i, (MobCard) this.clickedCard, (MaledictionCard) this.maledictionCard);
+                int win = jeu.useDungeonCard(this.i, (MobCard) this.clickedCard,
+                        (MaledictionCard) this.maledictionCard);
                 int intelligence = jeu.getPlayers().get(this.i).getTotalStrength()
                         - this.maledictionCard.getHowManyUpgrademob();
                 if (win > 0) {
