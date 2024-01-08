@@ -672,6 +672,10 @@ public class GameWindow {
                 refreshMalediction();
                 this.canPlaceCard = false;
                 this.canDrawDungeon = true;
+                if (win > 0) {
+                    this.canDrawTreasure = true;
+                    this.nbCardsToDraw = ((MobCard) this.clickedCard).getNbTreasureCardToDraw();
+                }
                 update(jeu);
             }
 
