@@ -26,11 +26,6 @@ public class MainMenu {
 
     static Stage gameWindow = new Stage();
 
-    // private String player1Name;
-
-    // protected static String getPlayer1Name() {
-    // return player1Name;
-    // }
 
     @FXML
     void BoutonValidate(ActionEvent event) {

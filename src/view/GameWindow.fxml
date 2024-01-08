@@ -45,9 +45,7 @@
       <Button fx:id="placed_mob" layoutX="450.0" layoutY="340.0" mnemonicParsing="false" onAction="#placed_mob" prefHeight="100.0" prefWidth="80.0" />
 
       <Button fx:id="DrawDungeon" layoutX="880" layoutY="340.0" mnemonicParsing="false" onAction="#DrawDungeon" prefHeight="100.0" prefWidth="80.0" />
-      <!-- <Button fx:id="DiscardDungeon" layoutX="602.0" layoutY="300.0" mnemonicParsing="false" onAction="#DiscardDungeon" prefHeight="150.0" prefWidth="120.0" />-->
       <Button fx:id="DrawTreasure" layoutX="980.0" layoutY="340.0" mnemonicParsing="false" onAction="#DrawTreasure" prefHeight="100.0" prefWidth="80.0" />
-      <!--<Button fx:id="DiscardTreasure" layoutX="849.0" layoutY="300.0" mnemonicParsing="false" onAction="#DiscardTreasure" prefHeight="150.0" prefWidth="120.0" />-->
       <Label fx:id="text" layoutX="570.0" layoutY="347.0" prefHeight="89.0" prefWidth="307.0" text="Le joueur 1 peut piocher une carte Donjon." textAlignment="CENTER" />
 
       <Label fx:id="Player1Level" layoutX="990.0" layoutY="0.0" prefHeight="30.0" prefWidth="200.0" text="Niveau : 1" textAlignment="CENTER" />

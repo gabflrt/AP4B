@@ -140,12 +140,7 @@ public class Game {
      */
     public void initializeGame(int nbPlayers, String player1Name, String player2Name, String player3Name,
             String player4Name) {
-        // howMuchPlayers();
-        // for (int i = 0; i < nbPlayers; i++) {
-        // Player player = new Player();
-        // player.askName();
-        // this.players.add(player);
-        // }
+
         System.out.println("Test avant génération" + this.drawPileDungeon);
         this.nbPlayers = 4;
         System.out.println(player1Name);
@@ -176,14 +171,14 @@ public class Game {
                     break;
             }
         }
-        // System.out.println("debut" + this.drawPileDungeon);
+
         System.out.println("avant la génération encore une fois" + this.drawPileDungeon);
         System.out.println("avant la génération encore une fois" + this.drawPileTreasure);
         this.drawPileDungeon.generateDungeonPile();
         System.out.println("après");
         System.out.println(this.drawPileDungeon);
         System.out.println("après2");
-        // System.out.println("après" + this.drawPileDungeon);
+
         this.drawPileTreasure.generateTreasurePile();
         this.players.get(0).setClasse("Elf"); // On donne la classe Elf à un joueur pour tester l'utilisation d'une
         // carte objet selon la classe.
@@ -200,23 +195,8 @@ public class Game {
             Deck placedCard = new Deck();
             this.placedCards.add(placedCard);
         }
-        // initializePlacementAndWhoStart();
+
     }
-
-    // for (int i = 0; i < nbPlayers; i++) {
-    // Deck placedCard = new Deck();
-    // this.placedCards.add(placedCard);
-    // placeCard(i); // Ask the player if he wants to place a card from his hand to
-    // his deck with the
-    // // method placeCard
-    // System.out.println(this.placedCards.get(i));
-    // System.out.println("Grâce aux cartes que vous placés, votre force augmente de
-    // "
-    // + this.placedCards.get(i).calculateStrength() + " !");
-    // }
-
-    // String playerWhoStart = this.players.get(bestThrowDice()).getName();
-    // System.out.println("\n" + playerWhoStart + " commence la partie.\n");
 
     /**
      * This method will initialize the placement of the cards.
@@ -228,9 +208,7 @@ public class Game {
         for (int i = 0; i < nbPlayers; i++) {
             Deck placedCard = new Deck();
             this.placedCards.add(placedCard);
-            // placeCard(i); // Ask the player if he wants to place a card from his hand to
-            // his deck with the
-            // method placeCard
+
             System.out.println(this.placedCards.get(i));
             System.out.println("Grâce aux cartes que vous placés, votre force augmente de "
                     + this.placedCards.get(i).calculateStrength() + " !");
@@ -313,9 +291,7 @@ public class Game {
      */
     public int fightMob(int player, MobCard mob, MaledictionCard malediction) {
 
-        // if (this.players.get(player).getStrength() +
-        // this.placedCards.get(player).calculateStrength() > mob
-        // .getStrength()) {
+
         if (this.players.get(player).getTotalStrength() > mob.getStrength() + malediction.getHowManyUpgrademob()) {
             this.players.get(player).setLevel(this.players.get(player).getLevel() + mob.getNbLevelEarned());
 
@@ -329,7 +305,7 @@ public class Game {
              * drawTreasureCard(player);
              * }
              */
-            System.out.println("Votre force est de " + this.players.get(player).getStrength() + ".");
+            System.out.println("Votre force est de " + this.players.get(player).getTotalStrength() + ".");
             // checkIfPlayerWin(player);
             return mob.getNbTreasureCardToDraw();
         } else {
@@ -387,12 +363,7 @@ public class Game {
      * @return the number of cards that the player will draw
      */
     public int useDungeonCard(int player, Card card, MaledictionCard malediction) {
-        /*
-         * Card card = this.drawPileDungeon.pickCardPile();
-         * if (this.drawPileDungeon.getCardPile().isEmpty()) {
-         * this.drawPileDungeon.generateDungeonPile();
-         * }
-         */
+
         if (card instanceof MobCard) {
             int nbCardsToDraw = fightMob(player, (MobCard) card, malediction);
             return nbCardsToDraw;
@@ -416,8 +387,7 @@ public class Game {
         if (this.drawPileDungeon.getCardPile().isEmpty()) {
             this.drawPileDungeon.generateDungeonPile();
         }
-        // this.hands.get(player).getCardPile().add(card);
-        // placeCard(player);
+
         return card;
     }
 
@@ -433,8 +403,7 @@ public class Game {
         if (this.drawPileTreasure.getCardPile().isEmpty()) {
             this.drawPileTreasure.generateDungeonPile();
         }
-        // this.hands.get(player).getCardPile().add(card);
-        // placeCard(player);
+
         return card;
     }
 
@@ -460,8 +429,7 @@ public class Game {
             System.out.println("Voici votre main :");
             System.out.println(this.hands.get(player));
             System.out.println("Quelle carte voulez-vous placer ? (1 à 12)");
-            // Scanner myObj = new Scanner(System.in); // Create a Scanner object
-            // int choice = myObj.nextInt();
+
             int choice = 3;
             if (choice > 0 && choice < 13) {
                 if (choice <= this.hands.get(player).getCardPile().size()) {
@@ -480,28 +448,10 @@ public class Game {
                             }
                         }
 
-                        // this.hands.get(player).getCardPile().remove(choice - 1);
+
                     }
                 }
-                /*
-                 * if (this.hands.get(player).getCardPile().get(choice) instanceof ObjectCard) {
-                 * if (this.players.get(player)
-                 * .canUseObject((ObjectCard) this.hands.get(player).getCardPile().get(choice -
-                 * 1))) {
-                 * this.placedCards.get(player).getCardPile()
-                 * .add(this.hands.get(player).getCardPile().get(choice - 1));
-                 * this.hands.get(player).getCardPile().remove(choice - 1);
-                 * } else {
-                 * System.out.
-                 * println("Vous ne pouvez pas utiliser cette carte car vous devriez être [inserer nom classe]."
-                 * //+ ((ObjectCard) this.hands.get(player).getCardPile().get(choice - 1))
-                 * //.getClasseCondition()
-                 * + " pour l'utiliser.");
-                 * }
-                 * } else {
-                 * System.out.println("Vous n'avez pas cette carte en main.");
-                 * }
-                 */
+                
             } else {
                 System.out.println("Vous n'avez pas cette carte en main.");
             }

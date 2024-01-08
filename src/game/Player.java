@@ -121,12 +121,7 @@ public class Player {
      * @return true if the player can use the object, false otherwise
      */
     boolean canUseObject(ObjectCard objectCard) {
-        /*if (this.classe.equals(objectCard.getClasseCondition()) || objectCard.getClasseCondition().equals("")){
-            return true;
-        } else {
-            objectCard.setStrengthBonus(0);
-            return false;
-        }*/
+
         return true;
     }
 
