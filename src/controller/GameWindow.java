@@ -361,6 +361,8 @@ public class GameWindow {
 
         buttonMap.put("placed_mob", placed_mob);
         buttonMap.put("placed_malediction", placed_malediction);
+        refreshUE();
+        refreshMalediction();
 
     }
 
@@ -401,23 +403,28 @@ public class GameWindow {
                 button_placed_mod.setPrefSize(0, 0);
                 button_placed_mod.setGraphic(imagePlacedMob);
 
+                int intelligence = jeu.getPlayers().get(this.i).getTotalStrength() - this.maledictionCard.getHowManyUpgrademob();
+
                 if (nbCardsToDraw > 0){
-                    text.setText("Ton intelligence : " + jeu.getPlayers().get(this.i).getStrength()
+                    text.setText("Ton intelligence : " + intelligence
                             + "\nIntelligence requise pour l'UE : "
                             + ((MobCard) this.clickedCard).getStrength()
                             + "\nTu gagnes " + ((MobCard) this.clickedCard).getNbLevelEarned() + " niveau(x) \n Tu pioches "
                             + ((MobCard) this.clickedCard).getNbTreasureCardToDraw() + " carte(s) trésor(s)");
                 }
                 else{
-                    text.setText("Ton intelligence : " + jeu.getPlayers().get(this.i).getStrength()
+                    text.setText("Ton intelligence : " + intelligence
                             + "\nIntelligence requise pour l'UE : "
                             + ((MobCard) this.clickedCard).getStrength()
                             + "\nTu perds " + ((MobCard) this.clickedCard).getHowManyLosingLevel()
                             + " niveau(x) \n Tu perds ton "
                             + ((MobCard) this.clickedCard).getWhatLosingArmor());
                 }
+                refreshMalediction();
             }
-
+            else {
+                refreshUE();
+            }
             // this.showCardPile = 1;
 
             // this.i = this.i + 1;
@@ -454,7 +461,10 @@ public class GameWindow {
 
     @FXML
     void DrawTreasure(ActionEvent event) {
+        refreshUE();
+        refreshMalediction();
         if (this.canDrawTreasure && !this.canPlaceCard) {
+            refreshUE();
             if (this.nbCardsToDraw == 1) {
                 this.clickedCard = jeu.drawTreasureCard(this.i);
                 this.showCardPile = 2;
@@ -600,6 +610,9 @@ public class GameWindow {
     }
 
     void placed(int deck_position) {
+        Button button_placed_malediction = placed_malediction;
+        Button button_placed_mob = placed_mob;
+
         if (this.canPlaceCard) {
 
             if (this.clickedCard instanceof ObjectCard card) {
@@ -611,10 +624,13 @@ public class GameWindow {
                     case "Aide" -> this.jeu.getPlayers().get(this.i).setAide(card);
                     case "Equipement" -> this.jeu.getPlayers().get(this.i).setEquipement(card);
                 }
+
+                refreshUE();
+
                 text.setText("Plus " + card.getStrenghtBonus() + " d'intelligence");
             } else if (this.clickedCard instanceof MaledictionCard) {
                 this.maledictionCard = (MaledictionCard) this.clickedCard;
-                Button button_placed_malediction = placed_malediction;
+
                 ImageView imagePlacedMalediction = new ImageView(new Image(this.clickedCard.getImage()));
                 imagePlacedMalediction.setFitHeight(100);
                 imagePlacedMalediction.setFitWidth(80);
@@ -623,8 +639,9 @@ public class GameWindow {
                 button_placed_malediction.setGraphic(imagePlacedMalediction);
                 text.setText("Au prochain combat, le joueur perdra " + this.maledictionCard.getHowManyUpgrademob() + " d'intelligence");
 
+                refreshUE();
+
             } else if (this.clickedCard instanceof MobCard) {
-                Button button_placed_mob = placed_mob;
                 ImageView imagePlacedMob = new ImageView(new Image(this.clickedCard.getImage()));
                 imagePlacedMob.setFitHeight(100);
                 imagePlacedMob.setFitWidth(80);
@@ -649,8 +666,7 @@ public class GameWindow {
                             + " niveau(x) \n Tu perds ton "
                             + ((MobCard) this.clickedCard).getWhatLosingArmor());
                 }
-                this.maledictionCard = new MaledictionCard();
-            }
+                refreshMalediction();}
         }
 
             this.canPlaceCard = false;
@@ -663,6 +679,7 @@ public class GameWindow {
                 this.canDrawDungeon = true;
                 refreshStats();
                 update(jeu);
+
 
             } else {
                 text.setText("Tu ne peux pas placer de carte.");
@@ -866,6 +883,28 @@ public class GameWindow {
         Player2Strenght.setText("Intelligence : " + jeu.getPlayers().get(1).getTotalStrength());
         Player3Strenght.setText("Intelligence : " + jeu.getPlayers().get(2).getTotalStrength());
         Player4Strenght.setText("Intelligence : " + jeu.getPlayers().get(3).getTotalStrength());
+    }
+
+    @FXML
+    void refreshUE(){
+        Button button_placed_mob = placed_mob;
+        ImageView imagePlacedMob = new ImageView("file:src/img/ue_default.png");
+        imagePlacedMob.setFitHeight(100);
+        imagePlacedMob.setFitWidth(80);
+        button_placed_mob.setGraphic(imagePlacedMob);
+        button_placed_mob.setPrefSize(0, 0);
+        button_placed_mob.setGraphic(imagePlacedMob);
+    }
+
+    void refreshMalediction(){
+        Button button_placed_malediction = placed_malediction;
+        this.maledictionCard = new MaledictionCard();
+        ImageView imagePlacedMalediction = new ImageView("file:src/img/malediction_default.png");
+        imagePlacedMalediction.setFitHeight(100);
+        imagePlacedMalediction.setFitWidth(80);
+        button_placed_malediction.setGraphic(imagePlacedMalediction);
+        button_placed_malediction.setPrefSize(0, 0);
+        button_placed_malediction.setGraphic(imagePlacedMalediction);
     }
 
 }

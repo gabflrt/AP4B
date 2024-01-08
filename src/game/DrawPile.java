@@ -32,22 +32,22 @@ public class DrawPile extends CardPile {
                         .add(new MobCard("PS28", "Energie", "file:src/img/UE/PS28.png", 4, 1, 1, "", 0));
             }
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 2; i++) {
                 this.getCardPile()
                         .add(new MaledictionCard("Bus", "", "file:src/img/Malediction/bus.png", "", 2, 3));
             }
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 2; i++) {
                 this.getCardPile()
                         .add(new MaledictionCard("Coronavirus", "", "file:src/img/Malediction/coronavirus.png", "Outil", 1, 2));
             }
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 2; i++) {
                 this.getCardPile()
                         .add(new MaledictionCard("Materiel", "", "file:src/img/Malediction/matos.png", "Materiel", 1, 2));
             }
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 2; i++) {
                 this.getCardPile()
                         .add(new MaledictionCard("Triche", "", "file:src/img/Malediction/triche.png", "Equipement", 2, 3));
             }
@@ -76,39 +76,39 @@ public class DrawPile extends CardPile {
                 this.getCardPile()
                         .add(new ObjectCard("Calculatrice", "" , "file:src/img/Objets/Calculatrice.png", 1, "Materiel"));
             }
-            for (int i = 0; i < 7; i++) {
+            for (int i = 0; i < 8; i++) {
                 this.getCardPile()
                         .add(new ObjectCard("ChatGPT", "" , "file:src/img/Objets/ChatGPT.png", 2, "Aide"));
             }
-            for (int i = 0; i < 7; i++) {
+            for (int i = 0; i < 8; i++) {
                 this.getCardPile()
                         .add(new ObjectCard("Exercices", "" , "file:src/img/Objets/Exercices.png", 1, "Outil"));
             }
-            for (int i = 0; i < 7; i++) {
+            for (int i = 0; i < 8; i++) {
                 this.getCardPile()
                         .add(new ObjectCard("Ordinateur", "" , "file:src/img/Objets/Ordinateur.png", 2, "Materiel"));
             }
-            for (int i = 0; i < 7; i++) {
+            for (int i = 0; i < 8; i++) {
                 this.getCardPile()
                         .add(new ObjectCard("Prof", "" , "file:src/img/Objets/Prof.png", 2, "Aide"));
             }
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 2; i++) {
                 this.getCardPile()
                         .add(new MaledictionCard("Bus", "", "file:src/img/Malediction/bus.png", "", 2, 3));
             }
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 2; i++) {
                 this.getCardPile()
                         .add(new MaledictionCard("Coronavirus", "", "file:src/img/Malediction/coronavirus.png", "Outil", 1, 2));
             }
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 2; i++) {
                 this.getCardPile()
                         .add(new MaledictionCard("Materiel", "", "file:src/img/Malediction/matos.png", "Materiel", 1, 2));
             }
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 2; i++) {
                 this.getCardPile()
                         .add(new MaledictionCard("Triche", "", "file:src/img/Malediction/triche.png", "Equipement", 2, 3));
             }
